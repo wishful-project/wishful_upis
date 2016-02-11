@@ -4,7 +4,7 @@ __version__ = "0.1.0"
 __email__ = "{gawlowicz, chwalisz}@tkn.tu-berlin.de"
 
 
-def set_channel(channel):
+def set_channel(channel=1):
     '''
     set_channel 
     ch - channel to set

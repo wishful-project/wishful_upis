@@ -4,27 +4,14 @@ __version__ = "0.1.0"
 __email__ = "{gawlowicz, chwalisz}@tkn.tu-berlin.de"
 
 
-def start_iperf_server(port):
+def start_local_control_loop():
     '''
         func desc
     '''
     pass
 
 
-def stop_iperf_server(port):
-    '''
-        func desc
-    '''
-    pass
-
-def start_iperf_client(destIp, port=5001):
-    '''
-        func desc
-    '''
-    pass
-
-
-def stop_iperf_server(port):
+def stop_local_control_loop():
     '''
         func desc
     '''
