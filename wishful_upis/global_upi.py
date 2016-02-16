@@ -4,6 +4,27 @@ __version__ = "0.1.0"
 __email__ = "{gawlowicz, zubow}@tkn.tu-berlin.de"
 
 
+def transaction_begin():
+    '''
+        func desc
+    '''
+    pass
+
+
+def transaction_abort():
+    '''
+        func desc
+    '''
+    pass
+
+
+def transaction_commit():
+    '''
+        func desc
+    '''
+    pass
+
+
 def perform_soft_handover(srcAp, dstAp, station):
     '''
         func desc
