@@ -24,3 +24,16 @@ def set_power(power):
         func desc
     '''
     pass
+
+def get_power():
+    '''
+        func desc
+    '''
+    pass
+
+
+def setEdcaParameters(queueId, qParam):
+    '''
+        func desc
+    '''
+    pass
