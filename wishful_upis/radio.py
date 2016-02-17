@@ -11,13 +11,11 @@ def set_channel(channel=1):
     '''
     pass
 
-
 def get_channel():
     '''
         func desc
     '''
     pass
-
 
 def set_power(power):
     '''
@@ -31,8 +29,44 @@ def get_power():
     '''
     pass
 
+def get_noise():
+    '''
+        func desc
+    '''
+    pass
+
+def get_rssi():
+    '''
+        func desc
+    '''
+    pass
+
+def get_csi():
+    '''
+        func desc
+    '''
+    pass
+
+def get_airtime_utilzation():
+    '''
+        func desc
+    '''
+    pass
 
 def setEdcaParameters(queueId, qParam):
+    '''
+        func desc
+    '''
+    pass
+
+
+def getEdcaParameters(queueId):
+    '''
+        func desc
+    '''
+    pass
+
+def inject_frame(frame):
     '''
         func desc
     '''
