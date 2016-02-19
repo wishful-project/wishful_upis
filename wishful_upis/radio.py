@@ -71,3 +71,33 @@ def inject_frame(frame):
         func desc
     '''
     pass
+
+def install_mac_processor(myargs):
+    '''
+        func desc
+    '''
+    pass
+
+def update_mac_processor(myargs):
+    '''
+        func desc
+    '''
+    pass
+
+def uninstall_mac_processor(myargs):
+    '''
+        func desc
+    '''
+    pass
+
+def set_rf_channel(myargs):
+    '''
+        func desc
+    '''
+    pass
+
+def perform_active_spectral_scanning(myargs):
+    '''
+        func desc
+    '''
+    pass
