@@ -72,31 +72,31 @@ def inject_frame(frame):
     '''
     pass
 
-def install_mac_processor(myargs):
+def install_mac_processor(interface, mac_profile):
     '''
         func desc
     '''
     pass
 
-def update_mac_processor(myargs):
+def update_mac_processor(interface, mac_profile):
     '''
         func desc
     '''
     pass
 
-def uninstall_mac_processor(myargs):
+def uninstall_mac_processor(interface, mac_profile):
     '''
         func desc
     '''
     pass
 
-def set_rf_channel(myargs):
+def set_rf_channel(iface, channel):
     '''
         func desc
     '''
     pass
 
-def perform_active_spectral_scanning(myargs):
+def perform_active_spectral_scanning(iface, freq_list, mode):
     '''
         func desc
     '''

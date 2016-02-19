@@ -25,16 +25,18 @@ def transaction_commit():
     pass
 
 
-def perform_soft_handover(wifi_intf, wlan_inject_iface, sta_mac_addr, sta_ip_addr, servingAP, servingAP_ip_addr, servingAP_channel,
-                           servingAP_bssid, targetAP, targetAP_ip_addr, targetAP_channel, gateway):
+def perform_soft_handover(wifi_intf, wlan_inject_iface, sta_mac_addr, sta_ip_addr,
+                          servingAP, servingAP_ip_addr, servingAP_channel, servingAP_bssid,
+                          targetAP, targetAP_ip_addr, targetAP_channel, gateway):
     '''
         func desc
     '''
     pass
 
 
-def perform_hard_handover(wifi_intf, wlan_inject_iface, sta_mac_addr, sta_ip_addr, servingAP, servingAP_ip_addr, servingAP_channel,
-                           servingAP_bssid, targetAP, targetAP_ip_addr, targetAP_channel, gateway):
+def perform_hard_handover(wifi_intf, wlan_inject_iface, sta_mac_addr, sta_ip_addr,
+                          servingAP, servingAP_ip_addr, servingAP_channel, servingAP_bssid,
+                          targetAP, targetAP_ip_addr, targetAP_channel, gateway):
     '''
         func desc
     '''
