@@ -29,3 +29,15 @@ def stop_iperf_server(port):
         func desc
     '''
     pass
+
+def get_info_of_associated_STAs():
+    '''
+        func desc
+    '''
+    return
+
+def get_inactivity_time_of_associated_STAs():
+    '''
+        func desc
+    '''
+    return

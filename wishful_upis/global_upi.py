@@ -37,3 +37,11 @@ def perform_hard_handover(srcAp, dstAp, station):
         func desc
     '''
     pass
+
+def get_servingAP(nodes, wifi_intf, sta_mac_addr):
+    '''
+    Estimates the AP which serves the given STA. Note: if an STA is associated with multiple APs the one with the
+    smallest inactivity time is returned.
+    '''
+    pass
+
