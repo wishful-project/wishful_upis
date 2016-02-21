@@ -53,7 +53,7 @@ def get_airtime_utilzation():
     '''
     pass
 
-def setEdcaParameters(queueId, qParam):
+def set_edca_parameters(queueId, qParam):
     '''
         func desc
     '''
