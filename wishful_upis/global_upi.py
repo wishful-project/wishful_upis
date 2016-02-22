@@ -49,3 +49,33 @@ def get_servingAP(nodes, wifi_intf, sta_mac_addr):
     '''
     pass
 
+
+def estimate_nodes_in_carrier_sensing_range(nodes, iface, channel, TAU):
+    """
+    Estimate which nodes are in carrier sensing range using UPIs.
+    For a network with N nodes all combinations are evaluated, i.e. N over 2.
+    Note: make sure ptpd is running: sudo /etc/init.d/ptp-daemon
+    @return a list of triples (node1, node2, True/False) True/False if nodes are in carrier sensing range
+    """
+    pass
+
+def is_in_carrier_sensing_range(node1, node2, mon_dev, TAU, rfCh):
+    """
+    Estimate whether two nodes are in carrier sensing range or not using UPIs.
+    """
+    pass
+
+def estimate_nodes_in_communication_range(self, nodes, iface, channel, MINPDR):
+    """
+    Estimate which nodes are in communication range using UPIs.
+    For a network with N nodes all combinations are evaluated, i.e. N over 2.
+    Note: make sure ptpd is running: sudo /etc/init.d/ptp-daemon
+    @return a list of triples (node1, node2, True/False) True/False if nodes are in communication range
+    """
+
+def is_in_communication_range(node1, node2, mon_dev, MINPDR, rfCh):
+    """
+    Estimate whether two nodes are in communication range or not using UPIs.
+    """
+    pass
+
