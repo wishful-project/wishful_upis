@@ -45,9 +45,9 @@ def get_rssi():
     pass
 
 
-def inject_frame(frame):
+def inject_frame(frame, frame_type):
     '''
-        func desc
+        Inject L2/L3 frame injection into the protocol stack
     '''
     pass
 
