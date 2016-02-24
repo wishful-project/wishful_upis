@@ -101,3 +101,15 @@ def perform_active_spectral_scanning(iface, freq_list, mode):
         func desc
     '''
     pass
+
+def playWaveform(iface, freq, power_lvl):
+    '''
+        func desc
+    '''
+    pass
+
+def stopWaveform(iface):
+    '''
+        func desc
+    '''
+    pass

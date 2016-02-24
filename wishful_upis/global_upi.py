@@ -25,57 +25,54 @@ def transaction_commit():
     pass
 
 
-def perform_soft_handover(wifi_intf, wlan_inject_iface, sta_mac_addr, sta_ip_addr,
-                          servingAP, servingAP_ip_addr, servingAP_channel, servingAP_bssid,
-                          targetAP, targetAP_ip_addr, targetAP_channel, gateway):
+def perform_handover(interface, servingNode, targetNode, device_mac_addr, **kwargs):
     '''
-        func desc
-    '''
-    pass
-
-
-def perform_hard_handover(wifi_intf, wlan_inject_iface, sta_mac_addr, sta_ip_addr,
-                          servingAP, servingAP_ip_addr, servingAP_channel, servingAP_bssid,
-                          targetAP, targetAP_ip_addr, targetAP_channel, gateway):
-    '''
-        func desc
-    '''
-    pass
-
-def get_servingAP(nodes, wifi_intf, sta_mac_addr):
-    '''
-    Estimates the AP which serves the given STA. Note: if an STA is associated with multiple APs the one with the
-    smallest inactivity time is returned.
+    Performing an handover operation. Note: this is not supported on any wireless technology.
+    - 802.11 - in infrastructure mode an STA can be handovered; not supported in 802.11 adhoc
+    - other technologies?
     '''
     pass
 
 
-def estimate_nodes_in_carrier_sensing_range(nodes, iface, channel, TAU):
+def is_associated_with(nodes, interface, device_mac_addr):
+    '''
+    Estimate the AP/BS with which a given device is associated. Note: this is not supported on any wireless technology.
+    - enabled om 802.11 infrastructure mode
+    - other technologies?
+    '''
+    pass
+
+
+def estimate_nodes_in_carrier_sensing_range(nodes, interface, **kwargs):
     """
     Estimate which nodes are in carrier sensing range using UPIs.
     For a network with N nodes all combinations are evaluated, i.e. N over 2.
-    Note: make sure ptpd is running: sudo /etc/init.d/ptp-daemon
+    Note: make sure that all nodes are time synchronized.
     @return a list of triples (node1, node2, True/False) True/False if nodes are in carrier sensing range
     """
     pass
 
-def is_in_carrier_sensing_range(node1, node2, mon_dev, TAU, rfCh):
+
+def is_in_carrier_sensing_range(node1, node2, interface, **kwargs):
     """
-    Estimate whether two nodes are in carrier sensing range or not using UPIs.
+    Estimate whether two nodes are in carrier sensing range or not.
+    Note: it is implemented differently on different platforms
     """
     pass
 
-def estimate_nodes_in_communication_range(self, nodes, iface, channel, MINPDR):
+
+def estimate_nodes_in_communication_range(self, nodes, interface, **kwargs):
     """
     Estimate which nodes are in communication range using UPIs.
     For a network with N nodes all combinations are evaluated, i.e. N over 2.
-    Note: make sure ptpd is running: sudo /etc/init.d/ptp-daemon
+    Note: make sure that all nodes are time synchronized.
     @return a list of triples (node1, node2, True/False) True/False if nodes are in communication range
     """
 
-def is_in_communication_range(node1, node2, mon_dev, MINPDR, rfCh):
+
+def is_in_communication_range(node1, node2, interface, **kwargs):
     """
-    Estimate whether two nodes are in communication range or not using UPIs.
+    Estimate whether two nodes are in communication range or not.
     """
     pass
 
