@@ -106,14 +106,14 @@ def get_airtime_utilization():
     pass
 
 
-def playWaveform(iface, freq, power_lvl, **kwargs):
+def play_waveform(iface, freq, power_lvl, **kwargs):
     '''
         Starts transmitting a specified waveform (just PHY, no MAC).
     '''
     pass
 
 
-def stopWaveform(iface, **kwargs):
+def stop_waveform(iface, **kwargs):
     '''
         Stops transmitting a specified waveform.
     '''
