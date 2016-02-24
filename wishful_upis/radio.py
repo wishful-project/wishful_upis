@@ -1,12 +1,12 @@
-__author__ = "Piotr Gawlowicz, Mikolaj Chwalisz"
+__author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"
-__email__ = "{gawlowicz, chwalisz}@tkn.tu-berlin.de"
+__email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
 
-def set_channel(channel=1):
+def set_channel(channel):
     '''
-    set_channel 
+    Set channel, i.e. center frequency
     ch - channel to set
     '''
     pass
@@ -20,12 +20,14 @@ def get_channel():
 def set_power(power):
     '''
         func desc
+        todo: rename in transmit_power
     '''
     pass
 
 def get_power():
     '''
         func desc
+        todo: rename in transmit_power
     '''
     pass
 
@@ -38,39 +40,20 @@ def get_noise():
 def get_rssi():
     '''
         func desc
+        todo: specify the link!!!
     '''
     pass
 
-def get_csi():
-    '''
-        func desc
-    '''
-    pass
-
-def get_airtime_utilzation():
-    '''
-        func desc
-    '''
-    pass
-
-def set_edca_parameters(queueId, qParam):
-    '''
-        func desc
-    '''
-    pass
-
-
-def getEdcaParameters(queueId):
-    '''
-        func desc
-    '''
-    pass
 
 def inject_frame(frame):
     '''
         func desc
     '''
     pass
+
+'''
+    MAC layer
+'''
 
 def install_mac_processor(interface, mac_profile):
     '''
@@ -90,26 +73,48 @@ def uninstall_mac_processor(interface, mac_profile):
     '''
     pass
 
-def set_rf_channel(iface, channel):
+def set_edca_parameters(queueId, qParam):
     '''
         func desc
+        todo: this is against unification: edca is specific to 802.11; try to generalize
     '''
     pass
 
-def perform_active_spectral_scanning(iface, freq_list, mode):
+
+def get_edca_parameters(queueId):
     '''
         func desc
+        todo: this is against unification: edca is specific to 802.11; try to generalize
     '''
     pass
 
-def playWaveform(iface, freq, power_lvl):
+'''
+    PHY layer
+'''
+
+def perform_spectral_scanning(iface, freq_list, mode):
     '''
-        func desc
+        Perform spectral scanning. Returns a power value for each frequency bin.
     '''
     pass
 
-def stopWaveform(iface):
+
+def get_airtime_utilization():
     '''
-        func desc
+        Returns the relative time the spectrum is empty.
+    '''
+    pass
+
+
+def playWaveform(iface, freq, power_lvl, **kwargs):
+    '''
+        Starts transmitting a specified waveform (just PHY, no MAC).
+    '''
+    pass
+
+
+def stopWaveform(iface, **kwargs):
+    '''
+        Stops transmitting a specified waveform.
     '''
     pass
