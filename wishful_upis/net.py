@@ -1,35 +1,36 @@
-__author__ = "Piotr Gawlowicz, Mikolaj Chwalisz"
+__author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"
-__email__ = "{gawlowicz, chwalisz}@tkn.tu-berlin.de"
+__email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
 '''
     App layer
 '''
 
-def start_iperf_server(port):
+def create_packetflow_sink(port):
     '''
-        func desc
-    '''
-    pass
-
-
-def stop_iperf_server(port):
-    '''
-        func desc
-    '''
-    pass
-
-def start_iperf_client(destIp, port=5001):
-    '''
-        func desc
+        Start IPerf server (TCP/IP)
     '''
     pass
 
 
-def stop_iperf_server(port):
+def destroy_packetflow_sink():
     '''
-        func desc
+        Stop IPerf server.
+    '''
+    pass
+
+
+def start_packetflow(dest_ip, port = 5001):
+    '''
+        Start IPerf client.
+    '''
+    pass
+
+
+def stop_packetflow():
+    '''
+        Stop IPerf client.
     '''
     pass
 
@@ -61,24 +62,6 @@ def change_routing(current_gw_ip_addr, new_gw_ip_addr, device_ip_addr):
     '''
     return
 
-def gen_backlogged_layer2_traffic(iface, num_packets, payloadSize, phyBroadcastMbps, **kwargs):
-    '''
-        func desc
-    '''
-    return
-
-def gen_layer2_traffic(iface, num_packets, pinter, **kwargs):
-    '''
-        func desc
-    '''
-    return
-
-def sniff_layer2_traffic(iface, sniff_timeout, **kwargs):
-    '''
-        func desc
-    '''
-    return
-
 def connect_to_network(iface, **kwargs):
     '''
         func desc
@@ -89,6 +72,19 @@ def connect_to_network(iface, **kwargs):
     Upper MAC layer
 '''
 
+def gen_layer2_traffic(iface, num_packets, pinter, max_phy_broadcast_rate_mbps=None, **kwargs):
+    '''
+        Inject layer2 traffic into network device.
+    '''
+    return
+
+def sniff_layer2_traffic(iface, sniff_timeout, **kwargs):
+    '''
+        Packet sniffing from network device.
+    '''
+    return
+
+
 def add_device_to_blacklist(iface, device_mac_addr):
     '''
         Add the given device to the blacklist:
@@ -96,6 +92,7 @@ def add_device_to_blacklist(iface, device_mac_addr):
         - Other??
     '''
     return
+
 
 def remove_device_from_blacklist(iface, device_mac_addr):
     '''
@@ -105,37 +102,6 @@ def remove_device_from_blacklist(iface, device_mac_addr):
     '''
     return
 
-def register_new_device(iface, sta_mac_addr):
-    '''
-        Register the given device:
-        - 802.11 AP: the device is associated with this AP.
-        - Other??
-    '''
-    return
-
-def get_info_of_connected_devices():
-    '''
-        Returns information about associated devices:
-        - 802.11 AP: info about the associated client devices of that AP.
-        - Other??
-    '''
-    return
-
-def get_inactivity_time_of_connected_devices():
-    '''
-        Returns information about associated devices - inactivity time:
-        - 802.11 AP: info about the associated client devices of that AP.
-        - Other??
-    '''
-    return
-
-def get_avg_sigpower_of_connected_devices():
-    '''
-        Returns information about associated devices - link signal power:
-        - 802.11 AP: info about the associated client devices of that AP.
-        - Other??
-    '''
-    return
 
 def disconnect_device(iface, device_mac_addr):
     '''
@@ -145,6 +111,43 @@ def disconnect_device(iface, device_mac_addr):
         - Other?
     '''
     return
+
+
+def register_new_device(iface, sta_mac_addr):
+    '''
+        Register the given device:
+        - 802.11 AP: the device is associated with this AP.
+        - Other??
+    '''
+    return
+
+
+def get_info_of_connected_devices():
+    '''
+        Returns information about associated devices:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_inactivity_time_of_connected_devices():
+    '''
+        Returns information about associated devices - inactivity time:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_avg_sigpower_of_connected_devices():
+    '''
+        Returns information about associated devices - link signal power:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
 
 def trigger_channel_switch_in_device(iface, device_mac_addr, target_channel, serving_channel, **kwargs):
     '''
