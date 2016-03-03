@@ -16,3 +16,17 @@ def stop_local_control_program(control_program_id):
         func desc
     '''
     pass
+
+
+def add_rule(rule):
+    '''
+        func desc
+    '''
+    pass
+
+
+def delete_rule(rule_id):
+    '''
+        func desc
+    '''
+    pass
