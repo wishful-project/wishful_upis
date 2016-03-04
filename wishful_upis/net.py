@@ -91,6 +91,13 @@ def sniff_layer2_traffic(iface, sniff_timeout, **kwargs):
     return
 
 
+def inject_frame(iface, frame, is_layer_2_packet, tx_count=1, pkt_interval=1):
+    '''
+        Inject L2/L3 frame injection into the protocol stack
+    '''
+    return
+
+
 def add_device_to_blacklist(iface, device_mac_addr):
     '''
         Add the given device to the blacklist:

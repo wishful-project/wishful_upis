@@ -118,8 +118,9 @@ def get_noise():
     pass
 
 
-def inject_frame(frame, frame_type):
+def configure_radio_sensitivity(phy_dev, **kwargs):
     '''
-        Inject L2/L3 frame injection into the protocol stack
+        Configuring the receiving sensitivity of the radio:
+         - IEEE 802.11: carrier sensing sensitivity (Atheros chipsets: ANI)
     '''
     pass
