@@ -56,6 +56,7 @@ def estimate_nodes_in_communication_range(self, nodes, interface, **kwargs):
     Note: make sure that all nodes are time synchronized.
     @return a list of triples (node1, node2, True/False) True/False if nodes are in communication range
     """
+    pass
 
 
 def is_in_communication_range(node1, node2, interface, **kwargs):
