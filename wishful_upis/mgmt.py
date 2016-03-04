@@ -4,14 +4,14 @@ __version__ = "0.1.0"
 __email__ = "{gawlowicz, chwalisz}@tkn.tu-berlin.de"
 
 
-def start_local_control_program(control_program):
+def start_local_control_program(program_name, program_code):
     '''
         func desc
     '''
     pass
 
 
-def stop_local_control_program(control_program_id):
+def stop_local_control_program(program_id):
     '''
         func desc
     '''
