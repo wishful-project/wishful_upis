@@ -4,6 +4,12 @@ __version__ = "0.1.0"
 __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
 '''
+    The WiSHFUL network control interface, UPI_N, for configuration/monitoring of the higher
+    layers of the network protocol stack (upper MAC and higher).
+'''
+
+
+'''
     App layer
 '''
 

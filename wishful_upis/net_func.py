@@ -3,27 +3,15 @@ __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"
 __email__ = "{gawlowicz, zubow}@tkn.tu-berlin.de"
 
+'''
+    The WiSHFUL global control interface, UPI_G, for performing network-wide operations
+    which go beyond just remote UPI_R/N calls. Example are estimating the nodes in carrier
+    sensing range.
+'''
 
-def transaction_begin():
-    '''
-        func desc
-    '''
-    pass
-
-
-def transaction_abort():
-    '''
-        func desc
-    '''
-    pass
-
-
-def transaction_commit():
-    '''
-        func desc
-    '''
-    pass
-
+'''
+    Core functionality
+'''
 
 def perform_handover(interface, servingNode, targetNode, device_mac_addr, **kwargs):
     '''
@@ -76,3 +64,26 @@ def is_in_communication_range(node1, node2, interface, **kwargs):
     """
     pass
 
+'''
+    Framework functionality ... @todo: move to mgmt.
+'''
+
+def transaction_begin():
+    '''
+        func desc
+    '''
+    pass
+
+
+def transaction_abort():
+    '''
+        func desc
+    '''
+    pass
+
+
+def transaction_commit():
+    '''
+        func desc
+    '''
+    pass
