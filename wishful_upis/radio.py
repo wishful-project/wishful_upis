@@ -73,7 +73,7 @@ def uninstall_mac_processor(interface, mac_profile):
     '''
     pass
 
-def set_edca_parameters(queueId, qParam):
+def set_mac_access_parameters(queueId, qParam):
     '''
         func desc
         todo: this is against unification: edca is specific to 802.11; try to generalize
@@ -81,7 +81,7 @@ def set_edca_parameters(queueId, qParam):
     pass
 
 
-def get_edca_parameters(queueId):
+def get_mac_access_parameters(queueId):
     '''
         func desc
         todo: this is against unification: edca is specific to 802.11; try to generalize
