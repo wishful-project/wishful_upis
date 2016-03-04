@@ -30,3 +30,27 @@ def delete_rule(rule_id):
         func desc
     '''
     pass
+
+'''
+    Framework functionality
+'''
+
+def transaction_begin():
+    '''
+        func desc
+    '''
+    pass
+
+
+def transaction_abort():
+    '''
+        func desc
+    '''
+    pass
+
+
+def transaction_commit():
+    '''
+        func desc
+    '''
+    pass

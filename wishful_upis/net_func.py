@@ -63,27 +63,3 @@ def is_in_communication_range(node1, node2, interface, **kwargs):
     Estimate whether two nodes are in communication range or not.
     """
     pass
-
-'''
-    Framework functionality ... @todo: move to mgmt.
-'''
-
-def transaction_begin():
-    '''
-        func desc
-    '''
-    pass
-
-
-def transaction_abort():
-    '''
-        func desc
-    '''
-    pass
-
-
-def transaction_commit():
-    '''
-        func desc
-    '''
-    pass
