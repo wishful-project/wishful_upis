@@ -18,6 +18,13 @@ def stop_local_control_program(program_id):
     pass
 
 
+def send_msg_to_local_control_program(program_id, msg):
+    '''
+        func desc
+    '''
+    pass
+
+
 def add_rule(rule):
     '''
         func desc
