@@ -111,6 +111,13 @@ def get_power():
     pass
 
 
+def get_rssi():
+    '''
+        func desc
+    '''
+    pass
+
+
 def get_noise():
     '''
         func desc
