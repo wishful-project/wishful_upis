@@ -169,3 +169,115 @@ def trigger_channel_switch_in_device(iface, device_mac_addr, target_channel, ser
         - other??
     '''
     return
+
+
+def set_parameter_higher_layer(**kwargs):
+    """Set the parameter on higher layers of protocol stack (higher MAC and above)
+    :param param_key_value: key and value of this parameter
+    """
+    return
+
+
+def get_parameter_higher_layer(**kwargs):
+    """Get the parameter on higher layers of protocol stack (higher MAC and above)
+    :param param_key: the parameter identified by this key.
+    :return the parameter value
+    """
+    return
+
+
+def set_netem_profile(iface, profile):
+    """
+    Func Desc
+    """
+    return
+
+
+def update_netem_profile(profileId, profile):
+    """
+    Func Desc
+    """
+    return
+
+
+def remove_netem_profile(profileId):
+    """
+    Func Desc
+    """
+    return
+
+
+def set_per_link_netem_profile(iface, dstAddr, profile):
+    """
+    Func Desc
+    """
+    return
+
+
+def update_per_link_netem_profile(profileId, profile):
+    """
+    Func Desc
+    """
+    return
+
+
+def remove_per_link_netem_profile(profileId):
+    """
+    Func Desc
+    """
+    return
+
+
+def install_egress_scheduler(iface, scheduler):
+    """
+    Func Desc
+    """
+    return
+
+
+def remove_egress_scheduler(schedulerId):
+    """
+    Func Desc
+    """
+    return
+
+
+def clear_nf_tables():
+    """
+    Func Desc
+    """
+    return
+
+def get_nf_table(tableName):
+    """
+    Func Desc
+    """
+    return
+
+
+def set_pkt_marking(flowId, mark):
+    """
+    Func Desc
+    """
+    return
+
+
+def del_pkt_marking(flowId):
+    """
+    Func Desc
+    """
+    return
+
+
+def set_ip_tos(flowId, tos):
+    """
+    Func Desc
+    """
+    return
+
+
+def del_ip_tos(flowId):
+    """
+    Func Desc
+    """
+    return
