@@ -106,6 +106,25 @@ def get_per_flow_tx_power_table():
     return
 
 
+def install_mac_processor(interface, mac_profile):
+    """
+        Install new WiFi MAC Processor
+    """
+    return
+
+def update_mac_processor(interface, mac_profile):
+    '''
+        func desc
+    '''
+    pass
+
+
+def uninstall_mac_processor(interface, mac_profile):
+    '''
+        func desc
+    '''
+    pass
+
 
 
 
