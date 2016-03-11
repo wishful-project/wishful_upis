@@ -62,13 +62,6 @@ def get_channel():
     pass
 
 
-def get_noise():
-    '''
-        Returns the noise floor measured by the wireless driver.
-    '''
-    pass
-
-
 def configure_radio_sensitivity(phy_dev, **kwargs):
     '''
         Configuring the receiving sensitivity of the IEEE 802.11 radio.
