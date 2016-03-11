@@ -151,13 +151,13 @@ def get_power():
 
 def get_rssi():
     '''
-        func desc
+        Piotr: please comment!
     '''
     pass
 
 
 def get_noise():
     '''
-        func desc
+        Returns the noise floor measured by the wireless driver.
     '''
     pass

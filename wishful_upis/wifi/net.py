@@ -56,6 +56,14 @@ def register_new_device(iface, sta_mac_addr):
     return
 
 
+def trigger_channel_switch_in_device(iface, device_mac_addr, target_channel, serving_channel, **kwargs):
+    '''
+        Trigger a channel switch in the device connected to this node:
+        - 802.11 AP: send channel switch announcement to client STA,
+        - other??
+    '''
+    return
+
 def get_info_of_connected_devices():
     '''
         Returns information about associated devices:
@@ -76,6 +84,15 @@ def get_inactivity_time_of_connected_devices():
 
 def get_avg_sigpower_of_connected_devices():
     '''
+        Returns information about associated devices - link average signal power:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_sigpower_of_connected_devices():
+    '''
         Returns information about associated devices - link signal power:
         - 802.11 AP: info about the associated client devices of that AP.
         - Other??
@@ -83,10 +100,118 @@ def get_avg_sigpower_of_connected_devices():
     return
 
 
-def trigger_channel_switch_in_device(iface, device_mac_addr, target_channel, serving_channel, **kwargs):
+def get_tx_retries_of_connected_devices():
     '''
-        Trigger a channel switch in the device connected to this node:
-        - 802.11 AP: send channel switch announcement to client STA,
-        - other??
+        Returns information about associated devices - tx retries:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_tx_packets_of_connected_devices():
+    '''
+        Returns information about associated devices - tx packets:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_tx_failed_of_connected_devices():
+    '''
+        Returns information about associated devices - tx failed:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_tx_bytes_of_connected_devices():
+    '''
+        Returns information about associated devices - tx bytes:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_tx_bitrate_of_connected_devices():
+    '''
+        Returns information about associated devices - tx bitrate:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_rx_bytes_of_connected_devices():
+    '''
+        Returns information about associated devices - rx bytes:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_rx_packets_of_connected_devices():
+    '''
+        Returns information about associated devices - rx packets:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_authorized_connected_device():
+    '''
+        Returns information about associated devices - is authorized:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_authenticated_connected_device():
+    '''
+        Returns information about associated devices - is authenticated:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_used_preamble_connected_device():
+    '''
+        Returns information about associated devices - preamble used:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_mfp_connected_device():
+    '''
+        Returns information about associated devices - MFP:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_wmm_wme_connected_device():
+    '''
+        Returns information about associated devices - WMM/WME:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
+    '''
+    return
+
+
+def get_tdls_peer_connected_device():
+    '''
+        Returns information about associated devices - TDLS peer:
+        - 802.11 AP: info about the associated client devices of that AP.
+        - Other??
     '''
     return
