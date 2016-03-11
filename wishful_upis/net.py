@@ -1,3 +1,8 @@
+from lte.net import *
+from wifi.net import *
+from zigbee.net import *
+
+
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"

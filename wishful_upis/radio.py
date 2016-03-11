@@ -1,3 +1,8 @@
+from lte.radio import *
+from wifi.radio import *
+from zigbee.radio import *
+
+
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"
@@ -124,5 +129,35 @@ def play_waveform(iface, freq, power_lvl, **kwargs):
 def stop_waveform(iface, **kwargs):
     '''
         Stops transmitting a radio waveform.
+    '''
+    pass
+
+
+def set_power(power):
+    '''
+        func desc
+        todo: rename in txpower
+    '''
+    pass
+
+
+def get_power():
+    '''
+        func desc
+        todo: rename in txpower
+    '''
+    pass
+
+
+def get_rssi():
+    '''
+        func desc
+    '''
+    pass
+
+
+def get_noise():
+    '''
+        func desc
     '''
     pass
