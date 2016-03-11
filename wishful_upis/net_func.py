@@ -10,26 +10,8 @@ __email__ = "{gawlowicz, zubow}@tkn.tu-berlin.de"
 '''
 
 '''
-    Core functionality
+    Generic functionality which should be supported by most of the platforms.
 '''
-
-def perform_handover(interface, servingNode, targetNode, device_mac_addr, **kwargs):
-    '''
-    Performing an handover operation. Note: this is not supported on any wireless technology.
-    - 802.11 - in infrastructure mode an STA can be handovered; not supported in 802.11 adhoc
-    - other technologies?
-    '''
-    pass
-
-
-def is_associated_with(nodes, interface, device_mac_addr):
-    '''
-    Estimate the AP/BS with which a given device is associated. Note: this is not supported on any wireless technology.
-    - enabled om 802.11 infrastructure mode
-    - other technologies?
-    '''
-    pass
-
 
 def estimate_nodes_in_carrier_sensing_range(nodes, interface, **kwargs):
     """

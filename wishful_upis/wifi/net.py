@@ -4,96 +4,17 @@ __version__ = "0.1.0"
 __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
 '''
-    The WiSHFUL network control interface, UPI_N, for configuration/monitoring of the higher
+    The protocol-specific definition of the WiSHFUL network control interface, UPI_N, for configuration/monitoring of the higher
     layers of the network protocol stack (upper MAC and higher).
+
+    IEEE 802.11 protocol family
 '''
 
 
-'''
-    App layer
-'''
-
-def create_packetflow_sink(port):
-    '''
-        Start IPerf server (TCP/IP)
-    '''
-    pass
-
-
-def destroy_packetflow_sink():
-    '''
-        Stop IPerf server.
-    '''
-    pass
-
-
-def start_packetflow(dest_ip, port = 5001):
-    '''
-        Start IPerf client.
-    '''
-    pass
-
-
-def stop_packetflow():
-    '''
-        Stop IPerf client.
-    '''
-    pass
-
-'''
-    Net layer
-'''
-
-def get_iface_hw_addr(iface):
-    '''
-        func desc
-    '''
-    return
-
-def get_iface_ip_addr(iface):
-    '''
-        func desc
-    '''
-    return
-
-def set_ARP_entry(iface, mac_addr, ip_addr):
-    '''
-        func desc
-    '''
-    return
-
-def change_routing(current_gw_ip_addr, new_gw_ip_addr, device_ip_addr):
-    '''
-        func desc
-    '''
-    return
-
+''' Upper MAC layer '''
 def connect_to_network(iface, **kwargs):
     '''
-        func desc
-    '''
-    return
-
-'''
-    Upper MAC layer
-'''
-
-def gen_layer2_traffic(iface, num_packets, pinter, max_phy_broadcast_rate_mbps=None, **kwargs):
-    '''
-        Inject layer2 traffic into network device.
-    '''
-    return
-
-def sniff_layer2_traffic(iface, sniff_timeout, **kwargs):
-    '''
-        Packet sniffing from network device.
-    '''
-    return
-
-
-def inject_frame(iface, frame, is_layer_2_packet, tx_count=1, pkt_interval=1):
-    '''
-        Inject L2/L3 frame injection into the protocol stack
+        Connects a given interface to some network, e.g. WiFi network identified by SSID.
     '''
     return
 

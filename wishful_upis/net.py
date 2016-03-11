@@ -8,168 +8,7 @@ __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
     layers of the network protocol stack (upper MAC and higher).
 '''
 
-
-'''
-    App layer
-'''
-
-def create_packetflow_sink(port):
-    '''
-        Start IPerf server (TCP/IP)
-    '''
-    pass
-
-
-def destroy_packetflow_sink():
-    '''
-        Stop IPerf server.
-    '''
-    pass
-
-
-def start_packetflow(dest_ip, port = 5001):
-    '''
-        Start IPerf client.
-    '''
-    pass
-
-
-def stop_packetflow():
-    '''
-        Stop IPerf client.
-    '''
-    pass
-
-'''
-    Net layer
-'''
-
-def get_iface_hw_addr(iface):
-    '''
-        func desc
-    '''
-    return
-
-def get_iface_ip_addr(iface):
-    '''
-        func desc
-    '''
-    return
-
-def set_ARP_entry(iface, mac_addr, ip_addr):
-    '''
-        func desc
-    '''
-    return
-
-def change_routing(current_gw_ip_addr, new_gw_ip_addr, device_ip_addr):
-    '''
-        func desc
-    '''
-    return
-
-def connect_to_network(iface, **kwargs):
-    '''
-        func desc
-    '''
-    return
-
-'''
-    Upper MAC layer
-'''
-
-def gen_layer2_traffic(iface, num_packets, pinter, max_phy_broadcast_rate_mbps=None, **kwargs):
-    '''
-        Inject layer2 traffic into network device.
-    '''
-    return
-
-def sniff_layer2_traffic(iface, sniff_timeout, **kwargs):
-    '''
-        Packet sniffing from network device.
-    '''
-    return
-
-
-def inject_frame(iface, frame, is_layer_2_packet, tx_count=1, pkt_interval=1):
-    '''
-        Inject L2/L3 frame injection into the protocol stack
-    '''
-    return
-
-
-def add_device_to_blacklist(iface, device_mac_addr):
-    '''
-        Add the given device to the blacklist:
-        - 802.11 AP: the device is a client and the result of blacklisting is that the client cannot associate with this node.
-        - Other??
-    '''
-    return
-
-
-def remove_device_from_blacklist(iface, device_mac_addr):
-    '''
-        Remove the given device from the blacklist:
-        - 802.11 AP: the device is a client and the result of unblacklisting is that the client can associate with this node.
-        - Other??
-    '''
-    return
-
-
-def disconnect_device(iface, device_mac_addr):
-    '''
-        Disconnects the given device from this node:
-        - 802.11 AP: send dissassociation request to client device
-        - 802.11 adhoc: no meaning
-        - Other?
-    '''
-    return
-
-
-def register_new_device(iface, sta_mac_addr):
-    '''
-        Register the given device:
-        - 802.11 AP: the device is associated with this AP.
-        - Other??
-    '''
-    return
-
-
-def get_info_of_connected_devices():
-    '''
-        Returns information about associated devices:
-        - 802.11 AP: info about the associated client devices of that AP.
-        - Other??
-    '''
-    return
-
-
-def get_inactivity_time_of_connected_devices():
-    '''
-        Returns information about associated devices - inactivity time:
-        - 802.11 AP: info about the associated client devices of that AP.
-        - Other??
-    '''
-    return
-
-
-def get_avg_sigpower_of_connected_devices():
-    '''
-        Returns information about associated devices - link signal power:
-        - 802.11 AP: info about the associated client devices of that AP.
-        - Other??
-    '''
-    return
-
-
-def trigger_channel_switch_in_device(iface, device_mac_addr, target_channel, serving_channel, **kwargs):
-    '''
-        Trigger a channel switch in the device connected to this node:
-        - 802.11 AP: send channel switch announcement to client STA,
-        - other??
-    '''
-    return
-
+''' Generic API to control the higher layers, i.e. key-value configuration. '''
 
 def set_parameter_higher_layer(**kwargs):
     """Set the parameter on higher layers of protocol stack (higher MAC and above)
@@ -185,6 +24,90 @@ def get_parameter_higher_layer(**kwargs):
     """
     return
 
+''' App layer - set-up of packet flows '''
+
+def create_packetflow_sink(port):
+    '''
+        Start IPerf server (TCP/IP)
+    '''
+    return
+
+
+def destroy_packetflow_sink():
+    '''
+        Stop IPerf server.
+    '''
+    return
+
+
+def start_packetflow(dest_ip, port = 5001):
+    '''
+        Start IPerf client.
+    '''
+    return
+
+
+def stop_packetflow():
+    '''
+        Stop IPerf client.
+    '''
+    return
+
+
+''' Net layer '''
+
+def get_iface_hw_addr(iface):
+    '''
+        Returns the hardware address (MAC address) of a given interface.
+    '''
+    return
+
+
+def get_iface_ip_addr(iface):
+    '''
+        Returns the IP address of a given interface.
+    '''
+    return
+
+
+def set_ARP_entry(iface, mac_addr, ip_addr):
+    '''
+        Manipulates the entries in the ARP cache.
+    '''
+    return
+
+
+def change_routing(current_gw_ip_addr, new_gw_ip_addr, device_ip_addr):
+    '''
+        Controlles the routing.
+    '''
+    return
+
+
+''' Upper MAC layer - injection and sniffing of layer2 traffic '''
+
+def gen_layer2_traffic(iface, num_packets, pinter, max_phy_broadcast_rate_mbps=None, **kwargs):
+    '''
+        Inject layer2 traffic into network device.
+    '''
+    return
+
+
+def inject_frame(iface, frame, is_layer_2_packet, tx_count=1, pkt_interval=1):
+    '''
+        Inject L2/L3 frame injection into the protocol stack
+    '''
+    return
+
+
+def sniff_layer2_traffic(iface, sniff_timeout, **kwargs):
+    '''
+        Layer-2 packet sniffing from network device.
+    '''
+    return
+
+
+''' Controlling network emulation (netem), i.e. emulation of variable delay, loss, duplication and re-ordering. '''
 
 def set_netem_profile(iface, profile):
     """
@@ -228,6 +151,8 @@ def remove_per_link_netem_profile(profileId):
     return
 
 
+''' Controlling queuing disciplines '''
+
 def install_egress_scheduler(iface, scheduler):
     """
     Func Desc
@@ -242,6 +167,8 @@ def remove_egress_scheduler(schedulerId):
     return
 
 
+''' Network filter tables '''
+
 def clear_nf_tables():
     """
     Func Desc
@@ -254,6 +181,7 @@ def get_nf_table(tableName):
     """
     return
 
+''' Packet marking - IP ToS '''
 
 def set_pkt_marking(flowId, mark):
     """
@@ -268,6 +196,7 @@ def del_pkt_marking(flowId):
     """
     return
 
+''' Packet mangling - IP ToS '''
 
 def set_ip_tos(flowId, tos):
     """

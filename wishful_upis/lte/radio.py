@@ -1,14 +1,19 @@
-def set_power(power):
+__author__ = "Piotr Gawlowicz, Zubow"
+__copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
+__version__ = "0.1.0"
+__email__ = "{gawlowicz, zubow}@tkn.tu-berlin.de"
+
+'''
+    The protocol-specific definition of the WiSHFUL radio control interface, UPI_R, for configuration/monitoring of the
+    lower layers of the network protocol stack (lower MAC and PHY).
+
+    Long Term Evolution (LTE) protocol family
+'''
+
+def configure_mimo_mode(mimo_mode):
     '''
-        func desc
-        todo: rename in txpower
+        Configures the MIMO mode
     '''
     pass
 
 
-def get_power():
-    '''
-        func desc
-        todo: rename in txpower
-    '''
-    pass
