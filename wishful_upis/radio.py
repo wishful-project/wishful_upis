@@ -133,7 +133,7 @@ def stop_waveform(iface, **kwargs):
     pass
 
 
-def set_power(power):
+def set_power(power_dBm):
     '''
         func desc
         todo: rename in txpower
