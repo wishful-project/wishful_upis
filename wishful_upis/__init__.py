@@ -1,9 +1,9 @@
-import net
-import radio
-import mgmt
-import net_func
-import context
+from . import net
+from . import radio
+from . import mgmt
+from . import net_func
+from . import context
 
-import lte
-import wifi
-import zigbee
+from . import lte
+from . import wifi
+from . import zigbee

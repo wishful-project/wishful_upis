@@ -1,6 +1,6 @@
-from lte.radio import *
-from wifi.radio import *
-from zigbee.radio import *
+from .lte.radio import *
+from .wifi.radio import *
+from .zigbee.radio import *
 
 
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"

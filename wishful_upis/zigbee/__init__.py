@@ -1,3 +1,3 @@
-import radio
-import net
-import net_func
+from . import radio
+from . import net
+from . import net_func
