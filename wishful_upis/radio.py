@@ -161,3 +161,9 @@ def get_noise():
         Returns the noise floor measured by the wireless driver.
     '''
     pass
+
+def receive_csi(runt):
+    '''
+        Receives CSI samples from the ath9k driver.
+    '''
+    pass
