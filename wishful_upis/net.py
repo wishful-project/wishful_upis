@@ -121,35 +121,35 @@ def set_netem_profile(iface, profile):
     return
 
 
-def update_netem_profile(profileId, profile):
+def update_netem_profile(iface, profile):
     """
     Func Desc
     """
     return
 
 
-def remove_netem_profile(profileId):
+def remove_netem_profile(iface):
     """
     Func Desc
     """
     return
 
 
-def set_per_link_netem_profile(iface, dstAddr, profile):
+def set_per_link_netem_profile(iface, dstIpAddr, profile):
     """
     Func Desc
     """
     return
 
 
-def update_per_link_netem_profile(profileId, profile):
+def update_per_link_netem_profile(iface, dstIpAddr, profile):
     """
     Func Desc
     """
     return
 
 
-def remove_per_link_netem_profile(profileId):
+def remove_per_link_netem_profile(iface, dstIpAddr):
     """
     Func Desc
     """
@@ -165,7 +165,7 @@ def install_egress_scheduler(iface, scheduler):
     return
 
 
-def remove_egress_scheduler(schedulerId):
+def remove_egress_scheduler(iface):
     """
     Func Desc
     """
@@ -174,7 +174,7 @@ def remove_egress_scheduler(schedulerId):
 
 ''' Network filter tables '''
 
-def clear_nf_tables():
+def clear_nf_tables(table="ALL", chain="ALL"):
     """
     Func Desc
     """
@@ -188,14 +188,14 @@ def get_nf_table(tableName):
 
 ''' Packet marking - IP ToS '''
 
-def set_pkt_marking(flowId, mark):
+def set_pkt_marking(flowId, markId=None, table="mangle", chain="POSTROUTING"):
     """
     Func Desc
     """
     return
 
 
-def del_pkt_marking(flowId):
+def del_pkt_marking(flowId, markId=None, table="mangle", chain="POSTROUTING"):
     """
     Func Desc
     """
@@ -203,14 +203,14 @@ def del_pkt_marking(flowId):
 
 ''' Packet mangling - IP ToS '''
 
-def set_ip_tos(flowId, tos):
+def set_ip_tos(flowId, tos, table="mangle", chain="POSTROUTING"):
     """
     Func Desc
     """
     return
 
 
-def del_ip_tos(flowId):
+def del_ip_tos(flowId, tos, table="mangle", chain="POSTROUTING"):
     """
     Func Desc
     """
