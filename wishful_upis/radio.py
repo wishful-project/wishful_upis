@@ -162,8 +162,16 @@ def get_noise():
     '''
     pass
 
+
 def receive_csi(runt):
     '''
         Receives CSI samples from the ath9k driver.
+    '''
+    pass
+
+
+def scan_psd(runt):
+    '''
+        Receives PSD samples from the ath9k driver.
     '''
     pass
