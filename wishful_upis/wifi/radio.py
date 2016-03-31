@@ -118,9 +118,19 @@ def uninstall_mac_processor(interface, mac_profile):
     '''
     pass
 
+'''
+    Channel state information and spectrum scanning capabilities.
+'''
+
+def receive_csi(runt):
+    '''
+        Receives CSI samples from the ath9k driver.
+    '''
+    pass
 
 
-
-
-
-
+def scan_psd(runt):
+    '''
+        Receives PSD samples from the ath9k driver.
+    '''
+    pass
