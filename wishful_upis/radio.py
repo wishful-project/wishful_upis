@@ -161,3 +161,38 @@ def get_noise():
         Returns the noise floor measured by the wireless driver.
     '''
     pass
+
+
+def receive_csi():
+    '''
+        Receives CSI samples from the ath9k driver.
+    '''
+    pass
+
+
+def scand_start(iface='wlan0', mode='background', ival=1):
+    '''
+        Reconfigure ath9k spectral scan daemon.
+    '''
+    pass
+
+
+def scand_stop():
+    '''
+        Reconfigure ath9k spectral scan daemon.
+    '''
+    pass
+
+
+def scand_reconf(iface='wlan0', mode='background', ival=1):
+    '''
+        Reconfigure ath9k spectral scan daemon.
+    '''
+    pass
+
+
+def scand_read():
+    '''
+        Receives PSD samples from the ath9k driver.
+    '''
+    pass
