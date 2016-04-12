@@ -117,6 +117,26 @@ def get_active(**kwargs):
     """
     return
 
+
+def add_program(**kwargs):
+    """ Adds a new radio program to the nodes repository """
+    return
+
+
+def remove_program(**kwargs):
+    """ Remove radio program from nodes repository """
+    return
+
+
+def merge_programs(**kwargs):
+    """ Merge the set of radio programs """
+    return
+
+def switch_program(target_program_name, **kwargs):
+    """ Switch from one to another radio program """
+    return
+
+
 ''' Transmission of radio waveform (no MAC) '''
 
 def play_waveform(iface, freq, power_lvl, **kwargs):
