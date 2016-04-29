@@ -11,16 +11,20 @@ __email__ = "{gawlowicz, zubow}@tkn.tu-berlin.de"
 '''
 
 def perform_handover(interface, servingNode, targetNode, device_mac_addr, **kwargs):
-    '''
-    Performing an handover operation. Note: this is not supported on any wireless technology.
+    '''Performing an handover operation.
+
+    Note: this is not supported on any wireless technology.
+
     - 802.11 - in infrastructure mode an STA can be handovered; not supported in 802.11 adhoc
     '''
     pass
 
 
 def is_associated_with(nodes, interface, device_mac_addr):
-    '''
-    Estimate the AP/BS with which a given device is associated. Note: this is not supported on any wireless technology.
-    - enabled om 802.11 infrastructure mode
+    '''Estimate the AP/BS with which a given device is associated.
+
+    Note: this is not supported on any wireless technology.
+
+    - enabled on 802.11 infrastructure mode
     '''
     pass
