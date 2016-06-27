@@ -135,37 +135,29 @@ def get_measurements_periodic(measurement_key_list, collect_period, report_perio
     return
 
 
-def subscribe_events(event_key_list, event_callback):
+def subscribe_events(event_key_list, event_callback, event_duration):
     """The UPI_R interface is able to monitor the radio and mac behavior asynchronously through events.
-    This function subscribes an event listener for one or more events.
+    This function subscribes an event listener for one or more events for the specified event duration (0 = infinite).
     The event callback is called each time on of the event is posted.
-    The list of available evebts supported by all platforms are defined in this module.
+    The list of available events supported by all platforms are defined in this module.
     Events specific to a subgroup of platforms are defined in the corresponding submodules.
     A list of supported events can be dynamically obtained using the get_radio_info function.
 
     Examples:
         .. code-block:: python
 
-            >> args = {'interface' : 'wlan0', 'measurements' : [UPI_RN.NUM_FREEZING_COUNT] }
-            >> result = UPI_RN.getMonitor(args)
+            >> event_keys = ["MAC_RX_EVENT","MAC_COLLISION_EVENT"]
+            >> result = control_engine.radio.iface("wlan0").subscribe_events(event_keys, event_cb, 60)
             >> print result
-            {UPI_RN.NUM_FREEZING_COUNT : 150}
+            {"MAC_RX_EVENT" : 0, "MAC_COLLISION_EVENT":0}
 
     Args:
-        myargs:
-            list of parameters, in term of a dictionary data type (list of
-            key: value) in which: the key is `measurements` and the value is a list
-            of UPI_R attributes for measurements, the key in `interface` specify
-            network interface to be uses. An example of argument dictionary is
-            ``{"measurements" : [UPI_RN.NUM_FREEZING_COUNT, UPI_RN.TX_ACTIVITY]}``.
+        event_key_list (list): List of events which should be monitored.
+        event_callback (Callable): Callback called every time an event is posted.
+        event_duration (int): Duration (in seconds) for which the event listener(s) should be active (0 = infinite)
 
     Returns:
-        list of parameters and values:
-            in term of a dictionary data type (list
-            of key: value) in which the key are the UPI_R attributes for
-            measurements, and value is the reading of the measurement.
-            An example of argument dictionary data type is
-            ``{UPI_RN.NUM_FREEZING_COUNT : 150, UPI_RN.TX_ACTIVITY : 45670}``.
+        dict: A dictionary containing an error code for each event.
     """
     return
 
@@ -173,26 +165,21 @@ def subscribe_events(event_key_list, event_callback):
 
 
 def activate_radio_program(name):
-    """This function activates the passed radio program, one the platform. When executed, this function stops the
-    current radio program and enables the execution of the radio program specified in the parameter
-    radioProgramName. Two additional parameters can be used, one of these is required.The path of the radio program
-    description is required. The optionally parameter specify the index, in order to associate an index to the radio
-    program.
+    """This function activates the specified radio program.
+    When executed, this function stops the current radio program and enables the execution of the radio program specified in the parameter name.
 
     Examples:
         .. code-block:: python
 
-           >> args = {'interface' : 'wlan0', 'radio_program_name' : 'CSMA', 'path': './radio_program/csma.txt'}
-           >> result = UPI_RN.setActive(args)
+           >> result = control_engine.radio.iface("wlan0").activate_radio_program("CSMA")
            >> print result
            0
 
     Args:
-        myargs: a dictionary data type (key: value) where the keys are: The key 'interface' specify the network interface to use. The key 'radio_program_name'specify the name of radio program. The key 'path' in which the value specify the path of radio program description, and 'position' in which the value specify the radio program index associated.
+        name (str): String identifier of the radio program (e.g. CSMA, TDMA, TSCH)
 
     Returns:
-        int:
-            - 0 if the parameter setting call was successfully performed
+        int: - 0 if the parameter setting call was successfully performed
             - 1 partial success
             - 2 error.
     """
@@ -205,13 +192,12 @@ def deactivate_radio_program(name):
     Examples:
         .. code-block:: python
 
-            >> args = {'interface' : 'wlan0', 'radio_program_name' : 'CSMA'}
-            >> result = UPI_RN.setInactive(args)
-            >> print result
-            0
+            >> result = control_engine.radio.iface("wlan0").deactivate_radio_program("CSMA")
+           >> print result
+           0
 
     Args:
-        myargs: a dictionary data type (key: value) where the keys are: The key "interface" specify the network interface to use and the key 'radio_program_name' in which the value specify the name of radio program,
+        name (str): String identifier of the radio program (e.g. CSMA, TDMA, TSCH)
 
     Returns:
         int:
@@ -295,35 +281,40 @@ def stop_csi_measurements():
 
 
 def get_radio_info():
-	'''func desc
+    '''func desc
     '''
     pass
 
 
 def get_radio_platforms():
-	'''func desc
+    '''func desc
     '''
-	pass
+    pass
+
 
 def set_rxchannel(freq_Hz, bandwidth):
     '''func desc
     '''
     pass
 
+
 def get_rxchannel():
     '''func desc
     '''
     pass
+
 
 def set_txchannel(freq_Hz, bandwidth):
     '''func desc
     '''
     pass
 
+
 def get_txchannel():
     '''func desc
     '''
     pass
+
 
 def get_hwaddr():
     '''func desc
