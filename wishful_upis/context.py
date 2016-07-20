@@ -9,7 +9,8 @@ Used for getting/setting context information like the geo-location of a user
 terminal.
 '''
 
-def get_node_position():
-    '''Returns the geo-location of a wireless node.
-    '''
-    pass
+class Context(object):
+	def get_node_position(self):
+	    '''Returns the geo-location of a wireless node.
+	    '''
+	    pass

@@ -16,46 +16,47 @@ UPI_R/N calls. Example are estimating the nodes in carrier sensing range.
 
 # Generic functionality which should be supported by most of the platforms.
 
-def estimate_nodes_in_carrier_sensing_range(nodes, interface, **kwargs):
-    """Estimate which nodes are in carrier sensing range using UPIs.
+class NetFun(object):
+    def estimate_nodes_in_carrier_sensing_range(self, nodes, interface, **kwargs):
+        """Estimate which nodes are in carrier sensing range using UPIs.
 
-    For a network with N nodes all combinations are evaluated, i.e. N over 2.
+        For a network with N nodes all combinations are evaluated, i.e. N over 2.
 
-    Note:
-       make sure that all nodes are time synchronized.
+        Note:
+           make sure that all nodes are time synchronized.
 
-    Returns:
-        list of tuples: In form of (node1, node2, True/False), where True/False if nodes are in
-        carrier sensing range
-    """
-    pass
-
-
-def is_in_carrier_sensing_range(node1, node2, interface, **kwargs):
-    """Estimate whether two nodes are in carrier sensing range or not.
-
-    Note:
-        it is implemented differently on different platforms
-    """
-    pass
+        Returns:
+            list of tuples: In form of (node1, node2, True/False), where True/False if nodes are in
+            carrier sensing range
+        """
+        pass
 
 
-def estimate_nodes_in_communication_range(self, nodes, interface, **kwargs):
-    """Estimate which nodes are in communication range using UPIs.
+    def is_in_carrier_sensing_range(self, node1, node2, interface, **kwargs):
+        """Estimate whether two nodes are in carrier sensing range or not.
 
-    For a network with N nodes all combinations are evaluated, i.e. N over 2.
-
-    Note:
-        make sure that all nodes are time synchronized.
-
-    Returns:
-        list of tuples: In form of (node1, node2, True/False), where True/False if nodes are in
-        communication range
-    """
-    pass
+        Note:
+            it is implemented differently on different platforms
+        """
+        pass
 
 
-def is_in_communication_range(node1, node2, interface, **kwargs):
-    """Estimate whether two nodes are in communication range or not.
-    """
-    pass
+    def estimate_nodes_in_communication_range(self, nodes, interface, **kwargs):
+        """Estimate which nodes are in communication range using UPIs.
+
+        For a network with N nodes all combinations are evaluated, i.e. N over 2.
+
+        Note:
+            make sure that all nodes are time synchronized.
+
+        Returns:
+            list of tuples: In form of (node1, node2, True/False), where True/False if nodes are in
+            communication range
+        """
+        pass
+
+
+    def is_in_communication_range(self, node1, node2, interface, **kwargs):
+        """Estimate whether two nodes are in communication range or not.
+        """
+        pass

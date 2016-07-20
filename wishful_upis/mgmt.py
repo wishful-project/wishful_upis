@@ -22,41 +22,42 @@ def delete_rule(rule_id):
 '''
     Framework functionality
 '''
-
-def start_local_control_program(program_name, program_code):
-    '''Execute a given control program on loca/remote node.
-    '''
-    pass
-
-
-def stop_local_control_program(program_id):
-    '''Stops execution of a given control program on loca/remote node.
-    '''
-    pass
+#TODO: few of therm are API, remove it from UPIs
+class Mgmt(object):
+    def start_local_control_program(self, program_name, program_code):
+        '''Execute a given control program on loca/remote node.
+        '''
+        pass
 
 
-def send_msg_to_local_control_program(program_id, msg):
-    '''Hierarchical control function allows the global control program to send messages to local control programs.
-    '''
-    pass
-
-def transaction_begin():
-    '''Start a transaction
-
-    i.e. all subsequent UPI calls are executed in transactional scope.
-    '''
-    pass
+    def stop_local_control_program(self, program_id):
+        '''Stops execution of a given control program on loca/remote node.
+        '''
+        pass
 
 
-def transaction_abort():
-    '''Aborts a running transaction
+    def send_msg_to_local_control_program(self, program_id, msg):
+        '''Hierarchical control function allows the global control program to send messages to local control programs.
+        '''
+        pass
 
-    i.e. all changes are roll backed.
-    '''
-    pass
+    def transaction_begin(self):
+        '''Start a transaction
+
+        i.e. all subsequent UPI calls are executed in transactional scope.
+        '''
+        pass
 
 
-def transaction_commit():
-    '''Commit an open transaction.
-    '''
-    pass
+    def transaction_abort(self):
+        '''Aborts a running transaction
+
+        i.e. all changes are roll backed.
+        '''
+        pass
+
+
+    def transaction_commit(self):
+        '''Commit an open transaction.
+        '''
+        pass

@@ -10,10 +10,10 @@ for configuration/monitoring of the lower layers of the network protocol stack
 (lower MAC and PHY).
 
 '''
-
-def configure_mimo_mode(mimo_mode):
-    '''Configures the MIMO mode
-    '''
-    pass
+class LteRadio(object):
+	def configure_mimo_mode(self, mimo_mode):
+	    '''Configures the MIMO mode
+	    '''
+	    pass
 
 
