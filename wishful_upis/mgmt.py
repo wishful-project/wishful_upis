@@ -7,23 +7,23 @@ __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
     The WiSHFUL management interface.
 '''
 
-''' Wishful rule-matching engine '''
-def add_rule(rule):
-    '''Add new rule to rule-matching engine
-    '''
-    pass
-
-
-def delete_rule(rule_id):
-    '''Remove rule to rule-matching engine
-    '''
-    pass
-
-'''
-    Framework functionality
-'''
 #TODO: few of therm are API, remove it from UPIs
 class Mgmt(object):
+    ''' Wishful rule-matching engine '''
+    def add_rule(self, rule):
+        '''Add new rule to rule-matching engine
+        '''
+        pass
+
+
+    def delete_rule(self, rule_id):
+        '''Remove rule to rule-matching engine
+        '''
+        pass
+
+    '''
+        Framework functionality
+    '''
     def start_local_control_program(self, program_name, program_code):
         '''Execute a given control program on loca/remote node.
         '''
