@@ -15,5 +15,3 @@ class LteRadio(object):
 	    '''Configures the MIMO mode
 	    '''
 	    pass
-
-
