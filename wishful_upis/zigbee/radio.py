@@ -11,10 +11,11 @@ for configuration/monitoring of the lower layers of the network protocol stack
 
 '''
 
-def disable_carrier_sensing():
-    '''Disables carrier sensing
+class ZigBeeRadio(object):
+	def disable_carrier_sensing(self):
+	    '''Disables carrier sensing
 
-    i.e. no listen-before-talk.
-    '''
-    pass
+	    i.e. no listen-before-talk.
+	    '''
+	    pass
 
