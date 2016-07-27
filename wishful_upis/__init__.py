@@ -7,3 +7,4 @@ from . import context
 from . import lte
 from . import wifi
 from . import zigbee
+from . import wmp
