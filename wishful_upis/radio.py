@@ -296,21 +296,18 @@ class Radio(Upi):
         pass
 
     @property
-    #@attribute
     def channel(self):
         """
         Description
         """
         pass
 
-    #@function
     def switch_on(self):
         """
         Description
         """
         pass
 
-    #@event
     def event_packet_loss(self):
         """
         Description:
@@ -320,7 +317,6 @@ class Radio(Upi):
         """
         pass
 
-    #@service
     def service_spectral_scan(self, sampling_rate, frequency_range):
         """
         Description: generate functions
