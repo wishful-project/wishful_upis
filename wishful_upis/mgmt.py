@@ -1,3 +1,5 @@
+from .upi import Upi
+
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"
@@ -8,7 +10,7 @@ __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 '''
 
 #TODO: few of therm are API, remove it from UPIs
-class Mgmt(object):
+class Mgmt(Upi):
     ''' Wishful rule-matching engine '''
     def add_rule(self, rule):
         '''Add new rule to rule-matching engine

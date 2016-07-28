@@ -31,7 +31,8 @@ def functions_in_class(module):
 def add_func_to_module(module, func):
     setattr(module, func.__name__, func)
 
-def copy_functions_to_module(module):
+
+def copy_functions_from_class_to_module(module):
     classList = classes_in_module(module)
     for c in classList:
         for f in functions_in_class(c):
@@ -39,5 +40,15 @@ def copy_functions_to_module(module):
 
     modules = modules_in_module(module)
     for m in modules:
-        copy_functions_to_module(m)
+        copy_functions_from_class_to_module(m)
+
+
+def add_module_to_module(submodule, module):
+    setattr(module, submodule.__name__.split(".")[-1], submodule)
+
+
+def copy_functions_from_subclasses_to_module(module, myclass):
+    for subclass in myclass.__subclasses__():
+        for f in functions_in_class(subclass):
+            add_func_to_module(module, f)
 

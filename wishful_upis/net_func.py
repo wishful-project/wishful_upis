@@ -1,7 +1,4 @@
-from .lte.net_func import *
-from .wifi.net_func import *
-from .zigbee.net_func import *
-
+from .upi import Upi
 
 __author__ = "Piotr Gawlowicz, Anatolij Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
@@ -16,7 +13,7 @@ UPI_R/N calls. Example are estimating the nodes in carrier sensing range.
 
 # Generic functionality which should be supported by most of the platforms.
 
-class NetFun(object):
+class NetFun(Upi):
     def estimate_nodes_in_carrier_sensing_range(self, nodes, interface, **kwargs):
         """Estimate which nodes are in carrier sensing range using UPIs.
 
