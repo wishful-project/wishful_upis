@@ -1,7 +1,4 @@
-from .lte.net import *
-from .wifi.net import *
-from .zigbee.net import *
-
+from .upi import Upi
 
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
@@ -15,7 +12,7 @@ __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
 # Generic API to control the higher layers, i.e. key-value configuration.
 
-class Network(object):
+class Network(Upi):
     def set_parameter_higher_layer(self, **kwargs):
         """Set the parameter on higher layers of protocol stack (higher MAC and above)
 

@@ -1,3 +1,7 @@
+from .net import Network
+from .radio import Radio
+from .net_func import NetFun
+
 __author__ = "Piotr Gawlowicz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"
@@ -10,8 +14,18 @@ for configuration/monitoring of the lower layers of the network protocol stack
 (lower MAC and PHY).
 
 '''
-class LteRadio(object):
-	def configure_mimo_mode(self, mimo_mode):
-	    '''Configures the MIMO mode
-	    '''
-	    pass
+
+
+class LteRadio(Radio):
+    def configure_mimo_mode(self, mimo_mode):
+        '''Configures the MIMO mode
+        '''
+        pass
+
+
+class LteNet(Network):
+    pass
+
+
+class LteNetFun(NetFun):
+    pass

@@ -1,3 +1,7 @@
+from .net import Network
+from .radio import Radio
+from .net_func import NetFun
+
 __author__ = "Piotr Gawlowicz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"
@@ -11,11 +15,20 @@ for configuration/monitoring of the lower layers of the network protocol stack
 
 '''
 
-class ZigBeeRadio(object):
-	def disable_carrier_sensing(self):
-	    '''Disables carrier sensing
 
-	    i.e. no listen-before-talk.
-	    '''
-	    pass
+class ZigBeeRadio(Radio):
+    def disable_carrier_sensing(self):
+        '''
+        Disables carrier sensing
 
+        i.e. no listen-before-talk.
+        '''
+        pass
+
+
+class ZigBeeNet(Network):
+    pass
+
+
+class ZigBeeNetFun(NetFun):
+    pass

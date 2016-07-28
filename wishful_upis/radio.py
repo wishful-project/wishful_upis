@@ -1,7 +1,4 @@
-from .lte.radio import *
-from .wifi.radio import *
-from .zigbee.radio import *
-
+from .upi import Upi
 
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
@@ -15,12 +12,9 @@ layers of the network protocol stack (lower MAC and PHY).
 
 Note, here all generic functions are defined, i.e. those which can be
 supported by any wireless networking node (IEEE 802.11, LTE, ZigBee).
-
-All protocol-dependent functions are defined in separate folder,
-e.g. ``wifi/`` or ``lte/``.
 '''
 
-class Radio(object):
+class Radio(Upi):
     def set_parameter_lower_layer(self, **kwargs):
         """The UPI_R interface is able to configure the radio behavior.
 
