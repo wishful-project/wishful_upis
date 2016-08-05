@@ -11,10 +11,26 @@ for configuration/monitoring of the lower layers of the network protocol stack
 
 '''
 
-def disable_carrier_sensing():
-    '''Disables carrier sensing
+PARAMETERS = [
+    "IEEE802154_macMaxBE",
+    "IEEE802154_macMaxCSMABackoffs",
+    "IEEE802154_macMaxFrameRetries",
+    "IEEE802154_macMinBE",
+    "IEEE802154_macPANId",
+    "IEEE802154_macShortAddress",
+    "IEEE802154_macExtendedAddress",
+    "IEEE802154_phyCurrentChannel",
+    "IEEE802154_phyTXPower",
+    "IEEE802154e_macHoppingSequenceLength",
+    "IEEE802154e_macHoppingSequenceList",
+    "IEEE802154e_macSlotframeSize",
+    "IEEE802154e_macTimeslot",
+    "IEEE802154e_macTsTimeslotLength",
+    "TAISC_ACTIVERADIOPROGRAM",
+    "IEEE802154_MACSTATS",
+    "IEEE802154_event_macStats",
+]
 
-    i.e. no listen-before-talk.
-    '''
-    pass
 
+def blacklist_channels():
+    return

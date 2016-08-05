@@ -15,11 +15,28 @@ __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
 # Generic API to control the higher layers, i.e. key-value configuration.
 
-def set_parameter_higher_layer(**kwargs):
-    """Set the parameter on higher layers of protocol stack (higher MAC and above)
+def set_parameters(param_key_values_dict):
+    """The UPI_N interface is able to configure the protocol (routing, transport, application) behavior by changing parameters.
+    Parameters correspond to the  variables used in the protocols.
+    This function (re)set the value(s) of the parameters specified in the dictionary argument.
+    The list of available parameters supported by all platforms/OS are defined in this module.
+    Parameters specific to a subgroup of platforms/OS are defined in the corresponding submodules.
+    A list of supported parameters can be dynamically obtained using the get_info function on each module.
+
+    Examples:
+        .. code-block:: python
+
+            >> param_key_values = {ROUTING_MAX_TTL : 5}
+            >> result = control_engine.net.set_parameters(param_key_values)
+            >> print result
+            {ROUTING_MAX_TTL : 0}
 
     Args:
-       param_key_value: key and value of this parameter
+        param_key_values_dict (dict): dictionary containing the key (string) value (any) pairs for each parameter.
+            An example is {CSMA_CW : 15, CSMA_CW_MIN : 15, CSMA_CW_MAX : 15}
+
+    Returns:
+        dict: A dictionary containing key (string name) error (0 = success, 1=fail, +1=error code) pairs for each parameter.
     """
     return
 

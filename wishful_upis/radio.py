@@ -36,7 +36,7 @@ def set_parameters(param_key_values_dict):
     Examples:
         .. code-block:: python
 
-            >> param_key_values = {CSMA_CW : 15, UPI_RN.CSMA_CW_MIN : 15, UPI_RN.CSMA_CW_MAX : 15}
+            >> param_key_values = {CSMA_CW : 15, CSMA_CW_MIN : 15, CSMA_CW_MAX : 15}
             >> result = control_engine.radio.iface("wlan0").set_parameters(param_key_values)
             >> print result
             {CSMA_CW : 0, CSMA_CW_MIN : 0, CSMA_CW_MAX : 0}
