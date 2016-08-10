@@ -41,7 +41,7 @@ def set_parameters(param_key_values_dict):
     return
 
 
-def get_parameter_higher_layer(**kwargs):
+def get_parameters(param_key_list):
     """Get the parameter on higher layers of protocol stack (higher MAC and above)
 
     Args:
@@ -52,7 +52,82 @@ def get_parameter_higher_layer(**kwargs):
     """
     return
 
+def get_measurements(measurement_key_list):
+    """
+
+    Examples:
+        .. code-block:: python
+
+            >> measurement_keys = [NUM_FREEZING_COUNT]
+            >> result = control_engine.net.iface("wlan0").get_measurements(measurement_keys)
+            >> print result
+            {UPI_RN.NUM_FREEZING_COUNT : 150}
+
+    Args:
+        measurement_key_list (list): list of requested measurements, an example of is [NUM_FREEZING_COUNT, TX_ACTIVITY].
+
+    Returns:
+        dict: A dictionary containing key (string name) and values of the requested measurements.
+    """
+    return
+
+
+def get_measurements_periodic(measurement_key_list, collect_period, report_period, num_iterations, report_callback):
+    """
+
+    Examples:
+        .. code-block:: python
+
+            >> def my_cb(report):
+            >>     for key in report.keys():
+            >>         for measurement in report[key]:
+            >>             print measurement
+            >> measurement_keys = [NUM_FREEZING_COUNT, TX_ACTIVITY]
+            >> result = control_engine.radio.iface("wlan0").get_measurements_periodic(measurement_keys,1000000,5000000,10,my_cb)
+            >> print result
+            {UPI_RN.NUM_FREEZING_COUNT : 150}
+
+    Args:
+        measurement_key_list (list): list of measurement keys. The keys are measurement names defined in this module.
+        collect_period (int): defines the time between two consecutive measurement readings, in microsecond.
+        report_period (int): defines the time between two consecutive reports to the control program, in microseconds.
+        num_iterations (int): defines how many times the measurement collection has to be repeated.
+        report_callback (function): the local callback that is invoked every report period.
+
+    Returns:
+        int: error code, 0 if success, 1 otherwise.
+    """
+    return
+
+
+def subscribe_events(event_key_list, event_callback, event_duration):
+    """
+
+    Examples:
+        .. code-block:: python
+
+            >> event_keys = ["MAC_RX_EVENT","MAC_COLLISION_EVENT"]
+            >> result = control_engine.radio.iface("wlan0").subscribe_events(event_keys, event_cb, 60)
+            >> print result
+            {"MAC_RX_EVENT" : 0, "MAC_COLLISION_EVENT":0}
+
+    Args:
+        event_key_list (list): List of events which should be monitored.
+        event_callback (Callable): Callback called every time an event is posted.
+        event_duration (int): Duration (in seconds) for which the event listener(s) should be active (0 = infinite)
+
+    Returns:
+        dict: A dictionary containing an error code for each event.
+    """
+    return
+
 ''' App layer - set-up of packet flows '''
+
+def start_application(application_id):
+    return
+
+def stop_application(application_id):
+    return
 
 def create_packetflow_sink(port):
     '''Start IPerf server (TCP/IP)
