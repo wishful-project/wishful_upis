@@ -1,6 +1,6 @@
 from .lte.net import *
 from .wifi.net import *
-from .zigbee.net import *
+from .lowpan.net import *
 
 
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"

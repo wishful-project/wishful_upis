@@ -1,6 +1,6 @@
 from .lte.net_func import *
 from .wifi.net_func import *
-from .zigbee.net_func import *
+from .lowpan.net_func import *
 
 
 __author__ = "Piotr Gawlowicz, Anatolij Zubow"
