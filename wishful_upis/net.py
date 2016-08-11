@@ -121,6 +121,9 @@ def subscribe_events(event_key_list, event_callback, event_duration):
     """
     return
 
+def get_network_info():
+    return
+
 ''' App layer - set-up of packet flows '''
 
 def start_application(application_id):
