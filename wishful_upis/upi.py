@@ -10,15 +10,38 @@ class RegisterLeafClasses(type):
         if not hasattr(cls, 'registry'):
             cls.registry = set()
         cls.registry.add(cls)
-        cls.registry -= set(bases) # Remove base classes
+        cls.registry -= set(bases)  # Remove base classes
 
     # Metamethods, called on class objects:
     def __iter__(cls):
         return iter(cls.registry)
+
     def __str__(cls):
         if cls in cls.registry:
             return cls.__name__
         return cls.__name__ + ": " + ", ".join([sc.__name__ for sc in cls])
 
+
 class Upi(object):
     __metaclass__ = RegisterLeafClasses
+
+
+class AttributeBase(object):
+    # Nothing yet
+    pass
+
+
+class FunctionBase(object):
+    # Nothing yet
+    pass
+
+
+class EventBase(object):
+    # event cannot be parametrized, user may only start it once
+    pass
+
+
+class ServiceBase(object):
+    # service may be parametrized, it possible it may be
+    # started multiple times with different parameters
+    pass
