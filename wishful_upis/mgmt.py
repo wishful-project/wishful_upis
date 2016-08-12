@@ -1,4 +1,5 @@
 from .upi import Upi
+from .upi import EventBase
 
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
@@ -63,3 +64,87 @@ class Mgmt(Upi):
         '''Commit an open transaction.
         '''
         pass
+
+
+class ControllerDiscoveredEvent(EventBase):
+    def __init__(self, dlink, ulink):
+        super().__init__()
+        self.dlink = dlink
+        self.ulink = ulink
+
+
+class ControllerConnectionCompletedEvent(EventBase):
+    def __init__(self, cmdDesc, msg):
+        super().__init__()
+        self.cmdDesc = cmdDesc
+        self.msg = msg
+
+
+class HelloTimeoutEvent(EventBase):
+    def __init__(self):
+        super().__init__()
+
+
+class HelloMsgEvent(EventBase):
+    def __init__(self):
+        super().__init__()
+
+
+class ConnectToControllerEvent(EventBase):
+    def __init__(self, dlink, ulink):
+        super().__init__()
+        self.dlink = dlink
+        self.ulink = ulink
+
+
+class DisconnectControllerEvent(EventBase):
+    def __init__(self):
+        super().__init__()
+
+
+class SubscribeTopicEvent(EventBase):
+    def __init__(self, topic):
+        super().__init__()
+        self.topic = topic
+
+
+class UnsubscribeTopicEvent(EventBase):
+    def __init__(self, topic):
+        super().__init__()
+        self.topic = topic
+
+
+class SendMgsEvent(EventBase):
+    def __init__(self, msg):
+        super().__init__()
+        self.msg = msg
+
+
+class SendControllMgsEvent(EventBase):
+    def __init__(self, msg):
+        super().__init__()
+        self.msg = msg
+
+
+class CommandEvent(EventBase):
+    def __init__(self, dest, cmdDesc, msg):
+        super().__init__()
+        self.dest = dest
+        self.cmdDesc = cmdDesc
+        self.msg = msg
+
+
+class ExceptionEvent(EventBase):
+    def __init__(self, dest, cmdDesc, msg):
+        super().__init__()
+        self.dest = dest
+        self.cmdDesc = cmdDesc
+        self.msg = msg
+
+
+class ReturnValueEvent(EventBase):
+    def __init__(self, dest, cmdDesc, msg):
+        super().__init__()
+        self.dest = dest
+        self.cmdDesc = cmdDesc
+        self.msg = msg

@@ -1,4 +1,6 @@
 from .upi import Upi
+from .upi import EventBase
+from .upi import ServiceBase
 
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
@@ -317,16 +319,42 @@ class Radio(Upi):
         """
         pass
 
-    def service_spectral_scan(self, sampling_rate, frequency_range):
+    def service_spectral_scan(self, sampling_rate=1, frequency_range=[1,2]):
         """
-        Description: generate functions
-        id = start_spectral_scan(sampling_rate, frequency_range),
-        stop_spectral_scan(id),
-
-        CALLING EXAMPLE:
+        Description:
         descriptor = node.iface(0).wifi.service_spectral_scan()
-        descritor.start(duration = 10)
+        descritor.start(duration=10)
         descriptor.stop()
         duration in context
         """
         pass
+
+
+class RadioEvent(EventBase):
+    def __init__(self):
+        super().__init__()
+        pass
+
+
+class PacketLossEvent(RadioEvent):
+    def __init__(self):
+        super().__init__()
+        pass
+
+
+class RadioService(ServiceBase):
+    def __init__(self):
+        super().__init__()
+        pass
+
+
+class SpectralScanService(RadioService):
+    def __init__(self, rate, f_range):
+        super().__init__()
+        self.rate = rate
+        self.f_range = f_range
+
+class SpectralScanServiceMsg(RadioService):
+    def __init__(self, samples):
+        super().__init__()
+        self.samples = samples
