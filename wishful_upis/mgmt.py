@@ -80,6 +80,26 @@ class ControllerConnectionCompletedEvent(EventBase):
         self.msg = msg
 
 
+class NewNodeDiscoveredEvent(EventBase):
+    def __init__(self, cmdDesc, msg):
+        super().__init__()
+        self.cmdDesc = cmdDesc
+        self.msg = msg
+
+
+class NewNodeEvent(EventBase):
+    def __init__(self, node):
+        super().__init__()
+        self.node = node
+
+
+class NodeExitEvent(EventBase):
+    def __init__(self, node, reason):
+        super().__init__()
+        self.node = node
+        self.reason = reason
+
+
 class HelloTimeoutEvent(EventBase):
     def __init__(self):
         super().__init__()
