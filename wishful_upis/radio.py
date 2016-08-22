@@ -354,7 +354,8 @@ class SpectralScanService(RadioService):
         self.rate = rate
         self.f_range = f_range
 
-class SpectralScanServiceMsg(RadioService):
-    def __init__(self, samples):
+
+class SpectralScanSampleEvent(RadioEvent):
+    def __init__(self, sample):
         super().__init__()
-        self.samples = samples
+        self.sample = sample

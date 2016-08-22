@@ -66,6 +66,16 @@ class Mgmt(Upi):
         pass
 
 
+class AgentStartEvent(EventBase):
+    def __init__(self):
+        super().__init__()
+
+
+class AgentExitEvent(EventBase):
+    def __init__(self):
+        super().__init__()
+
+
 class ControllerDiscoveredEvent(EventBase):
     def __init__(self, dlink, ulink):
         super().__init__()
@@ -73,11 +83,29 @@ class ControllerDiscoveredEvent(EventBase):
         self.ulink = ulink
 
 
-class ControllerConnectionCompletedEvent(EventBase):
+class ControllerConnectionResponseEvent(EventBase):
     def __init__(self, cmdDesc, msg):
         super().__init__()
         self.cmdDesc = cmdDesc
         self.msg = msg
+
+
+class ControllerConnectedEvent(EventBase):
+    def __init__(self, ctrUuid):
+        super().__init__()
+        self.ctrUuid = ctrUuid
+
+
+class ControllerDisconnectedEvent(EventBase):
+    def __init__(self, ctrUuid):
+        super().__init__()
+        self.ctrUuid = ctrUuid
+
+
+class ControllerLostEvent(EventBase):
+    def __init__(self, ctrUuid):
+        super().__init__()
+        self.ctrUuid = ctrUuid
 
 
 class NewNodeDiscoveredEvent(EventBase):
@@ -88,15 +116,19 @@ class NewNodeDiscoveredEvent(EventBase):
 
 
 class NewNodeEvent(EventBase):
-    def __init__(self, node):
+    def __init__(self):
         super().__init__()
-        self.node = node
 
 
 class NodeExitEvent(EventBase):
-    def __init__(self, node, reason):
+    def __init__(self, reason):
         super().__init__()
-        self.node = node
+        self.reason = reason
+
+
+class NodeLostEvent(EventBase):
+    def __init__(self, reason):
+        super().__init__()
         self.reason = reason
 
 
@@ -153,6 +185,12 @@ class CommandEvent(EventBase):
         self.cmdDesc = cmdDesc
         self.msg = msg
 
+class CtxCommandEvent(EventBase):
+    def __init__(self, ctx):
+        super().__init__()
+        self.ctx = ctx
+        self.responseQueue = None
+
 
 class ExceptionEvent(EventBase):
     def __init__(self, dest, cmdDesc, msg):
@@ -168,3 +206,10 @@ class ReturnValueEvent(EventBase):
         self.dest = dest
         self.cmdDesc = cmdDesc
         self.msg = msg
+
+
+class TimeEvent(EventBase):
+    """docstring for TimeEvent"""
+
+    def __init__(self):
+        super().__init__()
