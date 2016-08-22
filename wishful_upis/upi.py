@@ -37,7 +37,12 @@ class FunctionBase(object):
 
 
 class EventBase(object):
-    # event cannot be parametrized, user may only start it once
+    """ event cannot be parametrized, user may only start it once"""
+
+    def __init__(self):
+        super().__init__()
+        self.node = None
+        self.device = None
     pass
 
 
