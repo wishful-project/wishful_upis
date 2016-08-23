@@ -185,20 +185,12 @@ class CommandEvent(EventBase):
         self.cmdDesc = cmdDesc
         self.msg = msg
 
-class CtxCommandEvent(EventBase):
-    def __init__(self, ctx):
-        super().__init__()
-        self.ctx = ctx
-        self.responseQueue = None
-
-
 class ExceptionEvent(EventBase):
     def __init__(self, dest, cmdDesc, msg):
         super().__init__()
         self.dest = dest
         self.cmdDesc = cmdDesc
         self.msg = msg
-
 
 class ReturnValueEvent(EventBase):
     def __init__(self, dest, cmdDesc, msg):
@@ -207,6 +199,17 @@ class ReturnValueEvent(EventBase):
         self.cmdDesc = cmdDesc
         self.msg = msg
 
+class CtxCommandEvent(EventBase):
+    def __init__(self, ctx):
+        super().__init__()
+        self.ctx = ctx
+        self.responseQueue = None
+
+class CtxReturnValueEvent(EventBase):
+    def __init__(self, ctx, msg):
+        super().__init__()
+        self.ctx = ctx
+        self.msg = msg
 
 class TimeEvent(EventBase):
     """docstring for TimeEvent"""
