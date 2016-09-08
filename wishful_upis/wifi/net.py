@@ -12,10 +12,35 @@ __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
 
 ''' Upper MAC layer '''
-def connect_to_network(iface, **kwargs):
+def set_hostapd_conf(iface, file_path, channel, essid):
+    '''Set hostapd configuration, provide functionality to setting Access Point station
+    '''
+    pass
+
+
+def start_hostapd(file_path):
+    '''Start hostapd, provide functionality to run Access Point
+    '''
+    pass
+
+
+def stop_hostapd():
+    '''Stop hostapd, provide functionality to stop Access Point
+    '''
+    pass
+
+
+def connect_to_network(iface, ssid):
     '''Connects a given interface to some network
 
     e.g. WiFi network identified by SSID.
+    '''
+    return
+
+
+def network_dump(iface):
+    '''Return the connection information a given interface to some network
+
     '''
     return
 

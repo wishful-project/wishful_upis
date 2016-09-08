@@ -163,6 +163,10 @@ def get_iface_hw_addr(iface):
     '''
     return
 
+def set_ip_address(iface, ip_address):
+    '''Set ip address of the station
+    '''
+    pass
 
 def get_iface_ip_addr(iface):
     '''Returns the IP address of a given interface.

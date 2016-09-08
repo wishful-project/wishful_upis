@@ -61,6 +61,12 @@ def get_channel():
     pass
 
 
+def set_modulation_rate(rate_Mbps):
+    '''Set rate modulation
+    '''
+    pass
+
+
 def configure_radio_sensitivity(phy_dev, **kwargs):
     '''Configuring the receiving sensitivity of the IEEE 802.11 radio.
     '''

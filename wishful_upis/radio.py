@@ -24,6 +24,7 @@ PARAMETERS = [
 ]
 
 
+
 # Generic API to control the lower layers, i.e. key-value configuration.
 def set_parameters(param_key_values_dict):
     """The UPI_R interface is able to configure the radio and MAC behavior by changing parameters.
@@ -218,9 +219,9 @@ def get_running_radio_program():
         .. code-block:: python
 
             >> args = {'interface' : 'wlan0'}
-            >> result = UPI_RN.getActive(args)
+            >> result = control_engine.radio.iface("wlan0").getActive(args)
             >> print result
-            2
+            CSMA
 
     Args:
         myargs:
@@ -228,7 +229,7 @@ def get_running_radio_program():
             The key "interface" specify the network interface to use.
 
     Returns:
-        the index of the active radio program
+        the name of the active radio program
     """
     return
 
@@ -246,8 +247,9 @@ def stop_waveform(iface, **kwargs):
     '''
     pass
 
-
-def set_tx_power(power_dBm):
+#to rename when will be updated the wifi module
+#def set_tx_power(power_dBm):
+def set_power(power_dBm):
     '''func desc
 
     Args:
@@ -255,12 +257,12 @@ def set_tx_power(power_dBm):
     '''
     pass
 
-
-def get_tx_power():
+#to rename when will be updated the wifi module
+#def get_tx_power():
+def get_power():
     '''func desc
     '''
     pass
-
 
 def get_noise():
     '''Returns the noise floor measured by the wireless driver.
@@ -280,16 +282,69 @@ def stop_csi_measurements():
     pass
 
 
-def get_radio_info():
-    '''func desc
-    '''
-    pass
-
-
 def get_radio_platforms():
-    '''func desc
-    '''
-    pass
+    """ Gets available radio platforms. The information elements used by the UPI_R
+    interface, to manage parameters, measurements and radio program, are organized into data structures,
+    which provide information on the platform type and radio capabilities.
+    When executed, this function return information about available interfaces on node, the name or the identifier
+    of the interface and the supported platform type.
+
+    Example:
+        .. code-block:: python
+
+            >> radio_platform_list = radio_platform_t()\n
+            >> current_NIC_list_string = control_engine.radio.iface("wlan0").get_radio_platforms()\n
+            >> current_NIC_list.platform_info =  current_NIC_list_string[0]\n
+            >> current_NIC_list.platform =  current_NIC_list_string[1]\n
+
+    Args:
+
+    Returns:
+        current_NIC_list:
+            a list of pair value, the first value is the interface identifier and the second is the supported platforms.
+    """
+    return
+
+
+def get_radio_info(platform_id):
+    """Gets the radio capabilities of a given network card radio_platform_t in terms of supported measurement and supported
+    parameter and list of supported radio program. The information elements used by the UPI_R interface, to manage
+    parameters, measurements and radio program, are organized into data structures, which provide information
+    on the platform type and radio capabilities. When executed, this function return information about available
+    radio capabilities (measurements and parameters) of each interface (radio_platform_t) on the available radio programs
+    (radio_prg_t) available for transmissions over the radio interface.
+
+    Example:
+        .. code-block:: python
+
+            >> current_platform_info = radio_info_t()\n
+            >> current_platform_info_str = control_engine.radio.iface("wlan0").getRadioInfo(platform_id)\n
+            >> current_platform_info.platform_info.platform_id = current_platform_info_str['radio_info'][0]\n
+            >> current_platform_info.platform_info.platform = current_platform_info_str['radio_info'][1]\n
+            >> current_platform_info.monitor_list = current_platform_info_str['monitor_list']\n
+            >> current_platform_info.param_list = current_platform_info_str['param_list']\n
+            >> current_platform_info.execution_engine_list_name = current_platform_info_str['exec_engine_list_name']\n
+            >> current_platform_info.execution_engine_list_pointer = current_platform_info_str['exec_engine_list_pointer']\n
+            >> current_platform_info.radio_program_list_name = current_platform_info_str['radio_prg_list_name']\n
+            >> current_platform_info.radio_program_list_path = current_platform_info_str['radio_prg_list_pointer']\n
+
+
+    Args:
+     interface:
+        network interfaces to use
+
+    :Returns
+        result:
+            return a list in term of a dictionary data type (list of key: value). in which are present the key showed below:\n
+            'radio_info' --> a list of pair value, the first value is the interface identifier and the second is the supported platforms.\n
+            'monitor_list' --> a list of supported measurements between the attribute of the class UPI_R\n
+            'param_list' --> a list of supported Parameters between the attribute of the class UPI_R\n
+            'exec_engine_list_name' --> a list of supported execution environment name\n
+            'exec_engine_list_pointer' --> a list of supported execution environment path\n
+            'radio_prg_list_name'--> a list of supported radio program name\n
+            'radio_prg_list_pointer' --> a list of supported radio program path\n
+    """
+    return
 
 
 def set_rxchannel(freq_Hz, bandwidth):
