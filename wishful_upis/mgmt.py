@@ -86,13 +86,13 @@ class ControllerDiscoveredEvent(EventBase):
 
 
 class ControllerConnectedEvent(EventBase):
-    def __init__(self, ctrUuid):
+    def __init__(self, ctrUuid=None):
         super().__init__()
         self.ctrUuid = ctrUuid
 
 
 class ControllerDisconnectedEvent(EventBase):
-    def __init__(self, ctrUuid):
+    def __init__(self, ctrUuid=None):
         super().__init__()
         self.ctrUuid = ctrUuid
 
