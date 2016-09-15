@@ -359,3 +359,11 @@ class SpectralScanSampleEvent(RadioEvent):
     def __init__(self, sample):
         super().__init__()
         self.sample = sample
+
+    def serialize(self):
+        return {"sample": self.sample}
+
+    @classmethod
+    def parse(cls, buf):
+        sample = buf.get("sample", None)
+        return cls(sample)
