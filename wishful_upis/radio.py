@@ -248,8 +248,7 @@ def stop_waveform(iface, **kwargs):
     pass
 
 #to rename when will be updated the wifi module
-#def set_tx_power(power_dBm):
-def set_power(power_dBm):
+def set_tx_power(power_dBm):
     '''func desc
 
     Args:
@@ -258,8 +257,7 @@ def set_power(power_dBm):
     pass
 
 #to rename when will be updated the wifi module
-#def get_tx_power():
-def get_power():
+def get_tx_power():
     '''func desc
     '''
     pass
