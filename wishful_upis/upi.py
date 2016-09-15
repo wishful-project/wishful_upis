@@ -43,6 +43,7 @@ class EventBase(object):
         super().__init__()
         self.node = None
         self.device = None
+        self.destNode = None
     pass
 
 

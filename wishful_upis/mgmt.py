@@ -141,13 +141,15 @@ class ExceptionEvent(EventBase):
 class CtxCommandEvent(EventBase):
     def __init__(self, ctx):
         super().__init__()
+        self.dest = None
         self.ctx = ctx
         self.responseQueue = None
 
 
 class CtxReturnValueEvent(EventBase):
-    def __init__(self, ctx, msg):
+    def __init__(self, dest, ctx, msg):
         super().__init__()
+        self.dest = dest
         self.ctx = ctx
         self.msg = msg
 
