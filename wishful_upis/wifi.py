@@ -1,6 +1,8 @@
 from .net import Network
 from .radio import Radio
 from .net_func import NetFun
+from .net_func import TriggerHandoverRequestEvent
+from .net_func import NetFunEvent
 
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
@@ -309,29 +311,44 @@ class WifiNet(Network):
 
 
 '''
-    The protocol-specific definition of WiSHFUL global control
-    interface, UPI_G, for performing network-wide operations
+    The protocol-specific global events for performing network-wide operations
     which go beyond just remote UPI_R/N calls
 
     IEEE 802.11 protocol family
 '''
 
+class WiFiTriggerHandoverRequestEvent(TriggerHandoverRequestEvent):
+    '''
+    Event to trigger a WiFi handover operation. Only supported in infrastructure mode.
+    '''
+    def __init__(self, sta_mac_addr, sta_ip, wlan_iface, wlan_inject_iface, network_bssid, serving_AP, serving_AP_ip,
+                 serving_channel, target_AP, target_AP_ip, target_channel, gateway, ho_scheme):
+        super().__init__(sta_mac_addr, serving_AP, target_AP, gateway)
+        self.sta_ip = sta_ip
+        self.wlan_iface = wlan_iface
+        self.wlan_inject_iface = wlan_inject_iface
+        self.network_bssid = network_bssid
+        self.servingAP_ip = serving_AP_ip
+        self.servingChannel = serving_channel
+        self.targetAP_ip = target_AP_ip
+        self.targetChannel = target_channel
+        self.ho_scheme = ho_scheme
 
-class WifiNetFun(NetFun):
-    def perform_handover(self, interface, servingNode, targetNode, device_mac_addr, **kwargs):
-        '''Performing an handover operation.
+class WiFiGetServingAPRequestEvent(NetFunEvent):
+    '''
+    Event to find out the access point serving a particular client station. Only supported in infrastructure mode.
+    '''
+    def __init__(self, sta_mac_addr, wifi_intf):
+        super().__init__()
+        self.sta_mac_addr = sta_mac_addr
+        self.wifi_intf = wifi_intf
 
-        Note: this is not supported on any wireless technology.
-
-        - 802.11 - in infrastructure mode an STA can be handovered; not supported in 802.11 adhoc
-        '''
-        pass
-
-    def is_associated_with(self, nodes, interface, device_mac_addr):
-        '''Estimate the AP/BS with which a given device is associated.
-
-        Note: this is not supported on any wireless technology.
-
-        - enabled on 802.11 infrastructure mode
-        '''
-        pass
+class WiFiGetServingAPReplyEvent(NetFunEvent):
+    '''
+    Event containing the UUID of the AP serving the client station.
+    '''
+    def __init__(self, sta_mac_addr, wifi_intf, ap_uuid):
+        super().__init__()
+        self.sta_mac_addr = sta_mac_addr
+        self.wifi_intf = wifi_intf
+        self.ap_uuid = ap_uuid

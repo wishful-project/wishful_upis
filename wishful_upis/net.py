@@ -1,4 +1,5 @@
 from .upi import Upi
+from .upi import EventBase
 
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
@@ -194,3 +195,9 @@ class Network(Upi):
         """Func Desc
         """
         return
+
+class NetEvent(EventBase):
+    def __init__(self):
+        super().__init__()
+        pass
+
