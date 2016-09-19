@@ -343,12 +343,69 @@ class WiFiGetServingAPRequestEvent(NetFunEvent):
         self.sta_mac_addr = sta_mac_addr
         self.wifi_intf = wifi_intf
 
-class WiFiGetServingAPReplyEvent(NetFunEvent):
+class WiFiGetServingAPReplyEvent(WiFiGetServingAPRequestEvent):
     '''
     Event containing the UUID of the AP serving the client station.
     '''
     def __init__(self, sta_mac_addr, wifi_intf, ap_uuid):
-        super().__init__()
-        self.sta_mac_addr = sta_mac_addr
-        self.wifi_intf = wifi_intf
+        super().__init__(sta_mac_addr, wifi_intf)
         self.ap_uuid = ap_uuid
+
+class WiFiTestTwoNodesInCSRangeRequestEvent(NetFunEvent):
+    '''
+    Event to test whether two nodes are in carrier sensing range or not.
+    '''
+    def __init__(self, node1, node2, mon_dev, TAU):
+        super().__init__()
+        self.node1 = node1
+        self.node2 = node2
+        self.mon_dev = mon_dev
+        self.TAU = TAU
+
+class WiFiTestTwoNodesInCSRangeReplyEvent(WiFiTestTwoNodesInCSRangeRequestEvent):
+    '''
+    Event containing information about whether two nodes are in carrier sensing range or not.
+    '''
+    def __init__(self, node1, node2, mon_dev, TAU, in_cs):
+        super().__init__(node1, node2, mon_dev, TAU)
+        self.in_cs = in_cs
+
+
+class WiFiGetNodesInCSRangeRequestEvent(NetFunEvent):
+    '''
+    Event to check each nodes pairs whether it is in carrier sensing range or not.
+    '''
+    def __init__(self, mon_dev, TAU):
+        super().__init__()
+        self.mon_dev = mon_dev
+        self.TAU = TAU
+
+
+class WiFiTestTwoNodesInCommRangeRequestEvent(NetFunEvent):
+    '''
+    Event to test whether two nodes are in communication range or not.
+    '''
+    def __init__(self, node1, node2, mon_dev, MINPDR):
+        super().__init__()
+        self.node1 = node1
+        self.node2 = node2
+        self.mon_dev = mon_dev
+        self.MINPDR = MINPDR
+
+class WiFiTestTwoNodesInCommRangeReplyEvent(WiFiTestTwoNodesInCommRangeRequestEvent):
+    '''
+    Event containing information about whether two nodes are in communication range or not.
+    '''
+    def __init__(self, node1, node2, mon_dev, MINPDR, in_comm):
+        super().__init__(node1, node2, mon_dev, MINPDR)
+        self.in_comm = in_comm
+
+
+class WiFiGetNodesInCommRangeRequestEvent(NetFunEvent):
+    '''
+    Event to check each nodes pairs whether it is in communication range or not.
+    '''
+    def __init__(self, mon_dev, MINPDR):
+        super().__init__()
+        self.mon_dev = mon_dev
+        self.TAU = MINPDR
