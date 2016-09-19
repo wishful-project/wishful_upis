@@ -1,6 +1,5 @@
 from .net import Network
 from .radio import Radio
-from .net_func import NetFun
 from .net_func import TriggerHandoverRequestEvent
 from .net_func import NetFunEvent
 

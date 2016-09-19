@@ -1,6 +1,5 @@
 from .net import Network
 from .radio import Radio
-from .net_func import NetFun
 
 __author__ = "Piotr Gawlowicz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
@@ -27,8 +26,4 @@ class ZigBeeRadio(Radio):
 
 
 class ZigBeeNet(Network):
-    pass
-
-
-class ZigBeeNetFun(NetFun):
     pass

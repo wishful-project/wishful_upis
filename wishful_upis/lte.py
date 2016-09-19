@@ -1,6 +1,5 @@
 from .net import Network
 from .radio import Radio
-from .net_func import NetFun
 
 __author__ = "Piotr Gawlowicz, Zubow"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
@@ -27,5 +26,3 @@ class LteNet(Network):
     pass
 
 
-class LteNetFun(NetFun):
-    pass

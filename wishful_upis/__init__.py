@@ -38,4 +38,4 @@ copy_functions_from_class_to_module(zigbee)
 
 copy_functions_from_subclasses_to_module(radio, radio.Radio)
 copy_functions_from_subclasses_to_module(net, net.Network)
-copy_functions_from_subclasses_to_module(net_func, net_func.NetFun)
+
