@@ -239,7 +239,7 @@ class Radio(Upi):
         pass
 
 
-    def set_power(self, power_dBm):
+    def set_power(self, power_dBm, iface):
         '''func desc
 
         todo: rename in txpower
@@ -247,7 +247,7 @@ class Radio(Upi):
         pass
 
 
-    def get_power(self):
+    def get_power(self, iface):
         '''func desc
 
         todo: rename in txpower

@@ -42,7 +42,7 @@ class WifiRadio(Radio):
         '''
         pass
 
-    def set_channel(self, channel):
+    def set_channel(self, channel, iface):
         '''Set channel, i.e. center frequency of the primary band.
 
         Args:
@@ -50,7 +50,7 @@ class WifiRadio(Radio):
         '''
         pass
 
-    def get_channel(self):
+    def get_channel(self, iface):
         '''Get channel, i.e. center frequency of the primary band.
         '''
         pass
@@ -172,7 +172,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_info_of_connected_devices(self):
+    def get_info_of_connected_devices(self, iface):
         '''Returns information about associated devices
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -180,7 +180,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_inactivity_time_of_connected_devices(self):
+    def get_inactivity_time_of_connected_devices(self, iface):
         '''Returns information about associated devices - inactivity time
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -188,7 +188,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_avg_sigpower_of_connected_devices(self):
+    def get_avg_sigpower_of_connected_devices(self, iface):
         '''Returns information about associated devices - link average signal power
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -196,7 +196,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_sigpower_of_connected_devices(self):
+    def get_sigpower_of_connected_devices(self, iface):
         '''Returns information about associated devices - link signal power
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -204,7 +204,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_tx_retries_of_connected_devices(self):
+    def get_tx_retries_of_connected_devices(self, iface):
         '''Returns information about associated devices - tx retries
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -212,7 +212,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_tx_packets_of_connected_devices(self):
+    def get_tx_packets_of_connected_devices(self, iface):
         '''Returns information about associated devices - tx packets
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -220,7 +220,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_tx_failed_of_connected_devices(self):
+    def get_tx_failed_of_connected_devices(self, iface):
         '''Returns information about associated devices - tx failed
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -228,7 +228,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_tx_bytes_of_connected_devices(self):
+    def get_tx_bytes_of_connected_devices(self, iface):
         '''Returns information about associated devices - tx bytes
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -236,7 +236,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_tx_bitrate_of_connected_devices(self):
+    def get_tx_bitrate_of_connected_devices(self, iface):
         '''Returns information about associated devices - tx bitrate
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -244,7 +244,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_rx_bytes_of_connected_devices(self):
+    def get_rx_bytes_of_connected_devices(self, iface):
         '''Returns information about associated devices - rx bytes
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -252,7 +252,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_rx_packets_of_connected_devices(self):
+    def get_rx_packets_of_connected_devices(self, iface):
         '''Returns information about associated devices - rx packets
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -260,7 +260,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_authorized_connected_device(self):
+    def get_authorized_connected_device(self, iface):
         '''Returns information about associated devices - is authorized
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -268,7 +268,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_authenticated_connected_device(self):
+    def get_authenticated_connected_device(self, iface):
         '''Returns information about associated devices - is authenticated
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -276,7 +276,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_used_preamble_connected_device(self):
+    def get_used_preamble_connected_device(self, iface):
         '''Returns information about associated devices - preamble used
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -284,7 +284,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_mfp_connected_device(self):
+    def get_mfp_connected_device(self, iface):
         '''Returns information about associated devices - MFP
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -292,7 +292,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_wmm_wme_connected_device(self):
+    def get_wmm_wme_connected_device(self, iface):
         '''Returns information about associated devices - WMM/WME
 
         - 802.11 AP: info about the associated client devices of that AP.
@@ -300,7 +300,7 @@ class WifiNet(Network):
         '''
         return
 
-    def get_tdls_peer_connected_device(self):
+    def get_tdls_peer_connected_device(self, iface):
         '''Returns information about associated devices - TDLS peer
 
         - 802.11 AP: info about the associated client devices of that AP.
