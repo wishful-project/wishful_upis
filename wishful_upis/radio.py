@@ -362,6 +362,18 @@ class Radio(Upi):
         '''
         pass
 
+    def is_connected(self, interfaceName):
+        '''
+        Check if interface is in connected state
+        '''
+        pass
+
+    def disconnect(self, interfaceName):
+        '''
+        Disconnect interface
+        '''
+        pass
+
 
 # Events
 class RadioEvent(EventBase):
@@ -376,13 +388,26 @@ class PacketLossEvent(RadioEvent):
         pass
 
 
+class RssiSampleEvent(RadioEvent):
+    def __init__(self, ta, rssi):
+        super().__init__()
+        self.ta = ta
+        self.rssi = rssi
+
+
+# Services
 class RadioService(ServiceBase):
     def __init__(self):
         super().__init__()
         pass
 
 
-# Services
+class RssiService(RadioService):
+    def __init__(self, iface):
+        super().__init__()
+        self.iface = iface
+
+
 class SpectralScanService(RadioService):
     def __init__(self, rate, f_range):
         super().__init__()
