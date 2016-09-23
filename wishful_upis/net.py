@@ -1,10 +1,10 @@
 from .upi import Upi
 from .upi import EventBase
 
-__author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Zubow"
+__author__ = "Piotr Gawlowicz, Anatolij Zubow, Mikolaj Chwalisz"
 __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"
-__email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
+__email__ = "{gawlowicz, zubow, chwalisz}@tkn.tu-berlin.de"
 
 '''
     The WiSHFUL network control interface, UPI_N, for configuration/monitoring of the higher
@@ -36,31 +36,13 @@ class Network(Upi):
 
     ''' App layer - set-up of packet flows '''
 
-    def create_packetflow_sink(self, port):
-        '''Start IPerf server (TCP/IP)
+    def install_application(self, app_desc):
+        '''
+        Install application in node. Possible applications are IperfClient and IperfServer.
         '''
         return
 
-
-    def destroy_packetflow_sink(self):
-        '''Stop IPerf server.
-        '''
-        return
-
-
-    def start_packetflow(self, dest_ip, port = 5001):
-        '''Start IPerf client.
-        '''
-        return
-
-
-    def stop_packetflow(self):
-        '''Stop IPerf client.
-        '''
-        return
-
-
-    # Net layer
+    ''' Network layer - routing, networking, etc. '''
 
     def get_iface_hw_addr(self, iface):
         '''Returns the hardware address (MAC address) of a given interface.
@@ -196,6 +178,123 @@ class Network(Upi):
         """
         return
 
+
+"""
+Application classes:
+ (1) iperf
+"""
+
+class Application(object):
+    def __init__(self):
+        # do not include logging here, beacuse this cannot be pickled
+        self.startTime = 0
+        self.type = None
+        self.resultReportInterval = None
+        self.port = 5001
+        self.protocol = "TCP"
+        self.tcpWindow = None
+
+        self.results = []
+        self.newResult = False
+
+    def setStartTime(self, value):
+        self.startTime = value
+
+    def setProtocol(self, protocol):
+        self.protocol = protocol
+
+    def setPort(self, port):
+        self.port = port
+
+    def collectResults(self, result):
+        self.results.append(result)
+        self.newResult = True
+
+    def isNewResult(self):
+        return self.newResult
+
+    def getResult(self):
+        retValue = self.results[0]
+        del self.results[0]
+        return retValue
+
+class ServerApplication(Application):
+    def __init__(self):
+        super(ServerApplication, self).__init__()
+        self.type = "Server"
+        self.bind = None
+
+    def setBind(self, bind):
+        self.bind = bind
+
+
+class ClientApplication(Application):
+    def __init__(self):
+        super(ClientApplication, self).__init__()
+        self.type = "Client"
+        self.destination = None
+        self.udpBandwidth = "1M"
+        self.dualtest = False
+        self.dataToSend = None
+        self.transmissionTime = None
+        self.frameLen = None
+
+    def setDestination(self, dest):
+        self.destination = dest
+
+    def setBandwidth(self, band):
+        self.udpBandwidth = band
+
+    def setDualTest(self, value):
+        self.dualtest = value
+
+    def setDataSize(self, value):
+        self.dataToSend = value
+
+    def setTransmissionTime(self, value):
+        self.transmissionTime = value
+
+    def setFrameLen(self, value):
+        self.frameLen = value
+
+
+class RawperfClientApplication(Application):
+    def __init__(self):
+        super(RawperfClientApplication, self).__init__()
+        self.type = "RawperfClient"
+        self.destination = None
+        self.udpBandwidth = "1M"
+        self.dualtest = False
+        self.dataToSend = None
+        self.transmissionTime = None
+        self.frameLen = None
+        self.waitTime = 1
+
+    def setWaitTime(self, value):
+        self.waitTime = value
+
+    def setDestination(self, dest):
+        self.destination = dest
+        pass
+    def setBandwidth(self, band):
+        self.udpBandwidth = band
+
+    def setDualTest(self, value):
+        self.dualtest = value
+
+    def setDataSize(self, value):
+        self.dataToSend = value
+
+    def setTransmissionTime(self, value):
+        self.transmissionTime = value
+
+    def setFrameLen(self, value):
+        self.frameLen = value
+
+
+'''
+    List of events
+'''
 class NetEvent(EventBase):
     def __init__(self):
         super().__init__()
