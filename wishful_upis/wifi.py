@@ -10,24 +10,29 @@ __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
 
 '''
-    The protocol-specific definition of the WiSHFUL radio control interface, UPI_R, for configuration/monitoring of the
-    lower layers of the network protocol stack (lower MAC and PHY).
+The protocol-specific definition of the WiSHFUL radio control
+interface, UPI_R, for configuration/monitoring of the
+lower layers of the network protocol stack (lower MAC and PHY).
 
-    IEEE 802.11 protocol family
+IEEE 802.11 protocol family
 '''
+
 
 class WifiRadio(Radio):
 
     def set_mac_access_parameters(self, queueId, qParam):
-        '''MAC access parameters in 802.11e: the configuration of the access categories
+        '''
+        MAC access parameters in 802.11e: the configuration
+        of the access categories
         '''
         pass
 
     def get_mac_access_parameters(self, queueId):
-        '''MAC access parameters: in 802.11e: the configuration of the access categories
+        '''
+        MAC access parameters: in 802.11e:
+        the configuration of the access categories
         '''
         pass
-
 
     def get_airtime_utilization(self):
         '''Returns the relative time the spectrum is empty.
@@ -63,7 +68,9 @@ class WifiRadio(Radio):
     ''' Per flow transmit power control '''
 
     def set_per_flow_tx_power(self, flowId, txPower):
-        """Sets for a flow identified by an 5-tuple (IP header) the transmit power to be used.
+        """
+        Sets for a flow identified by an 5-tuple
+        (IP header) the transmit power to be used.
         """
         return
 
@@ -110,6 +117,8 @@ class WifiRadio(Radio):
         '''Receives PSD samples from the ath9k driver.
         '''
         pass
+
+
 '''
     The protocol-specific definition of the WiSHFUL network control interface,
     UPI_N, for configuration/monitoring of the higher
@@ -164,7 +173,9 @@ class WifiNet(Network):
         '''
         return
 
-    def trigger_channel_switch_in_device(self, iface, device_mac_addr, target_channel, serving_channel, **kwargs):
+    def trigger_channel_switch_in_device(self, iface,
+                                         device_mac_addr, target_channel,
+                                         serving_channel, **kwargs):
         '''Trigger a channel switch in the device connected to this node
 
         - 802.11 AP: send channel switch announcement to client STA,
@@ -315,6 +326,7 @@ class WifiNet(Network):
 
     IEEE 802.11 protocol family
 '''
+
 
 class WiFiTriggerHandoverRequestEvent(TriggerHandoverRequestEvent):
     '''
