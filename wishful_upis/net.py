@@ -182,6 +182,8 @@ class Network(Upi):
 """
 Application classes:
  (1) iperf
+
+ TODO: move me to app.py
 """
 
 class Application(object):
