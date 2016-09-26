@@ -20,7 +20,7 @@ IEEE 802.11 protocol family
 
 class WifiRadio(Radio):
 
-    def set_mac_access_parameters(self, queueId, qParam):
+    def set_mac_access_parameters(self, iface, queueId, qParam):
         '''
         MAC access parameters in 802.11e: the configuration
         of the access categories
@@ -67,14 +67,14 @@ class WifiRadio(Radio):
 
     ''' Per flow transmit power control '''
 
-    def set_per_flow_tx_power(self, flowId, txPower):
+    def set_per_flow_tx_power(self, iface, flowId, txPower):
         """
         Sets for a flow identified by an 5-tuple
         (IP header) the transmit power to be used.
         """
         return
 
-    def clean_per_flow_tx_power_table(self):
+    def clean_per_flow_tx_power_table(self, iface):
         """Remove any entries in the transmit power table.
         """
         return
@@ -84,7 +84,7 @@ class WifiRadio(Radio):
         """
         return
 
-    def get_per_flow_tx_power_table(self):
+    def get_per_flow_tx_power_table(self, iface):
         """Return the whole transmit power table.
         """
         return
