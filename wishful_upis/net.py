@@ -44,6 +44,12 @@ class Network(Upi):
 
     ''' Network layer - routing, networking, etc. '''
 
+    def get_ifaces(self):
+        '''Returns list of interface names, e.g. ['lo', 'ens33', 'lxcbr0', 'ovs-system'].
+        '''
+        return
+
+
     def get_iface_hw_addr(self, iface):
         '''Returns the hardware address (MAC address) of a given interface.
         '''
