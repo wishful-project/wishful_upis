@@ -1,84 +1,61 @@
-from .upi import Upi
-from .upi import EventBase
+from .lte.net_func import *
+from .wifi.net_func import *
+from .lowpan.net_func import *
 
-__author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Anatolij Zubow, Peter Ruckebusch, Domenico Garlisi"
-__copyright__ = "Copyright (c) 2016, Technische Universitat Berlin, iMinds, CNIT"
+
+__author__ = "Piotr Gawlowicz, Anatolij Zubow"
+__copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"
-__email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de, peter.ruckebusch@intec.ugent.be"
+__email__ = "{gawlowicz, zubow}@tkn.tu-berlin.de"
 
 '''The WiSHFUL global control interface, UPI_G.
 
 Used for performing network-wide operations which go beyond just remote
-UPI_R/N calls. Example are estimating the nodes in carrier sensing range, performing handover operation, ....
+UPI_R/N calls. Example are estimating the nodes in carrier sensing range.
 '''
 
 # Generic functionality which should be supported by most of the platforms.
 
-class NetFun(Upi):
-    def estimate_nodes_in_carrier_sensing_range(self, nodes, interface, **kwargs):
-        """Estimate which nodes are in carrier sensing range using UPIs.
+def estimate_nodes_in_carrier_sensing_range(nodes, interface, **kwargs):
+    """Estimate which nodes are in carrier sensing range using UPIs.
 
-        For a network with N nodes all combinations are evaluated, i.e. N over 2.
+    For a network with N nodes all combinations are evaluated, i.e. N over 2.
 
-        Note:
-           make sure that all nodes are time synchronized.
+    Note:
+       make sure that all nodes are time synchronized.
 
-        Returns:
-            list of tuples: In form of (node1, node2, True/False), where True/False if nodes are in
-            carrier sensing range
-        """
-        pass
-
-    def is_in_carrier_sensing_range(self, node1, node2, interface, **kwargs):
-        """Estimate whether two nodes are in carrier sensing range or not.
-
-        Note:
-            it is implemented differently on different platforms
-        """
-        pass
-
-    def estimate_nodes_in_communication_range(self, nodes, interface, **kwargs):
-        """Estimate which nodes are in communication range using UPIs.
-
-        For a network with N nodes all combinations are evaluated, i.e. N over 2.
-
-        Note:
-            make sure that all nodes are time synchronized.
-
-        Returns:
-            list of tuples: In form of (node1, node2, True/False), where True/False if nodes are in
-            communication range
-        """
-        pass
-
-    def is_in_communication_range(self, node1, node2, interface, **kwargs):
-        """Estimate whether two nodes are in communication range or not.
-        """
-        pass
+    Returns:
+        list of tuples: In form of (node1, node2, True/False), where True/False if nodes are in
+        carrier sensing range
+    """
+    pass
 
 
-class NetFunEvent(EventBase):
-    def __init__(self):
-        super().__init__()
-        pass
+def is_in_carrier_sensing_range(node1, node2, interface, **kwargs):
+    """Estimate whether two nodes are in carrier sensing range or not.
+
+    Note:
+        it is implemented differently on different platforms
+    """
+    pass
 
 
-class TriggerHandoverRequestEvent(NetFunEvent):
-    '''
-    Event to trigger a handover operation.
-    '''
-    def __init__(self, sta_id, serving_node, target_node, gateway):
-        super().__init__()
-        self.sta_id = sta_id
-        self.serving_node = serving_node
-        self.targetAP_node = target_node
-        self.gateway = gateway
+def estimate_nodes_in_communication_range(self, nodes, interface, **kwargs):
+    """Estimate which nodes are in communication range using UPIs.
+
+    For a network with N nodes all combinations are evaluated, i.e. N over 2.
+
+    Note:
+        make sure that all nodes are time synchronized.
+
+    Returns:
+        list of tuples: In form of (node1, node2, True/False), where True/False if nodes are in
+        communication range
+    """
+    pass
 
 
-class TriggerHandoverReplyEvent(NetFunEvent):
-    '''
-    Reply send after triggering handover operation.
-    '''
-    def __init__(self, success):
-        super().__init__()
-        self.success = success
+def is_in_communication_range(node1, node2, interface, **kwargs):
+    """Estimate whether two nodes are in communication range or not.
+    """
+    pass
