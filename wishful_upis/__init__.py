@@ -6,7 +6,7 @@ from . import context
 
 from . import lte
 from . import wifi
-from . import zigbee
+from . import lowpan
 
 # everything to the buttom is only for backward compatilibity,
 # to be removed in future
@@ -22,9 +22,9 @@ add_module_to_module(net, lte)
 add_module_to_module(radio, lte)
 add_module_to_module(net_func, lte)
 
-add_module_to_module(net, zigbee)
-add_module_to_module(radio, zigbee)
-add_module_to_module(net_func, zigbee)
+add_module_to_module(net, lowpan)
+add_module_to_module(radio, lowpan)
+add_module_to_module(net_func, lowpan)
 
 copy_functions_from_class_to_module(net)
 copy_functions_from_class_to_module(radio)
@@ -34,7 +34,7 @@ copy_functions_from_class_to_module(context)
 
 copy_functions_from_class_to_module(lte)
 copy_functions_from_class_to_module(wifi)
-copy_functions_from_class_to_module(zigbee)
+copy_functions_from_class_to_module(lowpan)
 
 copy_functions_from_subclasses_to_module(radio, radio.Radio)
 copy_functions_from_subclasses_to_module(net, net.Network)
