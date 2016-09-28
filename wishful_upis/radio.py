@@ -379,9 +379,15 @@ class Radio(Upi):
         '''
         pass
 
-    def set_regulatory_domain(self):
+    def set_regulatory_domain(self, new_domain):
         '''
         Sets the regulatory domain (for all interfaces)
+        '''
+        pass
+
+    def set_mac_address(self, iface, new_mac_addr):
+        '''
+        Sets a new MAC address on wireless interface
         '''
         pass
 

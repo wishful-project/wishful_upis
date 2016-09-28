@@ -157,6 +157,105 @@ class WifiRadio(Radio):
         pass
 
 
+    def set_power_management(self, iface, value):
+        '''
+        Sets power management
+        '''
+
+
+    def get_power_management(self, iface):
+        '''
+        Get power management
+        '''
+
+
+    def set_retry_short(self, iface, value):
+        '''
+        Sets retry short
+        '''
+
+
+    def get_retry_short(self, iface):
+        '''
+        Get retry short
+        '''
+
+
+    def set_retry_long(self, iface, value):
+        '''
+        Sets retry long
+        '''
+
+
+    def get_retry_long(self, iface):
+        '''
+        Get retry long
+        '''
+
+
+    def set_rts_threshold(self, iface, value):
+        '''
+        Sets RTS threshold
+        '''
+
+
+    def get_rts_threshold(self, iface):
+        '''
+        Get RTS threshold
+        '''
+
+
+    def set_fragmentation_threshold(self, iface, value):
+        '''
+        Sets framgmentation threshold
+        '''
+
+
+    def get_fragmentation_threshold(self, iface):
+        '''
+        Get framgmentation threshold
+        '''
+
+
+    def get_supported_modes(self, iface):
+        '''
+        Get supported WiFi modes
+        '''
+
+
+    def get_supported_swmodes(self, iface):
+        '''
+        Get supported WiFi software modes
+        '''
+
+
+    def get_rf_band_info(self, iface):
+        '''
+        Get info about supported RF bands
+        '''
+
+
+    def get_ciphers(self, iface):
+        '''
+        Get info about supported ciphers
+        '''
+
+
+    def get_supported_wifi_standards(self, iface):
+        '''
+        Get info about supported WiFi standards, i.e. 802.11a/n/g/ac/b
+        '''
+
+
+'''
+    UPIs to add:
+    ['new_interface', 'set_interface', 'new_key', 'start_ap', 'new_station', 'new_mpath', 'set_mesh_config',
+    'set_bss', 'authenticate', 'associate', 'deauthenticate', 'disassociate', 'join_ibss', 'join_mesh',
+    'remain_on_channel', 'set_tx_bitrate_mask', 'frame', 'frame_wait_cancel', 'set_wiphy_netns', 'set_channel',
+    'set_wds_peer', 'tdls_mgmt', 'tdls_oper', 'probe_client', 'set_noack_map', 'register_beacons', 'start_p2p_device',
+    'set_mcast_rate', 'connect', 'disconnect']
+'''
+
 """
 Base class for all MAC layers
 """
