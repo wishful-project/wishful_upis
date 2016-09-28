@@ -48,15 +48,29 @@ class WifiRadio(Radio):
         pass
 
     def set_channel(self, channel, iface):
-        '''Set channel, i.e. center frequency of the primary band.
+        '''
+        Set channel for given interface,
+        i.e. center frequency of the primary band.
 
         Args:
             channel: channel to set
+            iface: interface
         '''
         pass
 
     def get_channel(self, iface):
-        '''Get channel, i.e. center frequency of the primary band.
+        '''
+        Get channel of given interface,
+        i.e. center frequency of the primary band.
+
+        Args:
+            iface: interface
+        '''
+        pass
+
+    def set_modulation_rate(self, rate_Mbps):
+        '''
+        Set rate modulation
         '''
         pass
 
@@ -90,17 +104,20 @@ class WifiRadio(Radio):
         return
 
     def install_mac_processor(self, interface, mac_profile):
-        """Install new WiFi MAC Processor
+        """
+        Install new WiFi MAC Processor
         """
         return
 
     def update_mac_processor(self, interface, mac_profile):
-        '''func desc
+        '''
+        Update WiFi MAC Processor
         '''
         pass
 
     def uninstall_mac_processor(self, interface, mac_profile):
-        '''func desc
+        '''
+        Uninstall new WiFi MAC Processor
         '''
         pass
 
@@ -109,12 +126,14 @@ class WifiRadio(Radio):
     '''
 
     def receive_csi(self, runt):
-        '''Receives CSI samples from the ath9k driver.
+        '''
+        Receives CSI samples from the ath9k driver.
         '''
         pass
 
     def scan_psd(self, runt):
-        '''Receives PSD samples from the ath9k driver.
+        '''
+        Receives PSD samples from the ath9k driver.
         '''
         pass
 
@@ -126,12 +145,13 @@ class AbstractMAC(object):
     def __init__(self):
         pass
 
+
 """
 A hybrid TDMA CSMA MAC
 """
 class HybridTDMACSMAMac(AbstractMAC):
     def __init__(self, no_slots_in_superframe, slot_duration_ns):
-        super(HybridTDMACSMAMac,self).__init__()
+        super(HybridTDMACSMAMac, self).__init__()
         self.name = "hybridTDMACSMA"
         self.desc = "currently works only with patched ath9k"
         self.mNo_slots_in_superframe = no_slots_in_superframe
@@ -162,6 +182,7 @@ class HybridTDMACSMAMac(AbstractMAC):
         s = s + ']'
         return s
 
+
 """
 AccessPolicy for each slot
 """
@@ -188,7 +209,7 @@ class AccessPolicy(object):
             # convert ToS into tid
             tos = tosArgs[ii]
             skb_prio = tos & 30 >> 1
-            tid =skb_prio & 7
+            tid = skb_prio & 7
             tid_map = tid_map | 2**tid
 
         self.entries.append((dstHwAddr, tid_map))
@@ -215,10 +236,36 @@ class AccessPolicy(object):
 class WifiNet(Network):
     ''' Upper MAC layer '''
 
-    def connect_to_network(self, iface, **kwargs):
-        '''Connects a given interface to some network
+    def set_ap_conf(iface, config):
+        '''
+        Set hostapd configuration, provide functionality
+        to setting Access Point station
+        '''
+        pass
 
+    def start_ap(self):
+        '''
+        Start hostapd, provide functionality to run Access Point
+        '''
+        pass
+
+    def stop_ap(self):
+        '''
+        Stop hostapd, provide functionality to stop Access Point
+        '''
+        pass
+
+    def connect_to_network(self, iface, **kwargs):
+        '''
+        Connects a given interface to some network
         e.g. WiFi network identified by SSID.
+        '''
+        return
+
+    def network_dump(iface):
+        '''
+        Return the connection information a given
+        interface to some network
         '''
         return
 
@@ -414,8 +461,10 @@ class WifiNet(Network):
 
 class WiFiTriggerHandoverRequestEvent(TriggerHandoverRequestEvent):
     '''
-    Event to trigger a WiFi handover operation. Only supported in infrastructure mode.
+    Event to trigger a WiFi handover operation.
+    Only supported in infrastructure mode.
     '''
+
     def __init__(self, sta_mac_addr, sta_ip, wlan_iface, wlan_inject_iface, network_bssid, serving_AP, serving_AP_ip,
                  serving_channel, target_AP, target_AP_ip, target_channel, gateway, ho_scheme):
         super().__init__(sta_mac_addr, serving_AP, target_AP, gateway)
@@ -429,14 +478,19 @@ class WiFiTriggerHandoverRequestEvent(TriggerHandoverRequestEvent):
         self.targetChannel = target_channel
         self.ho_scheme = ho_scheme
 
+
 class WiFiGetServingAPRequestEvent(NetFunEvent):
     '''
-    Event to find out the access point serving a particular client station. Only supported in infrastructure mode.
+    Event to find out the access point serving
+    a particular client station. Only supported
+    in infrastructure mode.
     '''
+
     def __init__(self, sta_mac_addr, wifi_intf):
         super().__init__()
         self.sta_mac_addr = sta_mac_addr
         self.wifi_intf = wifi_intf
+
 
 class WiFiGetServingAPReplyEvent(WiFiGetServingAPRequestEvent):
     '''
@@ -445,6 +499,7 @@ class WiFiGetServingAPReplyEvent(WiFiGetServingAPRequestEvent):
     def __init__(self, sta_mac_addr, wifi_intf, ap_uuid):
         super().__init__(sta_mac_addr, wifi_intf)
         self.ap_uuid = ap_uuid
+
 
 class WiFiTestTwoNodesInCSRangeRequestEvent(NetFunEvent):
     '''
@@ -457,9 +512,11 @@ class WiFiTestTwoNodesInCSRangeRequestEvent(NetFunEvent):
         self.mon_dev = mon_dev
         self.TAU = TAU
 
+
 class WiFiTestTwoNodesInCSRangeReplyEvent(WiFiTestTwoNodesInCSRangeRequestEvent):
     '''
-    Event containing information about whether two nodes are in carrier sensing range or not.
+    Event containing information about whether two
+    nodes are in carrier sensing range or not.
     '''
     def __init__(self, node1, node2, mon_dev, TAU, in_cs):
         super().__init__(node1, node2, mon_dev, TAU)
@@ -468,7 +525,8 @@ class WiFiTestTwoNodesInCSRangeReplyEvent(WiFiTestTwoNodesInCSRangeRequestEvent)
 
 class WiFiGetNodesInCSRangeRequestEvent(NetFunEvent):
     '''
-    Event to check each nodes pairs whether it is in carrier sensing range or not.
+    Event to check each nodes pairs whether it is
+    in carrier sensing range or not.
     '''
     def __init__(self, mon_dev, TAU):
         super().__init__()
@@ -487,9 +545,11 @@ class WiFiTestTwoNodesInCommRangeRequestEvent(NetFunEvent):
         self.mon_dev = mon_dev
         self.MINPDR = MINPDR
 
+
 class WiFiTestTwoNodesInCommRangeReplyEvent(WiFiTestTwoNodesInCommRangeRequestEvent):
     '''
-    Event containing information about whether two nodes are in communication range or not.
+    Event containing information about whether two
+    nodes are in communication range or not.
     '''
     def __init__(self, node1, node2, mon_dev, MINPDR, in_comm):
         super().__init__(node1, node2, mon_dev, MINPDR)
@@ -498,7 +558,8 @@ class WiFiTestTwoNodesInCommRangeReplyEvent(WiFiTestTwoNodesInCommRangeRequestEv
 
 class WiFiGetNodesInCommRangeRequestEvent(NetFunEvent):
     '''
-    Event to check each nodes pairs whether it is in communication range or not.
+    Event to check each nodes pairs whether it is
+    in communication range or not.
     '''
     def __init__(self, mon_dev, MINPDR):
         super().__init__()

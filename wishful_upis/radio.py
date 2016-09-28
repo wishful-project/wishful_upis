@@ -19,189 +19,133 @@ supported by any wireless networking node (IEEE 802.11, LTE, ZigBee).
 
 
 class Radio(Upi):
-    def set_parameter_lower_layer(self, **kwargs):
+    def set_parameters(self, param_key_values):
         """
-        The UPI_R interface is able to configure the radio behavior.
-
-        Thanks to the abstraction of the hardware platform and
-        radio programs in terms of Radio Capabilities. A subset
-        of radio capabilities are the parameter.
-        Parameters correspond to the configuration registers of
-        the hardware platform and to the variables used in
-        the radio programs. This function (re)set the value(s) of
-        the Parameters Radio Capabilities specified in
-        the dictionary argument. The list of available parameters
-        is defined as attributes of the UPI_R class,
-        you can use the UPI_RN.getRadioInfo function to find the
-        platform supported parameters.
+        The UPI_R interface is able to configure the radio and MAC behavior
+        by changing parameters. Parameters correspond to the configuration
+        registers of the hardware platform and to the variables used in the
+        radio programs. This function (re)set the value(s) of the parameters
+        specified in the dictionary argument. The list of available parameters
+        supported by all platforms are defined in this module. Parameters
+        specific to a subgroup of platforms are defined in the corresponding
+        submodules. A list of supported parameters can be dynamically obtained
+        using the get_radio_info function.
 
         Examples:
             .. code-block:: python
 
-                >> args = {'interface' : 'wlan0',
-                           UPI_RN.CSMA_CW : 15,
-                           UPI_RN.CSMA_CW_MIN : 15,
-                           UPI_RN.CSMA_CW_MAX : 15}
-                >> result = UPI_RN.setParameterLowerLayer(args)
+                >> param_key_values = {CSMA_CW : 15, CSMA_CW_MIN : 15,
+                                       CSMA_CW_MAX : 15}
+                >> result = control_engine.radio.iface("wlan0").set_parameters(param_key_values)
                 >> print result
-                [0, 0, 0]
+                {CSMA_CW : 0, CSMA_CW_MIN : 0, CSMA_CW_MAX : 0}
 
         Args:
-            myargs:
-                list of parameters and values to set, in term of
-                a dictionary data type (list of key: value) in
-                which keys is the `interface` to specify network
-                interface to be uses and the desired UPI_R attribute,
-                and value is the value to set. An example of
-                argument dictionary data type is
-                ``{UPI_RN.CSMA_CW : 15, UPI_RN.CSMA_CW_MIN : 15,
-                UPI_RN.CSMA_CW_MAX : 15}``.
+            param_key_values (dict): dictionary containing the key (string)
+                value (any) pairs for each parameter.
+                An example is:
+                {CSMA_CW : 15, CSMA_CW_MIN : 15, CSMA_CW_MAX : 15}
 
         Returns:
-            0 if the parameter setting call was successfully performed,
-            1 partial success, 2 error.
+            dict: A dictionary containing key (string name) error
+                 (0 = success, 1=fail, +1=error code) pairs for each parameter.
         """
         return
 
-    def get_parameter_lower_layer(self, **kwargs):
+    def get_parameters(self, param_key_list):
         """
-        The UPI_R interface is able to configure the radio behavior.
-
-        Thanks to the abstraction of the hardware
-        platform and radio programs in terms of Radio Capabilities.
-        A subset of radio capabilities are the parameters.
-        Parameters correspond to the configuration registers of
-        the hardware platform and to the variables used in the
-        radio programs.
-        This function get the value(s) of the Parameters
-        Radio Capabilities specified in the dictionary argument.
-        The available parameters are defined as attributes of
-        the UPI_R clas, you can use the UPI_RN.getRadioInfo function
-        to find the platform supported parameters.
+        The UPI_R interface is able to obtain the current radio and MAC
+        configuration by getting parameter values. Parameters correspond
+        to the configuration registers of the hardware platform and to
+        the variables used in the radio programs. This function get(s)
+        the value(s) of the parameters specified in the list argument.
+        The list of available parameters supported by all platforms are
+        defined in this module. Parameters specific to a subgroup of
+        platforms are defined in the corresponding submodules. A list
+        of supported parameters can be dynamically obtained using the
+        get_radio_info function.
 
         Examples:
             .. code-block:: python
 
-                >> args = {'interface' : 'wlan0',
-                           'parameters' : [UPI_RN.CSMA_CW] }
-                >> result = UPI_RN.getParameterLowerLayer(args)
+                >> param_keys = [CSMA_CW,CSMA_CWMIN]
+                >> result = control_engine.radio.iface("wlan0").get_parameters(param_keys)
                 >> print result
-                {UPI_RN.CSMA_CW : 15}
+                {CSMA_CW : 15, CSMA_CWMIN : 15}
 
         Args:
-            myargs:
-                list of parameters, in term of a dictionary data type
-                (list of key: value) in which: the key is `parameters`
-                and the value is a list of UPI_R attributes for
-                parameters, the key in `interface` specify network
-                interface to be uses. An argument dictionary example is
-                ``{'interface' : 'wlan0', 'PARAMETERS' :
-                [UPI_RN.CSMA_CW, UPI_RN.CSMA_CW_MIN, UPI_RN.CSMA_CW_MAX]}``.
+            param_key_list (list): list of parameter names.
+                An example is:
+                [UPI_RN.CSMA_CW, UPI_RN.CSMA_CW_MIN, UPI_RN.CSMA_CW_MAX].
 
         Returns:
-            list of parameters and values:
-                in term of a dictionary data type (list
-                of key: value) in which the key is the UPI_R
-                class attribute, and value is the current setting
-                of the attribute. An example of argument
-                dictionary data type is
-                ``{UPI_RN.CSMA_CW : 15, UPI_RN.CSMA_CW_MIN : 15,
-                   UPI_RN.CSMA_CW_MAX : 15}``.
-        """
+            dict: A dictionary containing key (string name)
+                  and values of the requested parameters.
+         """
         return
 
-    def get_monitor(self, **kwargs):
+    def get_measurements(self, measurement_key_list):
         """
-        The UPI_R interface is able to get the radio measurements.
-
-        Thanks to the abstraction of the hardware platform
-        and radio programs in terms of Radio Capabilities.
-        A subset of radio capabilities are the low-level measurements.
-        The low-level measurements are continuously monitored
-        by the hardware platform and by the radio programs.
-        The measurement capabilities can be used to get information
-        and statistics about the state of the physical links
-        or the internal state of the node.
-
-        This function get the value(s) of the Measurements
-        Radio Capabilities specified in the dictionary
-        argument. The list of available measurements are
-        defined as attribute of the UPI_R class, you can use the
-        UPI_RN.getRadioInfo function to find the platform
-        supported measurements.
+        The UPI_R interface is able to get the radio measurements
+        in a pull based manner. The low-level measurements are
+        continuously monitored by the hardware platform and by
+        the radio programs. They can be used to get information
+        and statistics about the state of the physical links or
+        the internal state of the node. This function gets the
+        measurements specified in the list argument and returns
+        a dictionary with their values. The list of available
+        measurements supported by all platforms are defined in
+        this module. Measurements specific to a subgroup of
+        platforms are defined in the corresponding submodules.
+        A list of supported measurements can be dynamically
+        obtained using the get_radio_info function.
 
         Examples:
             .. code-block:: python
 
-                >> args = {'interface' : 'wlan0',
-                           'measurements' : [UPI_RN.NUM_FREEZING_COUNT] }
-                >> result = UPI_RN.getMonitor(args)
+                >> measurement_keys = [NUM_FREEZING_COUNT]
+                >> result = control_engine.radio.iface("wlan0").get_measurements(measurement_keys)
                 >> print result
                 {UPI_RN.NUM_FREEZING_COUNT : 150}
 
         Args:
-            myargs:
-                list of parameters, in term of a dictionary data type
-                (list of key: value) in which: the key is `measurements`
-                and the value is a list of UPI_R attributes for
-                measurements, the key in `interface` specify network
-                interface to be uses. An example of argument dictionary is
-                ``{"measurements" : [UPI_RN.NUM_FREEZING_COUNT,
-                    UPI_RN.TX_ACTIVITY]}``.
+            measurement_key_list (list): list of requested measurements.
+                An example is [NUM_FREEZING_COUNT, TX_ACTIVITY].
 
         Returns:
-            list of parameters and values:
-                in term of a dictionary data type (list
-                of key: value) in which the key are the UPI_R attributes for
-                measurements, and value is the reading of the measurement.
-                An example of argument dictionary data type is
-                ``{UPI_RN.NUM_FREEZING_COUNT : 150,
-                   UPI_RN.TX_ACTIVITY : 45670}``.
+            dict: A dictionary containing key (string name)
+                  and values of the requested measurements.
         """
         return
 
     # Activation and deactivation of radio programs.
 
-    def set_active(self, **kwargs):
+    def activate_radio_program(self, name):
         """
-        This function activates the passed radio program,
-        one the platform. When executed, this function stops the
-        current radio program and enables the execution of the
-        radio program specified in the parameter radioProgramName.
-        Two additional parameters can  be used, one of these is
-        required.The path of the radio program description is required.
-        The optionally parameter specify the index, in order to
-        associate an index to the radio
-        program.
+        This function activates the specified radio program.
+        When executed, this function stops the current radio
+        program and enables the execution of the radio program
+        specified in the parameter name.
 
         Examples:
             .. code-block:: python
 
-               >> args = {'interface' : 'wlan0',
-                          'radio_program_name' : 'CSMA',
-                          'path': './radio_program/csma.txt'}
-               >> result = UPI_RN.setActive(args)
+               >> result = control_engine.radio.iface("wlan0").activate_radio_program("CSMA")
                >> print result
                0
 
         Args:
-            myargs: a dictionary data type (key: value) where the
-            keys are: The key 'interface' specify the network
-            interface to use. The key 'radio_program_name'specify
-            the name of radio program. The key 'path' in which the
-            value specify the path of radio program description,
-            and 'position' in which the value specify the radio
-            program index associated.
+            name (str): String identifier of the radio program,
+                        (e.g. CSMA, TDMA, TSCH)
 
         Returns:
-            int:
-                - 0 if the parameter setting call was successfully performed
+            int: - 0 if the parameter setting call was successfully performed
                 - 1 partial success
                 - 2 error.
         """
         return
 
-    def set_inactive(self, **kwargs):
+    def deactivate_radio_program(self, name):
         """
         When executed, this function stops the radio program
         specified in the parameter radio_program_name.
@@ -209,17 +153,13 @@ class Radio(Upi):
         Examples:
             .. code-block:: python
 
-                >> args = {'interface' : 'wlan0',
-                           'radio_program_name' : 'CSMA'}
-                >> result = UPI_RN.setInactive(args)
+                >> result = control_engine.radio.iface("wlan0").deactivate_radio_program("CSMA")
                 >> print result
                 0
 
         Args:
-            myargs: a dictionary data type (key: value) where the
-            keys are: The key "interface" specify the network interface
-            to use and the key 'radio_program_name' in which the value
-            specify the name of radio program,
+            name (str): String identifier of the radio program
+                        (e.g. CSMA, TDMA, TSCH)
 
         Returns:
             int:
@@ -229,20 +169,21 @@ class Radio(Upi):
         """
         return
 
-    def get_active(self, **kwargs):
-        """Returns active radio program.
+    def get_running_radio_program(self):
+        """
+        Returns active radio program.
 
         Each radio program is associated with a name and an index.
-        When executed, this function return the index of
-        the radio program active.
+        When executed, this function return the index of the
+        radio program active.
 
         Examples:
             .. code-block:: python
 
                 >> args = {'interface' : 'wlan0'}
-                >> result = UPI_RN.getActive(args)
+                >> result = control_engine.radio.iface("wlan0").getActive(args)
                 >> print result
-                2
+                CSMA
 
         Args:
             myargs:
@@ -250,55 +191,113 @@ class Radio(Upi):
                 The key "interface" specify the network interface to use.
 
         Returns:
-            the index of the active radio program
+            the name of the active radio program
         """
         return
 
-    def add_program(self, **kwargs):
-        """Adds a new radio program to the nodes repository """
+    def get_radio_platforms(self):
+        """
+        Gets available radio platforms. The information elements used
+        by the UPI_R interface, to manage parameters, measurements
+        and radio program, are organized into data structures, which
+        provide information on the platform type and radio capabilities.
+        When executed, this function return information about available
+        interfaces on node, the name or the identifier of the interface
+        and the supported platform type.
+
+        Example:
+            .. code-block:: python
+
+                >> radio_platform_list = radio_platform_t()\n
+                >> nic_list = control_engine.radio.iface("wlan0").get_radio_platforms()
+                >> nic_list.platform_info =  nic_list[0]
+                >> nic_list.platform =  nic_list[1]
+
+        Args:
+
+        Returns:
+            current_NIC_list:
+                a list of pair value, the first value is the interface
+                identifier and the second is the supported platforms.
+        """
         return
 
-    def remove_program(self, **kwargs):
-        """Remove radio program from nodes repository """
-        return
+    def get_radio_info(self, platform_id):
+        """
+        Gets the radio capabilities of a given network card radio_platform_t
+        in terms of supported measurement and supported parameter and list
+        of supported radio program. The information elements used by the
+        UPI_R interface, to manage parameters, measurements and radio program,
+        are organized into data structures, which provide information
+        on the platform type and radio capabilities. When executed, this
+        function return information about available radio capabilities
+        (measurements and parameters) of each interface (radio_platform_t)
+        on the available radio programs (radio_prg_t) available for
+        transmissions over the radio interface.
 
-    def merge_programs(self, **kwargs):
-        """Merge the set of radio programs """
-        return
+        Example:
+            .. code-block:: python
 
-    def switch_program(self, target_program_name, **kwargs):
-        """Switch from one to another radio program """
+                >> platform_info = radio_info_t()
+                >> platform_info_str = control_engine.radio.iface("wlan0").getRadioInfo(platform_id)
+                >> platform_info.platform_info.platform_id = current_platform_info_str['radio_info'][0]
+                >> platform_info.platform_info.platform = current_platform_info_str['radio_info'][1]
+                >> platform_info.monitor_list = current_platform_info_str['monitor_list']
+                >> platform_info.param_list = current_platform_info_str['param_list']
+                >> platform_info.execution_engine_list_name = current_platform_info_str['exec_engine_list_name']
+                >> platform_info.execution_engine_list_pointer = current_platform_info_str['exec_engine_list_pointer']
+                >> platform_info.radio_program_list_name = current_platform_info_str['radio_prg_list_name']
+                >> platform_info.radio_program_list_path = current_platform_info_str['radio_prg_list_pointer']
+
+        Args:
+         interface:
+            network interfaces to use
+
+        :Returns
+            result:
+                return a list in term of a dictionary data type,
+                in which are present the key showed below:
+                'radio_info' --> a list of pair value, the first value is the
+                                 interface identifier and the second is the
+                                 supported platforms
+                'monitor_list' --> a list of supported measurements between
+                                   the attribute of the class UPI_R
+                'param_list' --> a list of supported Parameters between the
+                                 attribute of the class UPI_R
+                'exec_engine_list_name' --> a list of supported
+                                            execution_engine_list_pointer
+                                            environment name
+                'exec_engine_list_pointer' --> a list of supported execution
+                                               environment path
+                'radio_prg_list_name'--> a list of supported radio program name
+                'radio_prg_list_pointer' --> a list of supported radio
+                                             program path
+        """
         return
 
     ''' Transmission of radio waveform (no MAC) '''
 
     def play_waveform(self, iface, freq, power_lvl, **kwargs):
-        '''Starts transmitting a radio waveform (just PHY, no MAC).
+        '''
+        Starts transmitting a radio waveform (just PHY, no MAC).
         '''
         pass
 
     def stop_waveform(self, iface, **kwargs):
-        '''Stops transmitting a radio waveform.
+        '''
+        Stops transmitting a radio waveform.
         '''
         pass
 
-    def set_power(self, power_dBm, iface):
-        '''func desc
-
-        todo: rename in txpower
+    def set_tx_power(self, power_dBm, iface):
+        '''
+        Set transmission power for a give interface
         '''
         pass
 
-    def get_power(self, iface):
-        '''func desc
-
-        todo: rename in txpower
+    def get_tx_power(self, iface):
         '''
-        pass
-
-    def get_rssi(self):
-        '''
-
+        Get transmission power of given interface
         '''
         pass
 

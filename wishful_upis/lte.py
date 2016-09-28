@@ -24,5 +24,3 @@ class LteRadio(Radio):
 
 class LteNet(Network):
     pass
-
-

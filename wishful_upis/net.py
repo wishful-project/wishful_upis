@@ -7,24 +7,52 @@ __version__ = "0.1.0"
 __email__ = "{gawlowicz, zubow, chwalisz}@tkn.tu-berlin.de"
 
 '''
-    The WiSHFUL network control interface, UPI_N, for configuration/monitoring of the higher
-    layers of the network protocol stack (upper MAC and higher).
+    The WiSHFUL network control interface, UPI_N, for
+    configuration/monitoring of the higher layers of
+    the network protocol stack (upper MAC and higher).
 '''
 
 # Generic API to control the higher layers, i.e. key-value configuration.
 
+
 class Network(Upi):
-    def set_parameter_higher_layer(self, **kwargs):
-        """Set the parameter on higher layers of protocol stack (higher MAC and above)
+    def set_parameters(self, param_key_values_dict):
+        """
+        The UPI_N interface is able to configure the protocol
+        (routing, transport, application) behavior by changing parameters.
+        Parameters correspond to the  variables used in the protocols.
+        This function (re)set the value(s) of the parameters specified
+        in the dictionary argument. The list of available parameters
+        supported by all platforms/OS are defined in this module.
+        Parameters specific to a subgroup of platforms/OS are defined in
+        the corresponding submodules. A list of supported parameters can
+        be dynamically obtained using the get_info function on each module.
+
+        Examples:
+            .. code-block:: python
+
+                >> param_key_values = {ROUTING_MAX_TTL : 5}
+                >> result = control_engine.net.set_parameters(param_key_values)
+                >> print result
+                {ROUTING_MAX_TTL : 0}
 
         Args:
-           param_key_value: key and value of this parameter
+            param_key_values_dict (dict): dictionary containing
+                the key (string) value (any) pairs for each parameter.
+                An example is:
+                {CSMA_CW : 15, CSMA_CW_MIN : 15, CSMA_CW_MAX : 15}
+
+        Returns:
+            dict: A dictionary containing key (string name)
+                error (0 = success, 1=fail, +1=error code)
+                pairs for each parameter.
         """
         return
 
-
-    def get_parameter_higher_layer(self, **kwargs):
-        """Get the parameter on higher layers of protocol stack (higher MAC and above)
+    def get_parameters(self, param_key_list):
+        """
+        Get the parameter on higher layers of protocol
+        stack (higher MAC and above)
 
         Args:
            param_key: the parameter identified by this key.
@@ -34,103 +62,154 @@ class Network(Upi):
         """
         return
 
+    def get_measurements(self, measurement_key_list):
+        """
+        Examples:
+            .. code-block:: python
+
+                >> measurement_keys = [NUM_FREEZING_COUNT]
+                >> result = control_engine.net.iface("wlan0").get_measurements(measurement_keys)
+                >> print result
+                {UPI_RN.NUM_FREEZING_COUNT : 150}
+
+        Args:
+            measurement_key_list (list): list of requested measurements,
+                                         an example of is
+                                         [NUM_FREEZING_COUNT, TX_ACTIVITY].
+
+        Returns:
+            dict: A dictionary containing key (string name)
+                  and values of the requested measurements.
+        """
+        return
+
+    def get_network_info(self):
+        return
+
     ''' App layer - set-up of packet flows '''
 
     def install_application(self, app_desc):
         '''
-        Install application in node. Possible applications are IperfClient and IperfServer.
+        Install application in node. Possible applications
+        are IperfClient and IperfServer.
+        '''
+        return
+
+    def start_application(application_id):
+        '''
+        Start previously installed application in node
+        '''
+        return
+
+    def stop_application(application_id):
+        '''
+        Stop running application in node
         '''
         return
 
     ''' Network layer - routing, networking, etc. '''
 
     def get_ifaces(self):
-        '''Returns list of interface names, e.g. ['lo', 'ens33', 'lxcbr0', 'ovs-system'].
+        '''
+        Returns list of interface names,
+        e.g. ['lo', 'ens33', 'lxcbr0', 'ovs-system'].
         '''
         return
-
 
     def get_iface_hw_addr(self, iface):
-        '''Returns the hardware address (MAC address) of a given interface.
+        '''
+        Returns the hardware address
+        (MAC address) of a given interface.
         '''
         return
 
+    def set_ip_address(self, iface, ip_address):
+        '''
+        Set IP address for given interface
+        '''
+        pass
 
     def get_iface_ip_addr(self, iface):
-        '''Returns the IP address of a given interface.
+        '''
+        Returns the IP address of a given interface.
         '''
         return
-
 
     def set_ARP_entry(self, iface, mac_addr, ip_addr):
-        '''Manipulates the entries in the ARP cache.
+        '''
+        Manipulates the entries in the ARP cache.
         '''
         return
 
-
-    def change_routing(self, current_gw_ip_addr, new_gw_ip_addr, device_ip_addr):
-        '''Controls the routing.
+    def change_routing(self, current_gw_ip_addr,
+                       new_gw_ip_addr, device_ip_addr):
+        '''
+        Controls the routing.
         '''
         return
-
 
     ''' Upper MAC layer - injection and sniffing of layer2 traffic '''
 
-    def gen_layer2_traffic(self, iface, num_packets, pinter, max_phy_broadcast_rate_mbps=None, **kwargs):
-        '''Inject layer2 traffic into network device.
+    def gen_layer2_traffic(self, iface, num_packets, pinter,
+                           max_phy_broadcast_rate_mbps=None, **kwargs):
+        '''
+        Inject layer2 traffic into network device.
         '''
         return
 
-
-    def inject_frame(self, iface, frame, is_layer_2_packet, tx_count=1, pkt_interval=1):
-        '''Inject L2/L3 frame injection into the protocol stack
+    def inject_frame(self, iface, frame, is_layer_2_packet,
+                     tx_count=1, pkt_interval=1):
+        '''
+        Inject L2/L3 frame injection into the protocol stack
         '''
         return
-
 
     def sniff_layer2_traffic(self, iface, sniff_timeout, **kwargs):
-        '''Layer-2 packet sniffing from network device.
+        '''
+        Layer-2 packet sniffing from network device.
         '''
         return
 
-
-    ''' Controlling network emulation (netem), i.e. emulation of variable delay, loss, duplication and re-ordering. '''
+    ''' Controlling network emulation (netem),
+        i.e. emulation of variable delay, loss,
+        duplication and re-ordering.
+    '''
 
     def set_netem_profile(self, iface, profile):
-        """Func Desc
+        """
+        Func Desc
         """
         return
-
 
     def update_netem_profile(self, iface, profile):
-        """Func Desc
+        """
+        Func Desc
         """
         return
-
 
     def remove_netem_profile(self, iface):
-        """Func Desc
+        """
+        Func Desc
         """
         return
-
 
     def set_per_link_netem_profile(self, iface, dstIpAddr, profile):
-        """Func Desc
+        """
+        Func Desc
         """
         return
-
 
     def update_per_link_netem_profile(self, iface, dstIpAddr, profile):
-        """Func Desc
+        """
+        Func Desc
         """
         return
-
 
     def remove_per_link_netem_profile(self, iface, dstIpAddr):
-        """Func Desc
+        """
+        Func Desc
         """
         return
-
 
     ''' Controlling queuing disciplines '''
 
@@ -139,12 +218,10 @@ class Network(Upi):
         """
         return
 
-
     def remove_egress_scheduler(self, iface):
         """Func Desc
         """
         return
-
 
     ''' Network filter tables '''
 
@@ -160,13 +237,14 @@ class Network(Upi):
 
     ''' Packet marking - IP ToS '''
 
-    def set_pkt_marking(self, flowId, markId=None, table="mangle", chain="POSTROUTING"):
+    def set_pkt_marking(self, flowId, markId=None,
+                        table="mangle", chain="POSTROUTING"):
         """Func Desc
         """
         return
 
-
-    def del_pkt_marking(self, flowId, markId=None, table="mangle", chain="POSTROUTING"):
+    def del_pkt_marking(self, flowId, markId=None,
+                        table="mangle", chain="POSTROUTING"):
         """Func Desc
         """
         return
@@ -191,6 +269,7 @@ Application classes:
 
  TODO: move me to app.py
 """
+
 
 class Application(object):
     def __init__(self):
@@ -225,6 +304,7 @@ class Application(object):
         retValue = self.results[0]
         del self.results[0]
         return retValue
+
 
 class ServerApplication(Application):
     def __init__(self):
@@ -283,7 +363,7 @@ class RawperfClientApplication(Application):
 
     def setDestination(self, dest):
         self.destination = dest
-        pass
+
     def setBandwidth(self, band):
         self.udpBandwidth = band
 
@@ -301,10 +381,16 @@ class RawperfClientApplication(Application):
 
 
 '''
-    List of events
+    Network event base class
 '''
+
+
 class NetEvent(EventBase):
     def __init__(self):
         super().__init__()
         pass
 
+
+'''
+    List of network events
+'''

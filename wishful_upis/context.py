@@ -11,8 +11,9 @@ Used for getting/setting context information like the geo-location of a user
 terminal.
 '''
 
+
 class Context(Upi):
-	def get_node_position(self):
-	    '''Returns the geo-location of a wireless node.
-	    '''
-	    pass
+    def get_node_position(self):
+        '''Returns the geo-location of a wireless node.
+        '''
+        pass
