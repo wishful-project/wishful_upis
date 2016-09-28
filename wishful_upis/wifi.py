@@ -143,6 +143,19 @@ class WifiRadio(Radio):
         '''
         pass
 
+    def is_rf_blocked(self, iface):
+        '''
+        Returns information about rf blocks (Soft Block, Hard Block)
+        '''
+        pass
+
+
+    def rf_unblock(self, iface):
+        '''
+        Turn off the softblock
+        '''
+        pass
+
 
 """
 Base class for all MAC layers

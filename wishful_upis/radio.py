@@ -373,6 +373,18 @@ class Radio(Upi):
         '''
         pass
 
+    def get_regulatory_domain(self):
+        '''
+        Returns the regulatory domain (for all interfaces)
+        '''
+        pass
+
+    def set_regulatory_domain(self):
+        '''
+        Sets the regulatory domain (for all interfaces)
+        '''
+        pass
+
 
 # Events
 class RadioEvent(EventBase):
