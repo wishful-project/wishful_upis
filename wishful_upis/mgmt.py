@@ -130,7 +130,7 @@ class ExceptionEvent(EventBase):
         self.msg = msg
 
 
-class CtxCommandEvent(EventBase):
+class CommandEvent(EventBase):
     def __init__(self, ctx):
         super().__init__()
         self.dest = None
@@ -138,7 +138,7 @@ class CtxCommandEvent(EventBase):
         self.responseQueue = None
 
 
-class CtxReturnValueEvent(EventBase):
+class ReturnValueEvent(EventBase):
     def __init__(self, dest, ctx, msg):
         super().__init__()
         self.dest = dest
