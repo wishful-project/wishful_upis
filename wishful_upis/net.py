@@ -177,61 +177,68 @@ class Network(Upi):
 
     def set_netem_profile(self, iface, profile):
         """
-        Func Desc
+        Set emulation profile in given network interface
         """
         return
 
     def update_netem_profile(self, iface, profile):
         """
-        Func Desc
+        Update emulation profile in given network interface
         """
         return
 
     def remove_netem_profile(self, iface):
         """
-        Func Desc
+        Remove emulation profile from given network interface.
         """
         return
 
     def set_per_link_netem_profile(self, iface, dstIpAddr, profile):
         """
-        Func Desc
+        Set emulation profile in network interface for
+        given link identified with destination IP addre
         """
         return
 
     def update_per_link_netem_profile(self, iface, dstIpAddr, profile):
         """
-        Func Desc
+        Update emulation profile in network interface
+        for given link identified with MAC addresses.
         """
         return
 
     def remove_per_link_netem_profile(self, iface, dstIpAddr):
         """
-        Func Desc
+        Remove emulation profile from network interface
+        for given link identified with MAC addresses.
         """
         return
 
     ''' Controlling queuing disciplines '''
 
     def install_egress_scheduler(self, iface, scheduler):
-        """Func Desc
+        """
+        Install Egress Scheduler in given network interface.
         """
         return
 
     def remove_egress_scheduler(self, iface):
-        """Func Desc
+        """
+        Remove Egress Scheduler from network interface
         """
         return
 
     ''' Network filter tables '''
 
     def clear_nf_tables(self, table="ALL", chain="ALL"):
-        """Func Desc
+        """
+        Clear all entries in all iptables
         """
         return
 
     def get_nf_table(self, tableName):
-        """Func Desc
+        """
+        Get specific iptable and its entires
         """
         return
 
@@ -239,26 +246,31 @@ class Network(Upi):
 
     def set_pkt_marking(self, flowId, markId=None,
                         table="mangle", chain="POSTROUTING"):
-        """Func Desc
+        """
+        Add iptable rule for marking all packets belonging
+        to flow identified with given 5-tuple
         """
         return
 
     def del_pkt_marking(self, flowId, markId=None,
                         table="mangle", chain="POSTROUTING"):
-        """Func Desc
+        """
+        Remove rule used to mark given flow from iptable
         """
         return
 
     ''' Packet mangling - IP ToS '''
 
     def set_ip_tos(self, flowId, tos, table="mangle", chain="POSTROUTING"):
-        """Func Desc
+        """
+        Add iptable rule for setting TOS (Type-of-Service)
+        field in all packets
         """
         return
 
-
     def del_ip_tos(self, flowId, tos, table="mangle", chain="POSTROUTING"):
-        """Func Desc
+        """
+        Remove rule used to setting TOS field from iptable
         """
         return
 

@@ -1,4 +1,3 @@
-import sys
 from types import ModuleType
 from types import FunctionType
 
@@ -8,16 +7,15 @@ def modules_in_module(module):
     return [
         md[c] for c in md if (
             isinstance(md[c], ModuleType)
-        )
-    ]
+        )]
+
 
 def classes_in_module(module):
     md = module.__dict__
     return [
         md[c] for c in md if (
             isinstance(md[c], type)
-        )
-    ]
+        )]
 
 
 def functions_in_class(module):
@@ -25,8 +23,8 @@ def functions_in_class(module):
     return [
         md[c] for c in md if (
             isinstance(md[c], FunctionType)
-        )
-    ]
+        )]
+
 
 def add_func_to_module(module, func):
     setattr(module, func.__name__, func)
@@ -51,4 +49,3 @@ def copy_functions_from_subclasses_to_module(module, myclass):
     for subclass in myclass.__subclasses__():
         for f in functions_in_class(subclass):
             add_func_to_module(module, f)
-
