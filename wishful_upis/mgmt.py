@@ -78,29 +78,21 @@ class AgentExitEvent(EventBase):
         super().__init__()
 
 
-class ControllerDiscoveredEvent(EventBase):
+class BrokerDiscoveredEvent(EventBase):
     def __init__(self, dlink, ulink):
         super().__init__()
         self.dlink = dlink
         self.ulink = ulink
 
 
-class ControllerConnectedEvent(EventBase):
-    def __init__(self, ctrUuid=None):
+class ConnectionEstablishedEvent(EventBase):
+    def __init__(self):
         super().__init__()
-        self.ctrUuid = ctrUuid
 
 
-class ControllerDisconnectedEvent(EventBase):
-    def __init__(self, ctrUuid=None):
+class ConnectionLostEvent(EventBase):
+    def __init__(self):
         super().__init__()
-        self.ctrUuid = ctrUuid
-
-
-class ControllerLostEvent(EventBase):
-    def __init__(self, ctrUuid):
-        super().__init__()
-        self.ctrUuid = ctrUuid
 
 
 class NewNodeEvent(EventBase):
