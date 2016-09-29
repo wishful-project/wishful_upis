@@ -70,9 +70,11 @@ class WifiRadio(Radio):
         '''
         pass
 
-    def set_modulation_rate(self, rate_Mbps):
+    def set_modulation_rate(self, ifaceName, is5Ghzband, isLegacy, rate_Mbps_or_ht_mcs):
         '''
-        Set rate modulation
+        Sets a fix PHY modulation rate:
+        - legacy: bitrate
+        - 11n/ac: ht_mcs
         '''
         pass
 
