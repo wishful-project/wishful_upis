@@ -681,6 +681,10 @@ class WifiNet(Network):
         '''
         return
 
+    def get_wifi_mode(self, iface):
+        '''
+        Get the mode of the interface: managed, monitor, ...
+        '''
 
 '''
     The protocol-specific global events for performing network-wide operations
