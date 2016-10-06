@@ -686,6 +686,13 @@ class WifiNet(Network):
         Get the mode of the interface: managed, monitor, ...
         '''
 
+
+    def get_wifi_card_info(self, iface):
+        '''
+        Get info about the wifi card: vendor, driver, ...
+        '''
+
+
 '''
     The protocol-specific global events for performing network-wide operations
     which go beyond just remote UPI_R/N calls
