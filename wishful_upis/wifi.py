@@ -163,100 +163,118 @@ class WifiRadio(Radio):
         '''
         Sets power management
         '''
+        pass
 
 
     def get_power_management(self, iface):
         '''
         Get power management
         '''
+        pass
 
 
     def set_retry_short(self, iface, value):
         '''
         Sets retry short
         '''
+        pass
 
 
     def get_retry_short(self, iface):
         '''
         Get retry short
         '''
+        pass
 
 
     def set_retry_long(self, iface, value):
         '''
         Sets retry long
         '''
+        pass
 
 
     def get_retry_long(self, iface):
         '''
         Get retry long
         '''
+        pass
 
 
     def set_rts_threshold(self, iface, value):
         '''
         Sets RTS threshold
         '''
-
+        pass
 
     def get_rts_threshold(self, iface):
         '''
         Get RTS threshold
         '''
+        pass
 
 
     def set_fragmentation_threshold(self, iface, value):
         '''
         Sets framgmentation threshold
         '''
+        pass
 
 
     def get_fragmentation_threshold(self, iface):
         '''
         Get framgmentation threshold
         '''
+        pass
 
 
     def get_supported_modes(self, iface):
         '''
         Get supported WiFi modes
         '''
+        pass
 
 
     def get_supported_swmodes(self, iface):
         '''
         Get supported WiFi software modes
         '''
+        pass
 
 
     def get_rf_band_info(self, iface):
         '''
         Get info about supported RF bands
         '''
+        pass
 
 
     def get_ciphers(self, iface):
         '''
         Get info about supported ciphers
         '''
+        pass
 
 
     def get_supported_wifi_standards(self, iface):
         '''
         Get info about supported WiFi standards, i.e. 802.11a/n/g/ac/b
         '''
+        pass
+
+    def get_wifi_mode(self, iface):
+        '''
+        Get the mode of the interface: managed, monitor, ...
+        '''
+        return
 
 
-'''
-    UPIs to add:
-    ['new_interface', 'set_interface', 'new_key', 'start_ap', 'new_station', 'new_mpath', 'set_mesh_config',
-    'set_bss', 'authenticate', 'associate', 'deauthenticate', 'disassociate', 'join_ibss', 'join_mesh',
-    'remain_on_channel', 'set_tx_bitrate_mask', 'frame', 'frame_wait_cancel', 'set_wiphy_netns', 'set_channel',
-    'set_wds_peer', 'tdls_mgmt', 'tdls_oper', 'probe_client', 'set_noack_map', 'register_beacons', 'start_p2p_device',
-    'set_mcast_rate', 'connect', 'disconnect']
-'''
+    def get_wifi_card_info(self, iface):
+        '''
+        Get info about the wifi card: vendor, driver, ...
+        '''
+        return
+
 
 """
 Base class for all MAC layers
@@ -680,17 +698,6 @@ class WifiNet(Network):
         - Other??
         '''
         return
-
-    def get_wifi_mode(self, iface):
-        '''
-        Get the mode of the interface: managed, monitor, ...
-        '''
-
-
-    def get_wifi_card_info(self, iface):
-        '''
-        Get info about the wifi card: vendor, driver, ...
-        '''
 
 
 '''
