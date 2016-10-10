@@ -15,7 +15,7 @@ __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
 # Generic API to control the higher layers, i.e. key-value configuration.
 
-def set_parameters(param_key_values_dict):
+def set_parameters_net(param_key_values_dict):
     """The UPI_N interface is able to configure the protocol (routing, transport, application) behavior by changing parameters.
     Parameters correspond to the  variables used in the protocols.
     This function (re)set the value(s) of the parameters specified in the dictionary argument.
@@ -41,7 +41,7 @@ def set_parameters(param_key_values_dict):
     return
 
 
-def get_parameters(param_key_list):
+def get_parameters_net(param_key_list):
     """Get the parameter on higher layers of protocol stack (higher MAC and above)
 
     Args:
@@ -52,7 +52,7 @@ def get_parameters(param_key_list):
     """
     return
 
-def get_measurements(measurement_key_list):
+def get_measurements_net(measurement_key_list):
     """
 
     Examples:
@@ -72,7 +72,7 @@ def get_measurements(measurement_key_list):
     return
 
 
-def get_measurements_periodic(measurement_key_list, collect_period, report_period, num_iterations, report_callback):
+def get_measurements_periodic_net(measurement_key_list, collect_period, report_period, num_iterations, report_callback):
     """
 
     Examples:
@@ -100,7 +100,7 @@ def get_measurements_periodic(measurement_key_list, collect_period, report_perio
     return
 
 
-def subscribe_events(event_key_list, event_callback, event_duration):
+def subscribe_events_net(event_key_list, event_callback, event_duration):
     """
 
     Examples:
