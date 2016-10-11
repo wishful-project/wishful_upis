@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>wishful_upis.wifi package &mdash; WiSHFUL Framework 2.0 2.0 documentation</title>
+    <title>WiFi specific functions &mdash; WiSHFUL Framework 2.0 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="WiSHFUL Framework 2.0 2.0 documentation" href="index.html" />
     <link rel="up" title="Wishful Upi packages" href="wishful_upis.html" />
-    <link rel="prev" title="wishful_upis.lte package" href="wishful_upis.lte.html" />
+    <link rel="prev" title="LTE specific functions" href="wishful_upis.lte.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -44,7 +44,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="wishful_upis.lte.html" title="wishful_upis.lte package"
+          <a href="wishful_upis.lte.html" title="LTE specific functions"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="wishful_upis.html" accesskey="U">Wishful Upi packages</a> &raquo;</li> 
@@ -57,18 +57,18 @@
             </a></p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">wishful_upis.wifi package</a><ul>
+<li><a class="reference internal" href="#">WiFi specific functions</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-wishful_upis.wifi.net">wishful_upis.wifi.net module</a></li>
-<li><a class="reference internal" href="#module-wishful_upis.wifi.net_func">wishful_upis.wifi.net_func module</a></li>
-<li><a class="reference internal" href="#module-wishful_upis.wifi.radio">wishful_upis.wifi.radio module</a></li>
+<li><a class="reference internal" href="#module-wishful_upis.wifi.net">Network fucntions</a></li>
+<li><a class="reference internal" href="#module-wishful_upis.wifi.radio">Radio functions</a></li>
+<li><a class="reference internal" href="#module-wishful_upis.wifi.net_func">&#8220;Network OS&#8221; helpers</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="wishful_upis.lte.html"
-                        title="previous chapter">wishful_upis.lte package</a></p>
+                        title="previous chapter">LTE specific functions</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -94,13 +94,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-wishful_upis.wifi">
-<span id="wishful-upis-wifi-package"></span><h1>wishful_upis.wifi package<a class="headerlink" href="#module-wishful_upis.wifi" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
+  <div class="section" id="wifi-specific-functions">
+<h1>WiFi specific functions<a class="headerlink" href="#wifi-specific-functions" title="Permalink to this headline">¶</a></h1>
+<p>These are functions that can be used only with WiFi supported hardware and are considered as UPI candidates.</p>
+<span class="target" id="module-wishful_upis.wifi"></span><div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-wishful_upis.wifi.net">
-<span id="wishful-upis-wifi-net-module"></span><h2>wishful_upis.wifi.net module<a class="headerlink" href="#module-wishful_upis.wifi.net" title="Permalink to this headline">¶</a></h2>
+<span id="network-fucntions"></span><h2>Network fucntions<a class="headerlink" href="#module-wishful_upis.wifi.net" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="wishful_upis.wifi.net.add_device_to_blacklist">
 <code class="descclassname">wishful_upis.wifi.net.</code><code class="descname">add_device_to_blacklist</code><span class="sig-paren">(</span><em>iface</em>, <em>device_mac_addr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/wifi/net.html#add_device_to_blacklist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.wifi.net.add_device_to_blacklist" title="Permalink to this definition">¶</a></dt>
@@ -354,31 +355,8 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-wishful_upis.wifi.net_func">
-<span id="wishful-upis-wifi-net-func-module"></span><h2>wishful_upis.wifi.net_func module<a class="headerlink" href="#module-wishful_upis.wifi.net_func" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="wishful_upis.wifi.net_func.is_associated_with">
-<code class="descclassname">wishful_upis.wifi.net_func.</code><code class="descname">is_associated_with</code><span class="sig-paren">(</span><em>nodes</em>, <em>interface</em>, <em>device_mac_addr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/wifi/net_func.html#is_associated_with"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.wifi.net_func.is_associated_with" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimate the AP/BS with which a given device is associated.</p>
-<p>Note: this is not supported on any wireless technology.</p>
-<ul class="simple">
-<li>enabled on 802.11 infrastructure mode</li>
-</ul>
-</dd></dl>
-
-<dl class="function">
-<dt id="wishful_upis.wifi.net_func.perform_handover">
-<code class="descclassname">wishful_upis.wifi.net_func.</code><code class="descname">perform_handover</code><span class="sig-paren">(</span><em>interface</em>, <em>servingNode</em>, <em>targetNode</em>, <em>device_mac_addr</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/wifi/net_func.html#perform_handover"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.wifi.net_func.perform_handover" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performing an handover operation.</p>
-<p>Note: this is not supported on any wireless technology.</p>
-<ul class="simple">
-<li>802.11 - in infrastructure mode an STA can be handovered; not supported in 802.11 adhoc</li>
-</ul>
-</dd></dl>
-
-</div>
 <div class="section" id="module-wishful_upis.wifi.radio">
-<span id="wishful-upis-wifi-radio-module"></span><h2>wishful_upis.wifi.radio module<a class="headerlink" href="#module-wishful_upis.wifi.radio" title="Permalink to this headline">¶</a></h2>
+<span id="radio-functions"></span><h2>Radio functions<a class="headerlink" href="#module-wishful_upis.wifi.radio" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="wishful_upis.wifi.radio.clean_per_flow_tx_power_table">
 <code class="descclassname">wishful_upis.wifi.radio.</code><code class="descname">clean_per_flow_tx_power_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/wifi/radio.html#clean_per_flow_tx_power_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.wifi.radio.clean_per_flow_tx_power_table" title="Permalink to this definition">¶</a></dt>
@@ -490,6 +468,29 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-wishful_upis.wifi.net_func">
+<span id="network-os-helpers"></span><h2>&#8220;Network OS&#8221; helpers<a class="headerlink" href="#module-wishful_upis.wifi.net_func" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="wishful_upis.wifi.net_func.is_associated_with">
+<code class="descclassname">wishful_upis.wifi.net_func.</code><code class="descname">is_associated_with</code><span class="sig-paren">(</span><em>nodes</em>, <em>interface</em>, <em>device_mac_addr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/wifi/net_func.html#is_associated_with"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.wifi.net_func.is_associated_with" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate the AP/BS with which a given device is associated.</p>
+<p>Note: this is not supported on any wireless technology.</p>
+<ul class="simple">
+<li>enabled on 802.11 infrastructure mode</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.wifi.net_func.perform_handover">
+<code class="descclassname">wishful_upis.wifi.net_func.</code><code class="descname">perform_handover</code><span class="sig-paren">(</span><em>interface</em>, <em>servingNode</em>, <em>targetNode</em>, <em>device_mac_addr</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/wifi/net_func.html#perform_handover"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.wifi.net_func.perform_handover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performing an handover operation.</p>
+<p>Note: this is not supported on any wireless technology.</p>
+<ul class="simple">
+<li>802.11 - in infrastructure mode an STA can be handovered; not supported in 802.11 adhoc</li>
+</ul>
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -508,7 +509,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="wishful_upis.lte.html" title="wishful_upis.lte package"
+          <a href="wishful_upis.lte.html" title="LTE specific functions"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="wishful_upis.html" >Wishful Upi packages</a> &raquo;</li> 

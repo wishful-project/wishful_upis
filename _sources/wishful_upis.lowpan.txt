@@ -1,5 +1,6 @@
-wishful_upis.lowpan package
-===========================
+WSN specific functions
+=======================
+These are functions that can be used only with IEEE 802.15.4 (WSN's) supported hardware and are considered as UPI candidates. 
 
 .. automodule:: wishful_upis.lowpan
     :members:
@@ -9,28 +10,30 @@ wishful_upis.lowpan package
 Submodules
 ----------
 
-wishful_upis.lowpan.net module
-------------------------------
+
+Network fucntions
+-----------------
 
 .. automodule:: wishful_upis.lowpan.net
     :members:
     :undoc-members:
     :show-inheritance:
 
-wishful_upis.lowpan.net_func module
------------------------------------
 
-.. automodule:: wishful_upis.lowpan.net_func
-    :members:
-    :undoc-members:
-    :show-inheritance:
 
-wishful_upis.lowpan.radio module
---------------------------------
+Radio fucntions
+-----------------
 
 .. automodule:: wishful_upis.lowpan.radio
     :members:
     :undoc-members:
     :show-inheritance:
 
+"Network OS" helpers
+--------------------
+
+.. automodule:: wishful_upis.lowpan.net_func
+    :members:
+    :undoc-members:
+    :show-inheritance:
 

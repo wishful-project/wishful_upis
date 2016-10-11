@@ -1,5 +1,6 @@
-wishful_upis.lte package
-========================
+LTE specific functions
+=======================
+These are functions that can be used only with LTE supported hardware and are considered as UPI candidates. 
 
 .. automodule:: wishful_upis.lte
     :members:
@@ -9,24 +10,17 @@ wishful_upis.lte package
 Submodules
 ----------
 
-wishful_upis.lte.net module
----------------------------
+Network fucntions
+-----------------
 
 .. automodule:: wishful_upis.lte.net
     :members:
     :undoc-members:
     :show-inheritance:
 
-wishful_upis.lte.net_func module
---------------------------------
 
-.. automodule:: wishful_upis.lte.net_func
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-wishful_upis.lte.radio module
------------------------------
+Radio fucntions
+---------------
 
 .. automodule:: wishful_upis.lte.radio
     :members:
@@ -34,3 +28,10 @@ wishful_upis.lte.radio module
     :show-inheritance:
 
 
+"Network OS" helpers
+--------------------
+
+.. automodule:: wishful_upis.lte.net_func
+    :members:
+    :undoc-members:
+    :show-inheritance:

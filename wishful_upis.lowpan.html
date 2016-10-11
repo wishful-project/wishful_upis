@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>wishful_upis.lowpan package &mdash; WiSHFUL Framework 2.0 2.0 documentation</title>
+    <title>WSN specific functions &mdash; WiSHFUL Framework 2.0 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="WiSHFUL Framework 2.0 2.0 documentation" href="index.html" />
     <link rel="up" title="Wishful Upi packages" href="wishful_upis.html" />
-    <link rel="next" title="wishful_upis.lte package" href="wishful_upis.lte.html" />
+    <link rel="next" title="LTE specific functions" href="wishful_upis.lte.html" />
     <link rel="prev" title="Wishful Upi packages" href="wishful_upis.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -45,7 +45,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="wishful_upis.lte.html" title="wishful_upis.lte package"
+          <a href="wishful_upis.lte.html" title="LTE specific functions"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="wishful_upis.html" title="Wishful Upi packages"
@@ -61,11 +61,11 @@
             </a></p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">wishful_upis.lowpan package</a><ul>
+<li><a class="reference internal" href="#">WSN specific functions</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-wishful_upis.lowpan.net">wishful_upis.lowpan.net module</a></li>
-<li><a class="reference internal" href="#module-wishful_upis.lowpan.net_func">wishful_upis.lowpan.net_func module</a></li>
-<li><a class="reference internal" href="#module-wishful_upis.lowpan.radio">wishful_upis.lowpan.radio module</a></li>
+<li><a class="reference internal" href="#module-wishful_upis.lowpan.net">Network fucntions</a></li>
+<li><a class="reference internal" href="#module-wishful_upis.lowpan.radio">Radio fucntions</a></li>
+<li><a class="reference internal" href="#module-wishful_upis.lowpan.net_func">&#8220;Network OS&#8221; helpers</a></li>
 </ul>
 </li>
 </ul>
@@ -75,7 +75,7 @@
                         title="previous chapter">Wishful Upi packages</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="wishful_upis.lte.html"
-                        title="next chapter">wishful_upis.lte package</a></p>
+                        title="next chapter">LTE specific functions</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -101,24 +101,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-wishful_upis.lowpan">
-<span id="wishful-upis-lowpan-package"></span><h1>wishful_upis.lowpan package<a class="headerlink" href="#module-wishful_upis.lowpan" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
+  <div class="section" id="wsn-specific-functions">
+<h1>WSN specific functions<a class="headerlink" href="#wsn-specific-functions" title="Permalink to this headline">¶</a></h1>
+<p>These are functions that can be used only with IEEE 802.15.4 (WSN&#8217;s) supported hardware and are considered as UPI candidates.</p>
+<span class="target" id="module-wishful_upis.lowpan"></span><div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-wishful_upis.lowpan.net">
-<span id="wishful-upis-lowpan-net-module"></span><h2>wishful_upis.lowpan.net module<a class="headerlink" href="#module-wishful_upis.lowpan.net" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-wishful_upis.lowpan.net_func">
-<span id="wishful-upis-lowpan-net-func-module"></span><h2>wishful_upis.lowpan.net_func module<a class="headerlink" href="#module-wishful_upis.lowpan.net_func" title="Permalink to this headline">¶</a></h2>
+<span id="network-fucntions"></span><h2>Network fucntions<a class="headerlink" href="#module-wishful_upis.lowpan.net" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-wishful_upis.lowpan.radio">
-<span id="wishful-upis-lowpan-radio-module"></span><h2>wishful_upis.lowpan.radio module<a class="headerlink" href="#module-wishful_upis.lowpan.radio" title="Permalink to this headline">¶</a></h2>
+<span id="radio-fucntions"></span><h2>Radio fucntions<a class="headerlink" href="#module-wishful_upis.lowpan.radio" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="wishful_upis.lowpan.radio.blacklist_channels">
 <code class="descclassname">wishful_upis.lowpan.radio.</code><code class="descname">blacklist_channels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lowpan/radio.html#blacklist_channels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.radio.blacklist_channels" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</div>
+<div class="section" id="module-wishful_upis.lowpan.net_func">
+<span id="network-os-helpers"></span><h2>&#8220;Network OS&#8221; helpers<a class="headerlink" href="#module-wishful_upis.lowpan.net_func" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -138,7 +139,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="wishful_upis.lte.html" title="wishful_upis.lte package"
+          <a href="wishful_upis.lte.html" title="LTE specific functions"
              >next</a> |</li>
         <li class="right" >
           <a href="wishful_upis.html" title="Wishful Upi packages"
