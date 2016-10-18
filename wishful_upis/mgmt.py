@@ -24,7 +24,11 @@ def delete_rule(rule_id):
 '''
 
 def start_local_control_program(program_name, program_code):
-    '''Execute a given control program on loca/remote node.
+    '''Install and execute a given control program on a local node remotely.
+    
+    Args:
+        program_name (string): The name of the local CP.
+        program_code (function): A python function containing the local CP control logic. 
     '''
     pass
 
