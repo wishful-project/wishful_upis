@@ -46,7 +46,7 @@ UPI_R: Radio layer programming interfaces
     :show-inheritance:
 
 "Network OS" helpers
-------------------
+--------------------
 
 The functions supported offer a kind of "Network OS" functionality making it easy for the user to get network wide information regarding communication and interference range for all nodes in the network as well as link parameters for all links present. These helpers are of course based on the basic UPIs offered from UPI_N and UPI_R.
 
