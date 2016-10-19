@@ -463,7 +463,7 @@ e.g. <code class="docutils literal"><span class="pre">wifi/</span></code>, <code
 <dd><p>This function activates the specified radio program.
 When executed, this function stops the current radio program and enables the execution of the radio program specified in the parameter name.</p>
 <dl class="docutils">
-<dt>Examples:</dt>
+<dt>Example:</dt>
 <dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">activate_radio_program</span><span class="p">(</span><span class="s2">&quot;CSMA&quot;</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">result</span>
 <span class="mi">0</span>
@@ -474,8 +474,9 @@ When executed, this function stops the current radio program and enables the exe
 <dd>name (str): String identifier of the radio program (e.g. CSMA, TDMA, TSCH)</dd>
 <dt>Returns:</dt>
 <dd><dl class="first last docutils">
-<dt>int: - 0 if the parameter setting call was successfully performed</dt>
+<dt>int:</dt>
 <dd><ul class="first last simple">
+<li>0 if the parameter setting call was successfully performed</li>
 <li>1 partial success</li>
 <li>2 error.</li>
 </ul>
@@ -490,8 +491,8 @@ When executed, this function stops the current radio program and enables the exe
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">deactivate_radio_program</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#deactivate_radio_program"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.deactivate_radio_program" title="Permalink to this definition">¶</a></dt>
 <dd><p>When executed, this function stops the radio program specified in the parameter radio_program_name.</p>
 <dl class="docutils">
-<dt>Examples:</dt>
-<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span> <span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">deactivate_radio_program</span><span class="p">(</span><span class="s2">&quot;CSMA&quot;</span><span class="p">)</span>
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">deactivate_radio_program</span><span class="p">(</span><span class="s2">&quot;CSMA&quot;</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">result</span>
 <span class="mi">0</span>
 </pre></div>
@@ -516,7 +517,18 @@ When executed, this function stops the current radio program and enables the exe
 <dl class="function">
 <dt id="wishful_upis.radio.get_hwaddr">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">get_hwaddr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#get_hwaddr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.get_hwaddr" title="Permalink to this definition">¶</a></dt>
-<dd><p>func desc</p>
+<dd><p>Return the Hardware address of the device</p>
+<dl class="docutils">
+<dt>Example :</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">mac_address</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;lowpan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_hwaddr</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">mac_address</span><span class="p">)</span>
+<span class="mi">10</span><span class="p">:</span><span class="mi">1</span><span class="n">f</span><span class="p">:</span><span class="mi">74</span><span class="p">:</span><span class="mi">54</span><span class="p">:</span><span class="mi">62</span><span class="p">:</span><span class="n">f7</span>
+</pre></div>
+</div>
+</dd>
+<dt>Returns:</dt>
+<dd>String: HW address in the IEEE: MAC-48 format</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -530,7 +542,7 @@ The list of available measurements supported by all platforms are defined in thi
 Measurements specific to a subgroup of platforms are defined in the corresponding submodules.
 A list of supported measurements can be dynamically obtained using the get_radio_info function.</p>
 <dl class="docutils">
-<dt>Examples:</dt>
+<dt>Example:</dt>
 <dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">measurement_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">NUM_FREEZING_COUNT</span><span class="p">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_measurements</span><span class="p">(</span><span class="n">measurement_keys</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">result</span>
@@ -555,7 +567,7 @@ This operation is performed a number of times specified by num_iterations. A cal
 The list of available measurements supported by all platforms are defined in this module. Measurements specific to a subgroup of platforms are defined in the corresponding submodules.
 A list of supported measurements can be dynamically obtained using the get_radio_info function.</p>
 <dl class="docutils">
-<dt>Examples:</dt>
+<dt>Example:</dt>
 <dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">def</span> <span class="nf">my_cb</span><span class="p">(</span><span class="n">report</span><span class="p">):</span>
 <span class="o">&gt;&gt;</span>     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">report</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
 <span class="o">&gt;&gt;</span>         <span class="k">for</span> <span class="n">measurement</span> <span class="ow">in</span> <span class="n">report</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
@@ -574,14 +586,35 @@ report_period (int): defines the time between two consecutive reports to the con
 num_iterations (int): defines how many times the measurement collection has to be repeated.
 report_callback (function): the local callback that is invoked every report period.</dd>
 <dt>Returns:</dt>
-<dd>int: error code, 0 if success, 1 otherwise.</dd>
+<dd><dl class="first last docutils">
+<dt>int:</dt>
+<dd><ul class="first last simple">
+<li>0 if the parameter setting call was successfully performed</li>
+<li>1 partial success</li>
+<li>2 error.</li>
+</ul>
+</dd>
+</dl>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="wishful_upis.radio.get_noise">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">get_noise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#get_noise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.get_noise" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the noise floor measured by the wireless driver.</p>
+<dd><p>Background noise level (when no packet is transmitted). May be arbitrary units or dBm, this framework uses
+driver meta information to interpret the raw value given by interface and display it.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">noise_information</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">get_noise</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">noise_information</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">80</span><span class="n">dBm</span>
+</pre></div>
+</div>
+</dd>
+<dt>Returns:</dt>
+<dd>int: noise level value</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -594,7 +627,7 @@ The list of available parameters supported by all platforms are defined in this 
 Parameters specific to a subgroup of platforms are defined in the corresponding submodules.
 A list of supported parameters can be dynamically obtained using the get_radio_info function.</p>
 <dl class="docutils">
-<dt>Examples:</dt>
+<dt>Example:</dt>
 <dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">param_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">CSMA_CW</span><span class="p">,</span><span class="n">CSMA_CWMIN</span><span class="p">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">(</span><span class="n">param_keys</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">result</span>
@@ -621,23 +654,14 @@ radio capabilities (measurements and parameters) of each interface (radio_platfo
 <dl class="docutils">
 <dt>Example:</dt>
 <dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">current_platform_info</span> <span class="o">=</span> <span class="n">radio_info_t</span><span class="p">()</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_platform_info_str</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getRadioInfo</span><span class="p">(</span><span class="n">platform_id</span><span class="p">)</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_platform_info</span><span class="o">.</span><span class="n">platform_info</span><span class="o">.</span><span class="n">platform_id</span> <span class="o">=</span> <span class="n">current_platform_info_str</span><span class="p">[</span><span class="s1">&#39;radio_info&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_platform_info</span><span class="o">.</span><span class="n">platform_info</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="n">current_platform_info_str</span><span class="p">[</span><span class="s1">&#39;radio_info&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_platform_info</span><span class="o">.</span><span class="n">monitor_list</span> <span class="o">=</span> <span class="n">current_platform_info_str</span><span class="p">[</span><span class="s1">&#39;monitor_list&#39;</span><span class="p">]</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_platform_info</span><span class="o">.</span><span class="n">param_list</span> <span class="o">=</span> <span class="n">current_platform_info_str</span><span class="p">[</span><span class="s1">&#39;param_list&#39;</span><span class="p">]</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_platform_info</span><span class="o">.</span><span class="n">execution_engine_list_name</span> <span class="o">=</span> <span class="n">current_platform_info_str</span><span class="p">[</span><span class="s1">&#39;exec_engine_list_name&#39;</span><span class="p">]</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_platform_info</span><span class="o">.</span><span class="n">execution_engine_list_pointer</span> <span class="o">=</span> <span class="n">current_platform_info_str</span><span class="p">[</span><span class="s1">&#39;exec_engine_list_pointer&#39;</span><span class="p">]</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_platform_info</span><span class="o">.</span><span class="n">radio_program_list_name</span> <span class="o">=</span> <span class="n">current_platform_info_str</span><span class="p">[</span><span class="s1">&#39;radio_prg_list_name&#39;</span><span class="p">]</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_platform_info</span><span class="o">.</span><span class="n">radio_program_list_path</span> <span class="o">=</span> <span class="n">current_platform_info_str</span><span class="p">[</span><span class="s1">&#39;radio_prg_list_pointer&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -651,15 +675,14 @@ radio capabilities (measurements and parameters) of each interface (radio_platfo
 <dt>:Returns</dt>
 <dd><dl class="first last docutils">
 <dt>result:</dt>
-<dd><p class="first">return a list in term of a dictionary data type (list of key: value). in which are present the key showed below:</p>
-<p>&#8216;radio_info&#8217; &#8211;&gt; a list of pair value, the first value is the interface identifier and the second is the supported platforms.</p>
-<p>&#8216;monitor_list&#8217; &#8211;&gt; a list of supported measurements between the attribute of the class UPI_R</p>
-<p>&#8216;param_list&#8217; &#8211;&gt; a list of supported Parameters between the attribute of the class UPI_R</p>
-<p>&#8216;exec_engine_list_name&#8217; &#8211;&gt; a list of supported execution environment name</p>
-<p>&#8216;exec_engine_list_pointer&#8217; &#8211;&gt; a list of supported execution environment path</p>
-<p>&#8216;radio_prg_list_name&#8217;&#8211;&gt; a list of supported radio program name</p>
-<p class="last">&#8216;radio_prg_list_pointer&#8217; &#8211;&gt; a list of supported radio program path</p>
-</dd>
+<dd>return a list in term of a dictionary data type (list of key: value). in which are present the key showed below:
+&#8216;radio_info&#8217; &#8211;&gt; a list of pair value, the first value is the interface identifier and the second is the supported platforms.
+&#8216;monitor_list&#8217; &#8211;&gt; a list of supported measurements between the attribute of the class UPI_R
+&#8216;param_list&#8217; &#8211;&gt; a list of supported Parameters between the attribute of the class UPI_R
+&#8216;exec_engine_list_name&#8217; &#8211;&gt; a list of supported execution environment name
+&#8216;exec_engine_list_pointer&#8217; &#8211;&gt; a list of supported execution environment path
+&#8216;radio_prg_list_name&#8217;&#8211;&gt; a list of supported radio program name
+&#8216;radio_prg_list_pointer&#8217; &#8211;&gt; a list of supported radio program path</dd>
 </dl>
 </dd>
 </dl>
@@ -676,18 +699,12 @@ of the interface and the supported platform type.</p>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">radio_platform_list</span> <span class="o">=</span> <span class="n">radio_platform_t</span><span class="p">()</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_NIC_list_string</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_radio_platforms</span><span class="p">()</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_NIC_list</span><span class="o">.</span><span class="n">platform_info</span> <span class="o">=</span>  <span class="n">current_NIC_list_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
 <span class="o">&gt;&gt;</span> <span class="n">current_NIC_list</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span>  <span class="n">current_NIC_list_string</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </dd>
-</dl>
-<p>Args:</p>
-<dl class="docutils">
 <dt>Returns:</dt>
 <dd><dl class="first last docutils">
 <dt>current_NIC_list:</dt>
@@ -704,7 +721,7 @@ of the interface and the supported platform type.</p>
 <p>Each radio program is associated with a name and an index. When executed,
 this function return the index of the radio program active.</p>
 <dl class="docutils">
-<dt>Examples:</dt>
+<dt>Example:</dt>
 <dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;interface&#39;</span> <span class="p">:</span> <span class="s1">&#39;wlan0&#39;</span><span class="p">}</span>
 <span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getActive</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">result</span>
@@ -727,25 +744,101 @@ The key &#8220;interface&#8221; specify the network interface to use.</dd>
 <dl class="function">
 <dt id="wishful_upis.radio.get_rxchannel">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">get_rxchannel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#get_rxchannel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.get_rxchannel" title="Permalink to this definition">¶</a></dt>
-<dd><p>func desc</p>
+<dd><dl class="docutils">
+<dt>Return the list of available frequencies in the device and the number of defined channels for the reception module.</dt>
+<dd>Also return the current frequency/channel setted.</dd>
+<dt>Example :</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">control_engine</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;lowpan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_rxchannel</span><span class="p">())</span>
+<span class="mi">26</span> <span class="n">channels</span> <span class="ow">in</span> <span class="n">total</span><span class="p">;</span> <span class="n">available</span> <span class="n">frequencies</span> <span class="p">:</span>
+<span class="o">...</span>
+<span class="n">Channel</span> <span class="mo">01</span> <span class="p">:</span> <span class="mi">904</span> <span class="n">MHz</span>
+<span class="n">Channel</span> <span class="mo">02</span> <span class="p">:</span> <span class="mi">906</span> <span class="n">MHz</span>
+<span class="n">Channel</span> <span class="mo">03</span> <span class="p">:</span> <span class="mi">908</span> <span class="n">MHz</span>
+<span class="o">...</span>
+<span class="n">Channel</span> <span class="mi">25</span> <span class="p">:</span> <span class="mf">2.478</span> <span class="n">GHz</span>
+<span class="n">Channel</span> <span class="mi">26</span> <span class="p">:</span> <span class="mf">2.483</span> <span class="n">GHz</span>
+<span class="n">Current</span> <span class="n">Frequency</span><span class="p">:</span><span class="mf">2.483</span> <span class="n">GHz</span> <span class="p">(</span><span class="n">Channel</span> <span class="mi">26</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt>Returns:</dt>
+<dd>list: list of available frequencies/channels and current frequency/channel setted</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="wishful_upis.radio.get_tx_power">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">get_tx_power</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#get_tx_power"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.get_tx_power" title="Permalink to this definition">¶</a></dt>
-<dd><p>func desc</p>
+<dd><p>Gets the current transmit power and the list of various Transmit Powers available on the device</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">power_information</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">get_power</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">power_information</span><span class="p">)</span>
+<span class="n">current_tx_power</span><span class="p">:</span><span class="mi">15</span>
+<span class="n">available_tx_power</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span>
+</pre></div>
+</div>
+</dd>
+<dt>Returns:</dt>
+<dd>dictionary: transmission power values in dBm</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="wishful_upis.radio.get_txchannel">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">get_txchannel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#get_txchannel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.get_txchannel" title="Permalink to this definition">¶</a></dt>
-<dd><p>func desc</p>
+<dd><dl class="docutils">
+<dt>Return the list of available frequencies in the device and the number of defined channels for the transmission module.</dt>
+<dd>Also return the current frequency/channel setted.</dd>
+<dt>Example :</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">control_engine</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;lowpan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_rxchannel</span><span class="p">())</span>
+<span class="mi">26</span> <span class="n">channels</span> <span class="ow">in</span> <span class="n">total</span><span class="p">;</span> <span class="n">available</span> <span class="n">frequencies</span> <span class="p">:</span>
+<span class="o">...</span>
+<span class="n">Channel</span> <span class="mo">01</span> <span class="p">:</span> <span class="mi">904</span> <span class="n">MHz</span>
+<span class="n">Channel</span> <span class="mo">02</span> <span class="p">:</span> <span class="mi">906</span> <span class="n">MHz</span>
+<span class="n">Channel</span> <span class="mo">03</span> <span class="p">:</span> <span class="mi">908</span> <span class="n">MHz</span>
+<span class="o">...</span>
+<span class="n">Channel</span> <span class="mi">25</span> <span class="p">:</span> <span class="mf">2.478</span> <span class="n">GHz</span>
+<span class="n">Channel</span> <span class="mi">26</span> <span class="p">:</span> <span class="mf">2.483</span> <span class="n">GHz</span>
+<span class="n">Current</span> <span class="n">Frequency</span><span class="p">:</span><span class="mf">2.483</span> <span class="n">GHz</span> <span class="p">(</span><span class="n">Channel</span> <span class="mi">26</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt>Returns:</dt>
+<dd>list: list of available frequencies/channels and current frequency/channel setted</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="wishful_upis.radio.play_waveform">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">play_waveform</code><span class="sig-paren">(</span><em>iface</em>, <em>freq</em>, <em>power_lvl</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#play_waveform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.play_waveform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Starts transmitting a radio waveform (just PHY, no MAC).</p>
+<dd><p>Starts transmitting a radio waveform on signal generator</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">iface</span> <span class="o">=</span> <span class="s1">&#39;192.168.200.35&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;5200&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="n">power_lvl</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">play_waveform</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">power_lvl</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>iface (String): Address ip of the interface connected with the signal generator.
+freq (int): Frequency of the generated waveform.
+power_lvl (int): power level of the generated waveform.
+kwargs: Extra argumentes for the signal generator.</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>int:</dt>
+<dd><ul class="first last simple">
+<li>0 if the  call was successfully performed</li>
+<li>1 partial success</li>
+<li>2 error.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -758,7 +851,7 @@ the dictionary argument. The list of available parameters supported by all platf
 Parameters specific to a subgroup of platforms are defined in the corresponding submodules.
 A list of supported parameters can be dynamically obtained using the get_radio_info function.</p>
 <dl class="docutils">
-<dt>Examples:</dt>
+<dt>Example:</dt>
 <dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">param_key_values</span> <span class="o">=</span> <span class="p">{</span><span class="n">CSMA_CW</span> <span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="n">CSMA_CW_MIN</span> <span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="n">CSMA_CW_MAX</span> <span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
 <span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_parameters</span><span class="p">(</span><span class="n">param_key_values</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">result</span>
@@ -780,41 +873,182 @@ A list of supported parameters can be dynamically obtained using the get_radio_i
 <dl class="function">
 <dt id="wishful_upis.radio.set_rxchannel">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">set_rxchannel</code><span class="sig-paren">(</span><em>freq_Hz</em>, <em>bandwidth</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#set_rxchannel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.set_rxchannel" title="Permalink to this definition">¶</a></dt>
-<dd><p>func desc</p>
+<dd><p>Set the operating reception frequency or channel.</p>
+<p>A value below 1000 indicates a channel number, a value greater than 1000 is a frequency in Hz. It is possible to use the suffix k, M or G to the value
+(&#8220;2.42G&#8221; for 2.42 GHz frequency). Channels are usually numbered starting at 1, it is possible to use get_rxchannel() UPI to get the total number of channels,
+list the available frequencies, and display the current channel.</p>
+<dl class="docutils">
+<dt>Example :</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;lowpan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_rxchannel</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">control_engine</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;lowpan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_rxchannel</span><span class="p">())</span>
+<span class="mi">26</span> <span class="n">channels</span> <span class="ow">in</span> <span class="n">total</span><span class="p">;</span> <span class="n">available</span> <span class="n">frequencies</span> <span class="p">:</span>
+<span class="o">...</span>
+<span class="n">Channel</span> <span class="mo">01</span> <span class="p">:</span> <span class="mi">904</span> <span class="n">MHz</span>
+<span class="n">Channel</span> <span class="mo">02</span> <span class="p">:</span> <span class="mi">906</span> <span class="n">MHz</span>
+<span class="n">Channel</span> <span class="mo">03</span> <span class="p">:</span> <span class="mi">908</span> <span class="n">MHz</span>
+<span class="o">...</span>
+<span class="n">Channel</span> <span class="mi">25</span> <span class="p">:</span> <span class="mf">2.478</span> <span class="n">GHz</span>
+<span class="n">Channel</span> <span class="mi">26</span> <span class="p">:</span> <span class="mf">2.483</span> <span class="n">GHz</span>
+<span class="n">Current</span> <span class="n">Frequency</span><span class="p">:</span><span class="mf">2.483</span> <span class="n">GHz</span> <span class="p">(</span><span class="n">Channel</span> <span class="mi">26</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args :</dt>
+<dd>freq_Hz(int): frequency in Hz or channel number
+bandwidth(int): bandwidth in Hz</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>int:</dt>
+<dd><ul class="first last simple">
+<li>0 if the  call was successfully performed</li>
+<li>1 partial success</li>
+<li>2 error.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="wishful_upis.radio.set_tx_power">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">set_tx_power</code><span class="sig-paren">(</span><em>power_dBm</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#set_tx_power"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.set_tx_power" title="Permalink to this definition">¶</a></dt>
-<dd><p>func desc</p>
+<dd><p>Sets the transmit power in dBm. If W is the power in Watt, the power in dBm is P = 30 + 10.log(W).</p>
+<p>In addition auto and fixed enable and disable power control (if those features are available).</p>
 <dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">set_power</span><span class="p">(</span><span class="s2">&quot;15&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
 <dt>Args:</dt>
-<dd>power_dBm (TYPE): Description</dd>
+<dd>power_dBm (String): Specify transmit power level in dBm and setting type</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>int:</dt>
+<dd><ul class="first last simple">
+<li>0 if the  call was successfully performed</li>
+<li>1 partial success</li>
+<li>2 error.</li>
+</ul>
+</dd>
+</dl>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="wishful_upis.radio.set_txchannel">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">set_txchannel</code><span class="sig-paren">(</span><em>freq_Hz</em>, <em>bandwidth</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#set_txchannel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.set_txchannel" title="Permalink to this definition">¶</a></dt>
-<dd><p>func desc</p>
+<dd><p>Set the operating transmission frequency or channel.</p>
+<p>A value below 1000 indicates a channel number, a value greater than 1000 is a frequency in Hz. It is possible to use the suffix k, M or G to the value
+(&#8220;2.42G&#8221; for 2.42 GHz frequency). Channels are usually numbered starting at 1, it is possible to use get_rxchannel() UPI to get the total number of channels,
+list the available frequencies, and display the current channel.</p>
+<dl class="docutils">
+<dt>Example :</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;lowpan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_txchannel</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">control_engine</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;lowpan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_txchannel</span><span class="p">())</span>
+<span class="mi">26</span> <span class="n">channels</span> <span class="ow">in</span> <span class="n">total</span><span class="p">;</span> <span class="n">available</span> <span class="n">frequencies</span> <span class="p">:</span>
+<span class="o">...</span>
+<span class="n">Channel</span> <span class="mo">01</span> <span class="p">:</span> <span class="mi">904</span> <span class="n">MHz</span>
+<span class="n">Channel</span> <span class="mo">02</span> <span class="p">:</span> <span class="mi">906</span> <span class="n">MHz</span>
+<span class="n">Channel</span> <span class="mo">03</span> <span class="p">:</span> <span class="mi">908</span> <span class="n">MHz</span>
+<span class="o">...</span>
+<span class="n">Channel</span> <span class="mi">25</span> <span class="p">:</span> <span class="mf">2.478</span> <span class="n">GHz</span>
+<span class="n">Channel</span> <span class="mi">26</span> <span class="p">:</span> <span class="mf">2.483</span> <span class="n">GHz</span>
+<span class="n">Current</span> <span class="n">Frequency</span><span class="p">:</span><span class="mf">2.483</span> <span class="n">GHz</span> <span class="p">(</span><span class="n">Channel</span> <span class="mi">26</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args :</dt>
+<dd>freq_Hz(int): frequency in Hz or channel number
+bandwidth(int): bandwidth in Hz</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>int:</dt>
+<dd><ul class="first last simple">
+<li>0 if the  call was successfully performed</li>
+<li>1 partial success</li>
+<li>2 error.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="wishful_upis.radio.start_csi_measurements">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">start_csi_measurements</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#start_csi_measurements"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.start_csi_measurements" title="Permalink to this definition">¶</a></dt>
-<dd><p>Receives channel state information. (amplitude + phase)</p>
+<dd><p>Start the thread to receive the channel state information. (amplitude + phase)</p>
+<p>When call, this UPI uses a separate thread to logs channel state estimation for each of the 56 ofdm subcarriers
+(HT20 case). The channel state info is the I and Q values for the subcarriers. When a burst of CSI information is
+ready, a callback is called.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>callback (function): Specify the function to call when CSI information have been reported</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>int:</dt>
+<dd><ul class="first last simple">
+<li>0 if the  call was successfully performed</li>
+<li>1 partial success</li>
+<li>2 error.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="wishful_upis.radio.stop_csi_measurements">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">stop_csi_measurements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#stop_csi_measurements"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.stop_csi_measurements" title="Permalink to this definition">¶</a></dt>
-<dd><p>Receives channel state information. (amplitude + phase)</p>
+<dd><p>Stop the thread to receive the channel state information. (amplitude + phase)</p>
+<p>When call, this UPI uses a separate thread to logs channel state estimation for each of the 56 ofdm subcarriers
+(HT20 case). The channel state info is the I and Q values for the subcarriers. When a burst of CSI information is
+ready, a callback is called.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>int:</dt>
+<dd><ul class="first last simple">
+<li>0 if the  call was successfully performed</li>
+<li>1 partial success</li>
+<li>2 error.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="wishful_upis.radio.stop_waveform">
 <code class="descclassname">wishful_upis.radio.</code><code class="descname">stop_waveform</code><span class="sig-paren">(</span><em>iface</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/radio.html#stop_waveform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.radio.stop_waveform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stops transmitting a radio waveform.</p>
+<dd><p>Stops the radio waveform transmitting on signal generator</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">iface</span> <span class="o">=</span> <span class="s1">&#39;192.168.200.35&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">stop_waveform</span><span class="p">(</span><span class="n">iface</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>iface (String): Address ip of the interface connected with the signal generator.
+kwargs: Extra argumentes for the signal generator.</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>int:</dt>
+<dd><ul class="first last simple">
+<li>0 if the  call was successfully performed</li>
+<li>1 partial success</li>
+<li>2 error.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -827,7 +1061,7 @@ The list of available events supported by all platforms are defined in this modu
 Events specific to a subgroup of platforms are defined in the corresponding submodules.
 A list of supported events can be dynamically obtained using the get_radio_info function.</p>
 <dl class="docutils">
-<dt>Examples:</dt>
+<dt>Example:</dt>
 <dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">event_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MAC_RX_EVENT&quot;</span><span class="p">,</span><span class="s2">&quot;MAC_COLLISION_EVENT&quot;</span><span class="p">]</span>
 <span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">control_engine</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">iface</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">subscribe_events</span><span class="p">(</span><span class="n">event_keys</span><span class="p">,</span> <span class="n">event_cb</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">result</span>

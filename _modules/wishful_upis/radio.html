@@ -88,7 +88,7 @@
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Piotr Gawlowicz, Mikolaj Chwalisz, Anatolij Zubow, Peter Ruckebusch, Domenico Garlisi&quot;</span>
 <span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (c) 2016, Technische Universitat Berlin, iMinds, CNIT&quot;</span>
 <span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span>
-<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de, peter.ruckebusch@intec.ugent.be, &quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de, peter.ruckebusch@intec.ugent.be, domenico.garlisi@cnit.it&quot;</span>
 
 <span class="n">PARAMETERS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;TX_POWER&quot;</span><span class="p">,</span>
@@ -106,7 +106,7 @@
 <span class="sd">    Parameters specific to a subgroup of platforms are defined in the corresponding submodules.</span>
 <span class="sd">    A list of supported parameters can be dynamically obtained using the get_radio_info function.</span>
 
-<span class="sd">    Examples:</span>
+<span class="sd">    Example:</span>
 <span class="sd">        .. code-block:: python</span>
 
 <span class="sd">            &gt;&gt; param_key_values = {CSMA_CW : 15, CSMA_CW_MIN : 15, CSMA_CW_MAX : 15}</span>
@@ -132,7 +132,7 @@
 <span class="sd">    Parameters specific to a subgroup of platforms are defined in the corresponding submodules.</span>
 <span class="sd">    A list of supported parameters can be dynamically obtained using the get_radio_info function.</span>
 
-<span class="sd">    Examples:</span>
+<span class="sd">    Example:</span>
 <span class="sd">        .. code-block:: python</span>
 
 <span class="sd">            &gt;&gt; param_keys = [CSMA_CW,CSMA_CWMIN]</span>
@@ -158,7 +158,7 @@
 <span class="sd">    Measurements specific to a subgroup of platforms are defined in the corresponding submodules.</span>
 <span class="sd">    A list of supported measurements can be dynamically obtained using the get_radio_info function.</span>
 
-<span class="sd">    Examples:</span>
+<span class="sd">    Example:</span>
 <span class="sd">        .. code-block:: python</span>
 
 <span class="sd">            &gt;&gt; measurement_keys = [NUM_FREEZING_COUNT]</span>
@@ -183,7 +183,7 @@
 <span class="sd">    The list of available measurements supported by all platforms are defined in this module. Measurements specific to a subgroup of platforms are defined in the corresponding submodules.</span>
 <span class="sd">    A list of supported measurements can be dynamically obtained using the get_radio_info function.</span>
 
-<span class="sd">    Examples:</span>
+<span class="sd">    Example:</span>
 <span class="sd">        .. code-block:: python</span>
 
 <span class="sd">            &gt;&gt; def my_cb(report):</span>
@@ -203,7 +203,10 @@
 <span class="sd">        report_callback (function): the local callback that is invoked every report period.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        int: error code, 0 if success, 1 otherwise.</span>
+<span class="sd">        int:</span>
+<span class="sd">            - 0 if the parameter setting call was successfully performed</span>
+<span class="sd">            - 1 partial success</span>
+<span class="sd">            - 2 error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span></div>
 
@@ -216,7 +219,7 @@
 <span class="sd">    Events specific to a subgroup of platforms are defined in the corresponding submodules.</span>
 <span class="sd">    A list of supported events can be dynamically obtained using the get_radio_info function.</span>
 
-<span class="sd">    Examples:</span>
+<span class="sd">    Example:</span>
 <span class="sd">        .. code-block:: python</span>
 
 <span class="sd">            &gt;&gt; event_keys = [&quot;MAC_RX_EVENT&quot;,&quot;MAC_COLLISION_EVENT&quot;]</span>
@@ -241,7 +244,7 @@
     <span class="sd">&quot;&quot;&quot;This function activates the specified radio program.</span>
 <span class="sd">    When executed, this function stops the current radio program and enables the execution of the radio program specified in the parameter name.</span>
 
-<span class="sd">    Examples:</span>
+<span class="sd">    Example:</span>
 <span class="sd">        .. code-block:: python</span>
 
 <span class="sd">           &gt;&gt; result = control_engine.radio.iface(&quot;wlan0&quot;).activate_radio_program(&quot;CSMA&quot;)</span>
@@ -252,7 +255,8 @@
 <span class="sd">        name (str): String identifier of the radio program (e.g. CSMA, TDMA, TSCH)</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        int: - 0 if the parameter setting call was successfully performed</span>
+<span class="sd">        int:</span>
+<span class="sd">            - 0 if the parameter setting call was successfully performed</span>
 <span class="sd">            - 1 partial success</span>
 <span class="sd">            - 2 error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -262,10 +266,10 @@
 <div class="viewcode-block" id="deactivate_radio_program"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.deactivate_radio_program">[docs]</a><span class="k">def</span> <span class="nf">deactivate_radio_program</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;When executed, this function stops the radio program specified in the parameter radio_program_name.</span>
 
-<span class="sd">    Examples:</span>
+<span class="sd">    Example:</span>
 <span class="sd">        .. code-block:: python</span>
 
-<span class="sd">            &gt;&gt; result = control_engine.radio.iface(&quot;wlan0&quot;).deactivate_radio_program(&quot;CSMA&quot;)</span>
+<span class="sd">           &gt;&gt; result = control_engine.radio.iface(&quot;wlan0&quot;).deactivate_radio_program(&quot;CSMA&quot;)</span>
 <span class="sd">           &gt;&gt; print result</span>
 <span class="sd">           0</span>
 
@@ -287,7 +291,7 @@
 <span class="sd">    Each radio program is associated with a name and an index. When executed,</span>
 <span class="sd">    this function return the index of the radio program active.</span>
 
-<span class="sd">    Examples:</span>
+<span class="sd">    Example:</span>
 <span class="sd">        .. code-block:: python</span>
 
 <span class="sd">            &gt;&gt; args = {&#39;interface&#39; : &#39;wlan0&#39;}</span>
@@ -309,47 +313,145 @@
 
 
 <div class="viewcode-block" id="play_waveform"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.play_waveform">[docs]</a><span class="k">def</span> <span class="nf">play_waveform</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">power_lvl</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Starts transmitting a radio waveform (just PHY, no MAC).</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="sd">&quot;&quot;&quot;Starts transmitting a radio waveform on signal generator</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; iface = &#39;192.168.200.35&#39;</span>
+<span class="sd">            &gt;&gt; freq = &#39;5200&#39;</span>
+<span class="sd">            &gt;&gt; power_lvl = 0</span>
+<span class="sd">            &gt;&gt; controller.radio.play_waveform(iface, freq, power_lvl)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        iface (String): Address ip of the interface connected with the signal generator.</span>
+<span class="sd">        freq (int): Frequency of the generated waveform.</span>
+<span class="sd">        power_lvl (int): power level of the generated waveform.</span>
+<span class="sd">        kwargs: Extra argumentes for the signal generator.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int:</span>
+<span class="sd">            - 0 if the  call was successfully performed</span>
+<span class="sd">            - 1 partial success</span>
+<span class="sd">            - 2 error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
 
 
 <div class="viewcode-block" id="stop_waveform"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.stop_waveform">[docs]</a><span class="k">def</span> <span class="nf">stop_waveform</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Stops transmitting a radio waveform.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="sd">&quot;&quot;&quot;Stops the radio waveform transmitting on signal generator</span>
 
-<span class="c1">#to rename when will be updated the wifi module</span>
-<div class="viewcode-block" id="set_tx_power"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.set_tx_power">[docs]</a><span class="k">def</span> <span class="nf">set_tx_power</span><span class="p">(</span><span class="n">power_dBm</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;func desc</span>
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; iface = &#39;192.168.200.35&#39;</span>
+<span class="sd">            &gt;&gt; controller.radio.stop_waveform(iface)</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        power_dBm (TYPE): Description</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+<span class="sd">        iface (String): Address ip of the interface connected with the signal generator.</span>
+<span class="sd">        kwargs: Extra argumentes for the signal generator.</span>
 
-<span class="c1">#to rename when will be updated the wifi module</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        int:</span>
+<span class="sd">            - 0 if the  call was successfully performed</span>
+<span class="sd">            - 1 partial success</span>
+<span class="sd">            - 2 error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="set_tx_power"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.set_tx_power">[docs]</a><span class="k">def</span> <span class="nf">set_tx_power</span><span class="p">(</span><span class="n">power_dBm</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Sets the transmit power in dBm. If W is the power in Watt, the power in dBm is P = 30 + 10.log(W).</span>
+
+<span class="sd">    In addition auto and fixed enable and disable power control (if those features are available).</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; controller.radio.set_power(&quot;15&quot;)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        power_dBm (String): Specify transmit power level in dBm and setting type</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int:</span>
+<span class="sd">            - 0 if the  call was successfully performed</span>
+<span class="sd">            - 1 partial success</span>
+<span class="sd">            - 2 error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
+
+
 <div class="viewcode-block" id="get_tx_power"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_tx_power">[docs]</a><span class="k">def</span> <span class="nf">get_tx_power</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;func desc</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="sd">&quot;&quot;&quot; Gets the current transmit power and the list of various Transmit Powers available on the device</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; power_information = controller.radio.get_power()</span>
+<span class="sd">            &gt;&gt; print(power_information)</span>
+<span class="sd">            current_tx_power:15</span>
+<span class="sd">            available_tx_power:8,9,10,11,12,13,14,15,16,17,18</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dictionary: transmission power values in dBm</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
 
 <div class="viewcode-block" id="get_noise"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_noise">[docs]</a><span class="k">def</span> <span class="nf">get_noise</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;Returns the noise floor measured by the wireless driver.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="sd">&quot;&quot;&quot;  Background noise level (when no packet is transmitted). May be arbitrary units or dBm, this framework uses</span>
+<span class="sd">    driver meta information to interpret the raw value given by interface and display it.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; noise_information = controller.radio.get_noise()</span>
+<span class="sd">            &gt;&gt; print(noise_information)</span>
+<span class="sd">            -80dBm</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: noise level value</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
 
 
 <div class="viewcode-block" id="start_csi_measurements"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.start_csi_measurements">[docs]</a><span class="k">def</span> <span class="nf">start_csi_measurements</span><span class="p">(</span><span class="n">callback</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Receives channel state information. (amplitude + phase)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="sd">&quot;&quot;&quot; Start the thread to receive the channel state information. (amplitude + phase)</span>
+
+<span class="sd">    When call, this UPI uses a separate thread to logs channel state estimation for each of the 56 ofdm subcarriers</span>
+<span class="sd">    (HT20 case). The channel state info is the I and Q values for the subcarriers. When a burst of CSI information is</span>
+<span class="sd">    ready, a callback is called.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        callback (function): Specify the function to call when CSI information have been reported</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int:</span>
+<span class="sd">            - 0 if the  call was successfully performed</span>
+<span class="sd">            - 1 partial success</span>
+<span class="sd">            - 2 error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
 
 
 <div class="viewcode-block" id="stop_csi_measurements"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.stop_csi_measurements">[docs]</a><span class="k">def</span> <span class="nf">stop_csi_measurements</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;Receives channel state information. (amplitude + phase)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="sd">&quot;&quot;&quot;Stop the thread to receive the channel state information. (amplitude + phase)</span>
+
+<span class="sd">    When call, this UPI uses a separate thread to logs channel state estimation for each of the 56 ofdm subcarriers</span>
+<span class="sd">    (HT20 case). The channel state info is the I and Q values for the subcarriers. When a burst of CSI information is</span>
+<span class="sd">    ready, a callback is called.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int:</span>
+<span class="sd">            - 0 if the  call was successfully performed</span>
+<span class="sd">            - 1 partial success</span>
+<span class="sd">            - 2 error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
 
 
 <div class="viewcode-block" id="get_radio_platforms"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_radio_platforms">[docs]</a><span class="k">def</span> <span class="nf">get_radio_platforms</span><span class="p">():</span>
@@ -362,12 +464,10 @@
 <span class="sd">    Example:</span>
 <span class="sd">        .. code-block:: python</span>
 
-<span class="sd">            &gt;&gt; radio_platform_list = radio_platform_t()\n</span>
-<span class="sd">            &gt;&gt; current_NIC_list_string = control_engine.radio.iface(&quot;wlan0&quot;).get_radio_platforms()\n</span>
-<span class="sd">            &gt;&gt; current_NIC_list.platform_info =  current_NIC_list_string[0]\n</span>
-<span class="sd">            &gt;&gt; current_NIC_list.platform =  current_NIC_list_string[1]\n</span>
-
-<span class="sd">    Args:</span>
+<span class="sd">            &gt;&gt; radio_platform_list = radio_platform_t()</span>
+<span class="sd">            &gt;&gt; current_NIC_list_string = control_engine.radio.iface(&quot;wlan0&quot;).get_radio_platforms()</span>
+<span class="sd">            &gt;&gt; current_NIC_list.platform_info =  current_NIC_list_string[0]</span>
+<span class="sd">            &gt;&gt; current_NIC_list.platform =  current_NIC_list_string[1]</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        current_NIC_list:</span>
@@ -387,16 +487,16 @@
 <span class="sd">    Example:</span>
 <span class="sd">        .. code-block:: python</span>
 
-<span class="sd">            &gt;&gt; current_platform_info = radio_info_t()\n</span>
-<span class="sd">            &gt;&gt; current_platform_info_str = control_engine.radio.iface(&quot;wlan0&quot;).getRadioInfo(platform_id)\n</span>
-<span class="sd">            &gt;&gt; current_platform_info.platform_info.platform_id = current_platform_info_str[&#39;radio_info&#39;][0]\n</span>
-<span class="sd">            &gt;&gt; current_platform_info.platform_info.platform = current_platform_info_str[&#39;radio_info&#39;][1]\n</span>
-<span class="sd">            &gt;&gt; current_platform_info.monitor_list = current_platform_info_str[&#39;monitor_list&#39;]\n</span>
-<span class="sd">            &gt;&gt; current_platform_info.param_list = current_platform_info_str[&#39;param_list&#39;]\n</span>
-<span class="sd">            &gt;&gt; current_platform_info.execution_engine_list_name = current_platform_info_str[&#39;exec_engine_list_name&#39;]\n</span>
-<span class="sd">            &gt;&gt; current_platform_info.execution_engine_list_pointer = current_platform_info_str[&#39;exec_engine_list_pointer&#39;]\n</span>
-<span class="sd">            &gt;&gt; current_platform_info.radio_program_list_name = current_platform_info_str[&#39;radio_prg_list_name&#39;]\n</span>
-<span class="sd">            &gt;&gt; current_platform_info.radio_program_list_path = current_platform_info_str[&#39;radio_prg_list_pointer&#39;]\n</span>
+<span class="sd">            &gt;&gt; current_platform_info = radio_info_t()</span>
+<span class="sd">            &gt;&gt; current_platform_info_str = control_engine.radio.iface(&quot;wlan0&quot;).getRadioInfo(platform_id)</span>
+<span class="sd">            &gt;&gt; current_platform_info.platform_info.platform_id = current_platform_info_str[&#39;radio_info&#39;][0]</span>
+<span class="sd">            &gt;&gt; current_platform_info.platform_info.platform = current_platform_info_str[&#39;radio_info&#39;][1]</span>
+<span class="sd">            &gt;&gt; current_platform_info.monitor_list = current_platform_info_str[&#39;monitor_list&#39;]</span>
+<span class="sd">            &gt;&gt; current_platform_info.param_list = current_platform_info_str[&#39;param_list&#39;]</span>
+<span class="sd">            &gt;&gt; current_platform_info.execution_engine_list_name = current_platform_info_str[&#39;exec_engine_list_name&#39;]</span>
+<span class="sd">            &gt;&gt; current_platform_info.execution_engine_list_pointer = current_platform_info_str[&#39;exec_engine_list_pointer&#39;]</span>
+<span class="sd">            &gt;&gt; current_platform_info.radio_program_list_name = current_platform_info_str[&#39;radio_prg_list_name&#39;]</span>
+<span class="sd">            &gt;&gt; current_platform_info.radio_program_list_path = current_platform_info_str[&#39;radio_prg_list_pointer&#39;]</span>
 
 
 <span class="sd">    Args:</span>
@@ -405,46 +505,151 @@
 
 <span class="sd">    :Returns</span>
 <span class="sd">        result:</span>
-<span class="sd">            return a list in term of a dictionary data type (list of key: value). in which are present the key showed below:\n</span>
-<span class="sd">            &#39;radio_info&#39; --&gt; a list of pair value, the first value is the interface identifier and the second is the supported platforms.\n</span>
-<span class="sd">            &#39;monitor_list&#39; --&gt; a list of supported measurements between the attribute of the class UPI_R\n</span>
-<span class="sd">            &#39;param_list&#39; --&gt; a list of supported Parameters between the attribute of the class UPI_R\n</span>
-<span class="sd">            &#39;exec_engine_list_name&#39; --&gt; a list of supported execution environment name\n</span>
-<span class="sd">            &#39;exec_engine_list_pointer&#39; --&gt; a list of supported execution environment path\n</span>
-<span class="sd">            &#39;radio_prg_list_name&#39;--&gt; a list of supported radio program name\n</span>
-<span class="sd">            &#39;radio_prg_list_pointer&#39; --&gt; a list of supported radio program path\n</span>
+<span class="sd">            return a list in term of a dictionary data type (list of key: value). in which are present the key showed below:</span>
+<span class="sd">            &#39;radio_info&#39; --&gt; a list of pair value, the first value is the interface identifier and the second is the supported platforms.</span>
+<span class="sd">            &#39;monitor_list&#39; --&gt; a list of supported measurements between the attribute of the class UPI_R</span>
+<span class="sd">            &#39;param_list&#39; --&gt; a list of supported Parameters between the attribute of the class UPI_R</span>
+<span class="sd">            &#39;exec_engine_list_name&#39; --&gt; a list of supported execution environment name</span>
+<span class="sd">            &#39;exec_engine_list_pointer&#39; --&gt; a list of supported execution environment path</span>
+<span class="sd">            &#39;radio_prg_list_name&#39;--&gt; a list of supported radio program name</span>
+<span class="sd">            &#39;radio_prg_list_pointer&#39; --&gt; a list of supported radio program path</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span></div>
 
 
 <div class="viewcode-block" id="set_rxchannel"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.set_rxchannel">[docs]</a><span class="k">def</span> <span class="nf">set_rxchannel</span><span class="p">(</span><span class="n">freq_Hz</span><span class="p">,</span> <span class="n">bandwidth</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;func desc</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="sd">&quot;&quot;&quot;Set the operating reception frequency or channel.</span>
+
+<span class="sd">    A value below 1000 indicates a channel number, a value greater than 1000 is a frequency in Hz. It is possible to use the suffix k, M or G to the value</span>
+<span class="sd">    (&quot;2.42G&quot; for 2.42 GHz frequency). Channels are usually numbered starting at 1, it is possible to use get_rxchannel() UPI to get the total number of channels,</span>
+<span class="sd">    list the available frequencies, and display the current channel.</span>
+
+<span class="sd">    Example :</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; control_engine.blocking(False).radio.iface(&quot;lowpan0&quot;).set_rxchannel(26)</span>
+<span class="sd">            &gt;&gt; print(control_engine.blocking(False).radio.iface(&quot;lowpan0&quot;).get_rxchannel())</span>
+<span class="sd">            26 channels in total; available frequencies :</span>
+<span class="sd">            ...</span>
+<span class="sd">            Channel 01 : 904 MHz</span>
+<span class="sd">            Channel 02 : 906 MHz</span>
+<span class="sd">            Channel 03 : 908 MHz</span>
+<span class="sd">            ...</span>
+<span class="sd">            Channel 25 : 2.478 GHz</span>
+<span class="sd">            Channel 26 : 2.483 GHz</span>
+<span class="sd">            Current Frequency:2.483 GHz (Channel 26)</span>
+
+<span class="sd">    Args :</span>
+<span class="sd">        freq_Hz(int): frequency in Hz or channel number</span>
+<span class="sd">        bandwidth(int): bandwidth in Hz</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int:</span>
+<span class="sd">            - 0 if the  call was successfully performed</span>
+<span class="sd">            - 1 partial success</span>
+<span class="sd">            - 2 error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
 
 
 <div class="viewcode-block" id="get_rxchannel"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_rxchannel">[docs]</a><span class="k">def</span> <span class="nf">get_rxchannel</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;func desc</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="sd">&quot;&quot;&quot;Return the list of available frequencies in the device and the number of defined channels for the reception module.</span>
+<span class="sd">     Also return the current frequency/channel setted.</span>
+
+<span class="sd">    Example :</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; print(control_engine.blocking(False).radio.iface(&quot;lowpan0&quot;).get_rxchannel())</span>
+<span class="sd">            26 channels in total; available frequencies :</span>
+<span class="sd">            ...</span>
+<span class="sd">            Channel 01 : 904 MHz</span>
+<span class="sd">            Channel 02 : 906 MHz</span>
+<span class="sd">            Channel 03 : 908 MHz</span>
+<span class="sd">            ...</span>
+<span class="sd">            Channel 25 : 2.478 GHz</span>
+<span class="sd">            Channel 26 : 2.483 GHz</span>
+<span class="sd">            Current Frequency:2.483 GHz (Channel 26)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list: list of available frequencies/channels and current frequency/channel setted</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
 
 
 <div class="viewcode-block" id="set_txchannel"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.set_txchannel">[docs]</a><span class="k">def</span> <span class="nf">set_txchannel</span><span class="p">(</span><span class="n">freq_Hz</span><span class="p">,</span> <span class="n">bandwidth</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;func desc</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;Set the operating transmission frequency or channel.</span>
+
+<span class="sd">    A value below 1000 indicates a channel number, a value greater than 1000 is a frequency in Hz. It is possible to use the suffix k, M or G to the value</span>
+<span class="sd">    (&quot;2.42G&quot; for 2.42 GHz frequency). Channels are usually numbered starting at 1, it is possible to use get_rxchannel() UPI to get the total number of channels,</span>
+<span class="sd">    list the available frequencies, and display the current channel.</span>
+
+<span class="sd">    Example :</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; control_engine.blocking(False).radio.iface(&quot;lowpan0&quot;).set_txchannel(26)</span>
+<span class="sd">            &gt;&gt; print(control_engine.blocking(False).radio.iface(&quot;lowpan0&quot;).get_txchannel())</span>
+<span class="sd">            26 channels in total; available frequencies :</span>
+<span class="sd">            ...</span>
+<span class="sd">            Channel 01 : 904 MHz</span>
+<span class="sd">            Channel 02 : 906 MHz</span>
+<span class="sd">            Channel 03 : 908 MHz</span>
+<span class="sd">            ...</span>
+<span class="sd">            Channel 25 : 2.478 GHz</span>
+<span class="sd">            Channel 26 : 2.483 GHz</span>
+<span class="sd">            Current Frequency:2.483 GHz (Channel 26)</span>
+
+<span class="sd">    Args :</span>
+<span class="sd">        freq_Hz(int): frequency in Hz or channel number</span>
+<span class="sd">        bandwidth(int): bandwidth in Hz</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int:</span>
+<span class="sd">            - 0 if the  call was successfully performed</span>
+<span class="sd">            - 1 partial success</span>
+<span class="sd">            - 2 error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
 <div class="viewcode-block" id="get_txchannel"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_txchannel">[docs]</a><span class="k">def</span> <span class="nf">get_txchannel</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;func desc</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="sd">&quot;&quot;&quot; Return the list of available frequencies in the device and the number of defined channels for the transmission module.</span>
+<span class="sd">     Also return the current frequency/channel setted.</span>
+
+<span class="sd">    Example :</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; print(control_engine.blocking(False).radio.iface(&quot;lowpan0&quot;).get_rxchannel())</span>
+<span class="sd">            26 channels in total; available frequencies :</span>
+<span class="sd">            ...</span>
+<span class="sd">            Channel 01 : 904 MHz</span>
+<span class="sd">            Channel 02 : 906 MHz</span>
+<span class="sd">            Channel 03 : 908 MHz</span>
+<span class="sd">            ...</span>
+<span class="sd">            Channel 25 : 2.478 GHz</span>
+<span class="sd">            Channel 26 : 2.483 GHz</span>
+<span class="sd">            Current Frequency:2.483 GHz (Channel 26)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list: list of available frequencies/channels and current frequency/channel setted</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
 
 
 <div class="viewcode-block" id="get_hwaddr"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_hwaddr">[docs]</a><span class="k">def</span> <span class="nf">get_hwaddr</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;func desc</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="sd">&quot;&quot;&quot; Return the Hardware address of the device</span>
+
+<span class="sd">    Example :</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; mac_address = control_engine.blocking(False).radio.iface(&quot;lowpan0&quot;).get_hwaddr()</span>
+<span class="sd">            &gt;&gt; print(mac_address)</span>
+<span class="sd">            10:1f:74:54:62:f7</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        String: HW address in the IEEE: MAC-48 format</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span></div>
 </pre></div>
 
           </div>
