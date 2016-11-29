@@ -373,3 +373,24 @@ def get_hwaddr():
     '''func desc
     '''
     pass
+
+
+def get_bandwidth():
+    '''func desc
+    '''
+    pass
+
+def set_bandwidth(bandwidth):
+    '''func desc
+    '''
+    pass
+
+def get_rx_gain():
+    '''func desc
+    '''
+    pass
+
+def set_rx_gain(gain):
+    '''func desc
+    '''
+    pass
