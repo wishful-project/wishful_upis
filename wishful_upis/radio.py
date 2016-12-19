@@ -268,14 +268,9 @@ def get_noise():
     pass
 
 
-def start_csi_measurements(callback):
-    '''Receives channel state information. (amplitude + phase)
+def get_csi():
     '''
-    pass
-
-
-def stop_csi_measurements():
-    '''Receives channel state information. (amplitude + phase)
+    Return CSI values; i.e. the next num_samples CSI samples (amplitude + phase).
     '''
     pass
 
