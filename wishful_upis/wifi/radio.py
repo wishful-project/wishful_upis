@@ -100,20 +100,25 @@ def get_per_flow_tx_power_table():
 
 
 def install_mac_processor(interface, mac_profile):
-    """Install new WiFi MAC Processor
+    """
+    Install new WiFi MAC Processor
     """
     return
 
+
 def update_mac_processor(interface, mac_profile):
-    '''func desc
-    '''
+    """
+    Update WiFi MAC Processor
+    """
     pass
 
 
 def uninstall_mac_processor(interface, mac_profile):
-    '''func desc
-    '''
+    """
+    Uninstall WiFi MAC Processor
+    """
     pass
+
 
 '''
     Channel state information and spectrum scanning capabilities.

@@ -209,37 +209,46 @@ def sniff_layer2_traffic(iface, sniff_timeout, **kwargs):
 ''' Controlling network emulation (netem), i.e. emulation of variable delay, loss, duplication and re-ordering. '''
 
 def set_netem_profile(iface, profile):
-    """Func Desc
+    """
+    Set emulation profile in given network interface
     """
     return
 
 
 def update_netem_profile(iface, profile):
-    """Func Desc
+    """
+    Update emulation profile in given network interface
     """
     return
 
 
 def remove_netem_profile(iface):
-    """Func Desc
+    """
+    Remove emulation profile from given network interface.
     """
     return
 
 
 def set_per_link_netem_profile(iface, dstIpAddr, profile):
-    """Func Desc
+    """
+    Set emulation profile in network interface for
+    given link identified with destination IP address
     """
     return
 
 
 def update_per_link_netem_profile(iface, dstIpAddr, profile):
-    """Func Desc
+    """
+    Update emulation profile in network interface
+    for given link identified with MAC addresses.
     """
     return
 
 
 def remove_per_link_netem_profile(iface, dstIpAddr):
-    """Func Desc
+    """
+    Remove emulation profile from network interface
+    for given link identified with MAC addresses.
     """
     return
 
@@ -247,13 +256,15 @@ def remove_per_link_netem_profile(iface, dstIpAddr):
 ''' Controlling queuing disciplines '''
 
 def install_egress_scheduler(iface, scheduler):
-    """Func Desc
+    """
+    Install Egress Scheduler in given network interface.
     """
     return
 
 
 def remove_egress_scheduler(iface):
-    """Func Desc
+    """
+    Remove Egress Scheduler from network interface
     """
     return
 
@@ -261,37 +272,45 @@ def remove_egress_scheduler(iface):
 ''' Network filter tables '''
 
 def clear_nf_tables(table="ALL", chain="ALL"):
-    """Func Desc
+    """
+    Clear all entries in given chain of given table in iptables
     """
     return
 
 def get_nf_table(tableName):
-    """Func Desc
+    """
+    Get specific iptable and its entires
     """
     return
 
 ''' Packet marking - IP ToS '''
 
 def set_pkt_marking(flowId, markId=None, table="mangle", chain="POSTROUTING"):
-    """Func Desc
+    """
+    Add iptable rule for marking all packets belonging
+    to flow identified with given 5-tuple
     """
     return
 
 
 def del_pkt_marking(flowId, markId=None, table="mangle", chain="POSTROUTING"):
-    """Func Desc
+    """
+    Remove rule used to mark given flow from iptable
     """
     return
 
 ''' Packet mangling - IP ToS '''
 
 def set_ip_tos(flowId, tos, table="mangle", chain="POSTROUTING"):
-    """Func Desc
+    """
+    Add iptable rule for setting TOS (Type-of-Service)
+    field in all packets
     """
     return
 
 
 def del_ip_tos(flowId, tos, table="mangle", chain="POSTROUTING"):
-    """Func Desc
+    """
+    Remove rule used to setting TOS field from iptable
     """
     return
