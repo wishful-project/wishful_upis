@@ -12,6 +12,15 @@ __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
 
 ''' Upper MAC layer '''
+
+def start_monitor(driver, iface):
+    return
+
+
+def start_adhoc(driver,iface,essid,freq,txpower,rate,ip_addr,rts='off',mac_address="aa:bb:cc:dd:ee:ff",skip_reload=False):
+    return
+
+
 def set_hostapd_conf(iface, file_path, channel, essid):
     '''Set hostapd configuration, provide functionality to setting Access Point station
     '''

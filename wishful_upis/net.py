@@ -132,7 +132,10 @@ def start_application(application_id):
 def stop_application(application_id):
     return
 
-def create_packetflow_sink(port):
+def register_packetflow_logging(traffic_logger_port, sink_ip_address, traffic_ip_address):
+    return
+
+def create_packetflow_sink(port = '5001', logging_interval = '1', use_udp = True, bind_interface = 'wlan0'):
     '''Start IPerf server (TCP/IP)
     '''
     return
@@ -144,7 +147,7 @@ def destroy_packetflow_sink():
     return
 
 
-def start_packetflow(dest_ip, port = 5001):
+def start_packetflow(dest_ip, port = '5001', time_duration = '10', bandwidth = '1M', frame_length = '1470'):
     '''Start IPerf client.
     '''
     return
