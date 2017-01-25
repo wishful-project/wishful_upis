@@ -283,7 +283,9 @@ def del_pkt_marking(flowId, markId=None, table="mangle", chain="POSTROUTING"):
     """
     return
 
+
 ''' Packet mangling - IP ToS '''
+
 
 def set_ip_tos(flowId, tos, table="mangle", chain="POSTROUTING"):
     """Func Desc
@@ -294,4 +296,35 @@ def set_ip_tos(flowId, tos, table="mangle", chain="POSTROUTING"):
 def del_ip_tos(flowId, tos, table="mangle", chain="POSTROUTING"):
     """Func Desc
     """
+    return
+
+
+def rpl_set_border_router(rpl_prefix):
+    """ This function allows to configure a sensor node as RPL border router.
+        The RPL prefix must be specified as argument.
+    """
+    return
+
+
+def get_route_table():
+    return
+
+
+def clear_route_table():
+    return
+
+
+def add_route(destination_ip_address, nexthop_ip_address):
+    return
+
+
+def remove_route(destination_ip_address):
+    return
+
+
+def get_neighbor_table():
+    return
+
+
+def add_neighbor(neighbor_ip_address, neighbor_link_address, is_router):
     return
