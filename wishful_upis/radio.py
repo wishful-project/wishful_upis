@@ -24,6 +24,16 @@ PARAMETERS = [
 ]
 
 
+class Attribute():
+    def __init__(self, name, data_type, is_read_only):
+        self.name = name
+        self.data_type = data_type
+        self.is_read_only = is_read_only
+
+
+""" This attribute allows to configure the minimum contention window used by CSMA in 802.11"""
+dot80211_mac_random_access_csma_cwmin = Attribute("dot80211_mac_random_access_csma_cwmin", int, False)
+
 
 # Generic API to control the lower layers, i.e. key-value configuration.
 def set_parameters(param_key_values_dict):
