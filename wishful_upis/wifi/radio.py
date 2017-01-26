@@ -3,16 +3,35 @@ __copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
 __version__ = "0.1.0"
 __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de"
 
-'''
-    The protocol-specific definition of the WiSHFUL radio control interface, UPI_R, for configuration/monitoring of the
-    lower layers of the network protocol stack (lower MAC and PHY).
 
+from wishful_upis.meta_models import Attribute, Measurement, Event, Action, ValueDoc
+
+
+'''
+    The protocol-specific definition of the WiSHFUL radio control interface,
+    UPI_R, for configuration/monitoring of the
+    lower layers of the network protocol stack (lower MAC and PHY).
     IEEE 802.11 protocol family
 '''
 
-'''
-    MAC layer
-'''
+
+# ATTRIBUTES
+DOT_80211_PHY_CHANNEL = Attribute(key='DOT_80211_PHY_CHANNEL', type=int, isReadOnly=False) #:
+DOT_80211_PHY_RATE = Attribute(key='DOT_80211_PHY_RATE', type=int, isReadOnly=False) #:
+DOT_80211_RTS_CTS_THRESHOLD = Attribute(key='DOT_80211_RTS_CTS_THRESHOLD', type=int, isReadOnly=False) #:
+
+# MEASUREMENTS
+DOT_80211_NOISE_FLOOR = Measurement(key='DOT_80211_NOISE_FLOOR', type=float) #:
+
+# EVENTS
+DOT_80211_PACKET_LOSS = Event(key='DOT_80211_PACKET_LOSS', type=None) #:
+
+# ACTIONS
+DOT_80211_SWITCH_CHANNEL = Action(key='DOT_80211_SWITCH_CHANNEL', args_types=int, return_type=bool) #:
+
+
+#######################################################
+# MAC layer
 
 def set_mac_access_parameters(queueId, qParam):
     '''MAC access parameters in 802.11e: the configuration of the access categories
