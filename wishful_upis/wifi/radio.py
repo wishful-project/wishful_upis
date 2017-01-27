@@ -16,9 +16,14 @@ from wishful_upis.meta_models import Attribute, Measurement, Event, Action, Valu
 
 
 # ATTRIBUTES
-DOT_80211_PHY_CHANNEL = Attribute(key='DOT_80211_PHY_CHANNEL', type=int, isReadOnly=False) #:
-DOT_80211_PHY_RATE = Attribute(key='DOT_80211_PHY_RATE', type=int, isReadOnly=False) #:
+DOT_80211_PHY_CHANNEL = Attribute(key='DOT_80211_PHY_CHANNEL', type=int, isReadOnly=False) #: PHY channel
+DOT_80211_PHY_RATE = Attribute(key='DOT_80211_PHY_RATE', type=int, isReadOnly=False) #: Rate index value
+DOT_80211_PHY_MCS = Attribute(key='DOT_80211_PHY_MCS', type=int, isReadOnly=False) #: Modulation and Coding Scheme (MCS) index value
+DOT_80211_PHY_CCA = Attribute(key='DOT_80211_PHY_CCA', type=int, isReadOnly=False) #: Clear channel assessment (CCA) threshold
 DOT_80211_RTS_CTS_THRESHOLD = Attribute(key='DOT_80211_RTS_CTS_THRESHOLD', type=int, isReadOnly=False) #:
+DOT_80211_FRAGMENTATION_THRESHOLD = Attribute(key='DOT_80211_RTS_CTS_THRESHOLD', type=int, isReadOnly=False) #:
+DOT_80211_RETRY_SHORT = Attribute(key='DOT_80211_RETRY_SHORT', type=int, isReadOnly=False) #:Retry short is the number of transmission attempts before change the modulation rate
+DOT_80211_RETRY_LONG = Attribute(key='DOT_80211_RETRY_LONG', type=int, isReadOnly=False) #:Retry short is the number of transmission attempts after change the modulation rate
 
 # MEASUREMENTS
 DOT_80211_NOISE_FLOOR = Measurement(key='DOT_80211_NOISE_FLOOR', type=float) #:
