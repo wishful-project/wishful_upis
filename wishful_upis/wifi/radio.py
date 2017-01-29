@@ -16,6 +16,8 @@ from wishful_upis.meta_models import Attribute, Measurement, Event, Action, Valu
 
 
 # ATTRIBUTES
+DOT_80211_PHY_ANI = Attribute(key='DOT_80211_PHY_ANI', type=int, isReadOnly=False) #: Adaptive Noise Immunity (ANI)
+DOT_80211_STANDARDS = Attribute(key='DOT_80211_STANDARDS', type=int, isReadOnly=False) #: Supported 802.11 standards
 DOT_80211_PHY_CHANNEL = Attribute(key='DOT_80211_PHY_CHANNEL', type=int, isReadOnly=False) #: PHY channel
 DOT_80211_PHY_RATE = Attribute(key='DOT_80211_PHY_RATE', type=int, isReadOnly=False) #: Rate index value
 DOT_80211_PHY_MCS = Attribute(key='DOT_80211_PHY_MCS', type=int, isReadOnly=False) #: Modulation and Coding Scheme (MCS) index value
@@ -24,15 +26,38 @@ DOT_80211_RTS_CTS_THRESHOLD = Attribute(key='DOT_80211_RTS_CTS_THRESHOLD', type=
 DOT_80211_FRAGMENTATION_THRESHOLD = Attribute(key='DOT_80211_RTS_CTS_THRESHOLD', type=int, isReadOnly=False) #:
 DOT_80211_RETRY_SHORT = Attribute(key='DOT_80211_RETRY_SHORT', type=int, isReadOnly=False) #:Retry short is the number of transmission attempts before change the modulation rate
 DOT_80211_RETRY_LONG = Attribute(key='DOT_80211_RETRY_LONG', type=int, isReadOnly=False) #:Retry short is the number of transmission attempts after change the modulation rate
+DOT_80211_MAC_STATE_SAMPLING_INTERVAL = Attribute(key='DOT_80211_MAC_STATE_SAMPLING_INTERVAL', type=int, isReadOnly=False) #: MAC state sampling interval in ms
+DOT_80211_MAC_EDCA_AIFS = Attribute(key='DOT_80211_MAC_EDCA_AIFS', type=int, isReadOnly=False) #: EDCA Arbitrated Interframe Space value
+DOT_80211_MAC_EDCA_CW_MIN =Attribute(key='DOT_80211_MAC_EDCA_CW_MIN', type=int, isReadOnly=False) #: EDCA Contention Window Min value
+DOT_80211_MAC_EDCA_CW_MAX =Attribute(key='DOT_80211_MAC_EDCA_CW_MAX', type=int, isReadOnly=False) #: EDCA Contention Window Max value
+DOT_80211_MAC_EDCA_TX_OP =Attribute(key='DOT_80211_MAC_EDCA_TX_OP', type=int, isReadOnly=False) #: EDCA Transmit Opportunity value
+DOT_80211_PHY_REGURATORY_DOMAIN =Attribute(key='DOT_80211_PHY_REGURATORY_DOMAIN', type=str, isReadOnly=False) #: Reguratory domain information
+DOT_80211_POWER_MANAGEMENT = Attribute(key='DOT_80211_POWER_MANAGEMENT', type=int, isReadOnly=False) #: Power Managemenet Scheme: Fixed, Auto
 
 # MEASUREMENTS
-DOT_80211_NOISE_FLOOR = Measurement(key='DOT_80211_NOISE_FLOOR', type=float) #:
+DOT_80211_MAC_STATE_IDLE_TIME = Measurement(key='DOT_80211_MAC_STATE_IDLE_TIME', type=int) #: Time MAC spent in idle state in last sampling interval
+DOT_80211_MAC_STATE_IDLE_RATIO = Measurement(key='DOT_80211_MAC_STATE_IDLE_RATIO', type=float) #: Ratio of time that MAC spent in idle state in last sampling interval
+DOT_80211_MAC_STATE_BUSY_TIME = Measurement(key='DOT_80211_MAC_STATE_BUSY_TIME', type=int) #: Time MAC spent in busy state in last sampling interval
+DOT_80211_MAC_STATE_BUSY_RATIO = Measurement(key='DOT_80211_MAC_STATE_BUSY_RATIO', type=float) #: Ratio of time that MAC spent in busy state in last sampling interval
+DOT_80211_MAC_STATE_TX_TIME = Measurement(key='DOT_80211_MAC_STATE_TX_TIME', type=int) #: Time MAC spent in TX state in last sampling interval
+DOT_80211_MAC_STATE_TX_RATIO = Measurement(key='DOT_80211_MAC_STATE_TX_RATIO', type=float) #: Ratio of time that MAC spent in TX state in last sampling interval
+DOT_80211_MAC_STATE_RX_TIME = Measurement(key='DOT_80211_MAC_STATE_RX_TIME', type=int) #: Time MAC spent in RX state in last sampling interval
+DOT_80211_MAC_STATE_RX_RATIO = Measurement(key='DOT_80211_MAC_STATE_RX_RATIO', type=float) #: Ratio of time that MAC spent in RX state in last sampling interval
+DOT_80211_MAC_STATE_ED_TIME = Measurement(key='DOT_80211_MAC_STATE_ED_TIME', type=int) #: Time MAC spent in energy detection state in last sampling interval
+DOT_80211_MAC_STATE_ED_RATIO = Measurement(key='DOT_80211_MAC_STATE_ED_RATIO', type=float) #: Ratio of time that MAC spent in energy detection state in last sampling interval
+
+DOT_80211_MAC_STA_AIR_TIME = Measurement(key='DOT_80211_MAC_STA_AIR_TIME', type=float) #: Per STA air-time statistics
+DOT_80211_PHY_LINK_INFO = Measurement(key='DOT_80211_PHY_LINK_INFO', type=float) #: Per STA link informations
 
 # EVENTS
-DOT_80211_PACKET_LOSS = Event(key='DOT_80211_PACKET_LOSS', type=None) #:
+DOT_80211_DATA_FRAME_LOSS = Event(key='DOT_80211_DATA_FRAME_LOSS', type=None) #: Notify about data frame loss
+DOT_80211_CONTROL_FRAME_LOSS = Event(key='DOT_80211_CONTROL_FRAME_LOSS', type=None) #: Notify about control frame loss
+DOT_80211_MGMT_FRAME_LOSS = Event(key='DOT_80211_MGMT_FRAME_LOSS', type=None) #: Notify about management frame loss
 
 # ACTIONS
-DOT_80211_SWITCH_CHANNEL = Action(key='DOT_80211_SWITCH_CHANNEL', args_types=int, return_type=bool) #:
+DOT_80211_SWITCH_CHANNEL = Action(key='DOT_80211_SWITCH_CHANNEL', args_types=int, return_type=bool) #: Trigger channel switch to new channel
+DOT_80211_INJECT_L2_FRAME = Action(key='DOT_80211_INJECT_MGMT_FRAME', args_types=str, return_type=bool) #: Inject L2 frame in hex format
+DOT_80211_SNIFF_L2_FRAMES = Action(key='DOT_80211_SNIFF_L2_FRAMES', args_types=int, return_type=bool) #: Sniff N L2 frames
 
 
 #######################################################

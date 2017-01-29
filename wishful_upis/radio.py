@@ -46,6 +46,8 @@ CSMA_NUM_FREEZING_COUNT = Attribute(key='CSMA_NUM_FREEZING_COUNT', type=int, isR
 
 
 # MEASUREMENTS
+NOISE = Measurement(key='NOISE', type=int) #: Level of noise in dBm
+CSI = Measurement(key='CSA', type=int) #: Channel State Information' last measured value
 RSSI = Measurement(key='RSSI', type=int) #:Received Signal Strength Indication (RSSI); it refers to the last received frame in dBm.
 SNR = Measurement(key='SNR', type=int) #:Signal-to-noise ratio (SNR) of the last received frame in dB.
 LQI = Measurement(key='LQI', type=int) #:Link Quality Indicator (LQI)
