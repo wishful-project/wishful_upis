@@ -259,33 +259,31 @@ def stop_waveform(iface, **kwargs):
 
 #to rename when will be updated the wifi module
 def set_tx_power(power_dBm):
-    '''func desc
+    '''
+    Set transmission power for the radio device
 
     Args:
-        power_dBm (TYPE): Description
+        power_dBm (TYPE): value of TX power in dBm scale
     '''
     pass
 
 #to rename when will be updated the wifi module
 def get_tx_power():
-    '''func desc
+    '''
+    Get transmission power of radio device.
     '''
     pass
 
 def get_noise():
-    '''Returns the noise floor measured by the wireless driver.
+    '''
+    Returns the noise floor measured by the wireless device.
     '''
     pass
 
 
-def start_csi_measurements(callback):
-    '''Receives channel state information. (amplitude + phase)
+def get_csi():
     '''
-    pass
-
-
-def stop_csi_measurements():
-    '''Receives channel state information. (amplitude + phase)
+    Return CSI values; i.e. the next num_samples CSI samples (amplitude + phase).
     '''
     pass
 
@@ -356,30 +354,71 @@ def get_radio_info(platform_id):
 
 
 def set_rxchannel(freq_Hz, bandwidth):
-    '''func desc
+    '''
+    Set RX channel for wireless device, i.e. center frequency and bandwidth.
+
+    Args:
+        channel: channel to set
+        bandwidth: bandwidth to set
     '''
     pass
 
 
 def get_rxchannel():
-    '''func desc
+    '''
+    Get RX channel of wireless device,
     '''
     pass
 
 
 def set_txchannel(freq_Hz, bandwidth):
-    '''func desc
+    '''
+    Set TX channel for wireless device, i.e. center frequency and bandwidth.
+
+    Args:
+        channel: channel to set
+        bandwidth: bandwidth to set
     '''
     pass
 
 
 def get_txchannel():
-    '''func desc
+    '''
+    Get TX channel of wireless device,
     '''
     pass
 
 
 def get_hwaddr():
-    '''func desc
+    '''
+    Get device hardware address of network device, i.e. MAC address
+    '''
+    pass
+
+
+def get_bandwidth():
+    '''
+    Get bandwidth of wireless device,
+    '''
+    pass
+
+def set_bandwidth(bandwidth):
+    '''
+    Set bandwidth for wireless device
+
+    Args:
+        bandwidth: bandwidth to set
+    '''
+    pass
+
+def get_rx_gain():
+    '''
+    Get RX gain of wireless device,
+    '''
+    pass
+
+def set_rx_gain(gain):
+    '''
+    Set RX gain of wireless device,
     '''
     pass
