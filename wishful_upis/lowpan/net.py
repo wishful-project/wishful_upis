@@ -52,7 +52,7 @@ Updates the objective function used to for link estimation and path cost calcula
 LOWPAN_NET_RPL_OBJECTIVE_FUNCTION = Attribute("rpl_objective_function", type=int, isReadOnly=False)  #:
 
 # MEASUREMENTS
-LOWPAN_NET_RPL_STATISTICS = Measurement("rpl_stats", type=list, isReadOnly=False)  #: Cumulative statics gathered during RPL operation.
+LOWPAN_NET_RPL_STATISTICS = Measurement("rpl_stats", type=list)  #: Cumulative statics gathered during RPL operation.
 
 
 # ACTION
