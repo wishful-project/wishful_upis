@@ -18,22 +18,6 @@ __copyright__ = "Copyright (c) 2016, Technische Universitat Berlin, iMinds, CNIT
 __version__ = "0.1.0"
 __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de, peter.ruckebusch@intec.ugent.be, "
 
-PARAMETERS = [
-    "TX_POWER",
-    "RX_CHANNEL"
-]
-
-
-class Attribute():
-    def __init__(self, name, data_type, is_read_only):
-        self.name = name
-        self.data_type = data_type
-        self.is_read_only = is_read_only
-
-
-""" This attribute allows to configure the minimum contention window used by CSMA in 802.11"""
-dot80211_mac_random_access_csma_cwmin = Attribute("dot80211_mac_random_access_csma_cwmin", int, False)
-
 
 # Generic API to control the lower layers, i.e. key-value configuration.
 def set_parameters(param_key_values_dict):
