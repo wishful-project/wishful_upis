@@ -3,7 +3,7 @@
 <!doctype html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
@@ -31,11 +31,11 @@
     <link rel="prev" title="Wishful Upi packages" href="wishful_upis.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
   </head>
-  <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
+  <body>
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,11 +50,11 @@
         <li class="right" >
           <a href="wishful_upis.html" title="Wishful Upi packages"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="wishful_upis.html" accesskey="U">Wishful Upi packages</a> &raquo;</li> 
+        <li><a href="index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
+          <li><a href="wishful_upis.html" accesskey="U">Wishful Upi packages</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/wishful.png" alt="Logo"/>
@@ -76,14 +76,12 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="wishful_upis.lte.html"
                         title="next chapter">LTE specific functions</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/wishful_upis.lowpan.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/wishful_upis.lowpan.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -91,6 +89,9 @@
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -99,7 +100,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="wsn-specific-functions">
 <h1>WSN specific functions<a class="headerlink" href="#wsn-specific-functions" title="Permalink to this headline">¶</a></h1>
@@ -109,12 +110,326 @@
 </div>
 <div class="section" id="module-wishful_upis.lowpan.net">
 <span id="network-fucntions"></span><h2>Network fucntions<a class="headerlink" href="#module-wishful_upis.lowpan.net" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wishful_upis.lowpan.net.LowPanRouteTableEntry">
+<em class="property">class </em><tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LowPanRouteTableEntry</tt><big>(</big><em>dest_ipv6_addr</em>, <em>num_hops</em>, <em>nexthop_ipv6_addr</em><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/net.html#LowPanRouteTableEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.net.LowPanRouteTableEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_RPL_DIO_INTERVAL_MIN">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_RPL_DIO_INTERVAL_MIN</tt><em class="property"> = Attribute(key=rpl_dio_interval_min, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_RPL_DIO_INTERVAL_MIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value used to configure Imax for the DIO Trickle timer.
+The default value is 20.
+This configuration results in a maximum interval of 2.33 hours.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_RPL_DIO_INTERVAL_DOUBLINGS">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_RPL_DIO_INTERVAL_DOUBLINGS</tt><em class="property"> = Attribute(key=rpl_dio_interval_doublings, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_RPL_DIO_INTERVAL_DOUBLINGS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value used to configure k for the DIO Trickle timer.
+The default value is 10.
+This configuration is a conservative value for Trickle suppression mechanism.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_RPL_DIO_REDUNDANCY">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_RPL_DIO_REDUNDANCY</tt><em class="property"> = Attribute(key=rpl_dio_redundancy, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_RPL_DIO_REDUNDANCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default route lifetime as a multiple of the lifetime unit.
+The lifetime unit is the granularity of time used in RPL lifetime values, in seconds.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_RPL_DEFAULT_LIFETIME">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_RPL_DEFAULT_LIFETIME</tt><em class="property"> = Attribute(key=rpl_default_lifetime, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_RPL_DEFAULT_LIFETIME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the objective function used to for link estimation and path cost calculation.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_RPL_OBJECTIVE_FUNCTION">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_RPL_OBJECTIVE_FUNCTION</tt><em class="property"> = Attribute(key=rpl_objective_function, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_RPL_OBJECTIVE_FUNCTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_RPL_STATISTICS">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_RPL_STATISTICS</tt><em class="property"> = Measurement(key=rpl_stats, type=&lt;class 'list'&gt;)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_RPL_STATISTICS" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function configures a node as RPL border router.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_RPL_SET_BORDER_ROUTER">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_RPL_SET_BORDER_ROUTER</tt><em class="property"> = Action(key=rpl_set_border_router, args_types=(&lt;class 'list'&gt;,), return_type=&lt;class 'int'&gt;)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_RPL_SET_BORDER_ROUTER" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns all route entries in the route table.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_IPV6_GET_ROUTE_TABLE">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_IPV6_GET_ROUTE_TABLE</tt><em class="property"> = Action(key=get_route_table, args_types=(), return_type=&lt;class 'list'&gt;)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_IPV6_GET_ROUTE_TABLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears all route entries from the route table.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_IPV6_CLEAR_ROUTE_TABLE">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_IPV6_CLEAR_ROUTE_TABLE</tt><em class="property"> = Action(key=clear_route_table, args_types=(), return_type=&lt;class 'int'&gt;)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_IPV6_CLEAR_ROUTE_TABLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a route entry towards the destination IPv6 address given as argument.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_IPV6_ADD_ROUTE">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_IPV6_ADD_ROUTE</tt><em class="property"> = Action(key=add_route, args_types=(&lt;class 'ipaddress.IPv6Address'&gt;, &lt;class 'int'&gt;, &lt;class 'ipaddress.IPv6Address'&gt;), return_type=&lt;class 'int'&gt;)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_IPV6_ADD_ROUTE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the route entry towards the destination IPv6 address given as argument.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_IPV6_REMOVE_ROUTE">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_IPV6_REMOVE_ROUTE</tt><em class="property"> = Action(key=remove_route, args_types=(&lt;class 'list'&gt;,), return_type=&lt;class 'int'&gt;)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_IPV6_REMOVE_ROUTE" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function retuns a list with the IPv6 addresses of all connected neighbors.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.net.LOWPAN_NET_ND6_GET_NEIGHBOR_TABLE">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">LOWPAN_NET_ND6_GET_NEIGHBOR_TABLE</tt><em class="property"> = Action(key=get_neighbor_table, args_types=(), return_type=&lt;class 'list'&gt;)</em><a class="headerlink" href="#wishful_upis.lowpan.net.LOWPAN_NET_ND6_GET_NEIGHBOR_TABLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a neigbor to the ND6 neighbor table.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lowpan.net.rpl_set_border_router">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">rpl_set_border_router</tt><big>(</big><em>rpl_prefix</em><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/net.html#rpl_set_border_router"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.net.rpl_set_border_router" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function configures a node as RPL border router.
+The function requires an IPv6 rpl prefix as argument.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>rpl_prefix (list): array with 8 bytes used as the IPv6 RPL prefix in the DODAG.</dd>
+<dt>Returns:</dt>
+<dd>int: Error value 0 = SUCCESS; -1 = FAIL</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lowpan.net.ipv6_get_route_table">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">ipv6_get_route_table</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/net.html#ipv6_get_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.net.ipv6_get_route_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns all route entries in the route table.
+Each route entry contains the destination IPv6 address,
+the number of hops towards the destination and
+the IPv6 address of the nexthop.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>list: list of LowPanRouteTableEntry objects.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lowpan.net.ipv6_clear_route_table">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">ipv6_clear_route_table</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/net.html#ipv6_clear_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.net.ipv6_clear_route_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears all route entries from the route table.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>int: Error value 0 = SUCCESS; -1 = FAIL</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lowpan.net.ipv6_route_add">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">ipv6_route_add</tt><big>(</big><em>dest_ipv6_addr</em>, <em>num_hops</em>, <em>nexthop_ipv6_addr</em><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/net.html#ipv6_route_add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.net.ipv6_route_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a route entry towards the destination IPv6 address given as argument.
+The number of hops and nexthop IPv6 address are also required.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>dest_ipv6_addr (IPv6Address): IPv6 address of the destination.
+num_hops (int): Number of hops between source and destination.
+nexthop_ipv6_addr (IPv6Address): Next hop towards destination.</dd>
+<dt>Returns:</dt>
+<dd>int: Error value 0 = SUCCESS; -1 = FAIL</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lowpan.net.ipv6_route_remove">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">ipv6_route_remove</tt><big>(</big><em>dest_ipv6_addr</em><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/net.html#ipv6_route_remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.net.ipv6_route_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the route entry towards the destination IPv6 address given as argument.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>dest_ipv6_addr (IPv6Address): IPv6 address of the destination.</dd>
+<dt>Returns:</dt>
+<dd>int: Error value 0 = SUCCESS; -1 = FAIL</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lowpan.net.nd6_get_neighbor_table">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">nd6_get_neighbor_table</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/net.html#nd6_get_neighbor_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.net.nd6_get_neighbor_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function retuns a list with the IPv6 addresses of all connected neighbors.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>list: the IPv6 addresses of all connected neighbors.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lowpan.net.nd6_add_neighbor">
+<tt class="descclassname">wishful_upis.lowpan.net.</tt><tt class="descname">nd6_add_neighbor</tt><big>(</big><em>neighbor_ipv6_addr</em>, <em>neighbor_mac_addr</em>, <em>is_router</em><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/net.html#nd6_add_neighbor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.net.nd6_add_neighbor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a neigbor to the ND6 neighbor table.
+This function takes the IPv6 address, the extended MAC address and the role of the neighbor as arguments.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>neighbor_ipv6_addr (IPv6Address): Neighbor IPv6 address.
+neighbor_mac_addr (list): Neighbor extended MAC address (64-bit).
+is_router (bool): Indicates if the neighbor has routing capabilities enabled.</dd>
+<dt>Returns:</dt>
+<dd>int: Error value 0 = SUCCESS; -1 = FAIL</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-wishful_upis.lowpan.radio">
 <span id="radio-fucntions"></span><h2>Radio fucntions<a class="headerlink" href="#module-wishful_upis.lowpan.radio" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_TimeSlot">
+<em class="property">class </em><tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_TimeSlot</tt><big>(</big><em>slot_index</em>, <em>slot_option</em>, <em>channel_offset</em><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/radio.html#DOT_802154E_TimeSlot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_TimeSlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_SlotLink">
+<em class="property">class </em><tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_SlotLink</tt><big>(</big><em>src_address</em>, <em>dst_address</em>, <em>slot_index</em>, <em>slot_type</em>, <em>channel_offset</em><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/radio.html#DOT_802154E_SlotLink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_SlotLink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_SlotFrame">
+<em class="property">class </em><tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_SlotFrame</tt><big>(</big><em>slot_offset=0</em>, <em>num_slots=0</em>, <em>slot_frame=None</em><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/radio.html#DOT_802154E_SlotFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_SlotFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_SlotList">
+<em class="property">class </em><tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_SlotList</tt><big>(</big><em>num_slots</em>, <em>slot_list=None</em><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/radio.html#DOT_802154E_SlotList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_SlotList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_PHY_CURRENTCHANNEL">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_PHY_CURRENTCHANNEL</tt><em class="property"> = Attribute(key=IEEE802154_phyCurrentChannel, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_PHY_CURRENTCHANNEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel number.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_PHY_TXPOWER">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_PHY_TXPOWER</tt><em class="property"> = Attribute(key=IEEE802154_phyTXPower, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_PHY_TXPOWER" title="Permalink to this definition">¶</a></dt>
+<dd><p>The transmit power of the device.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_EXTENDEDADDRESS">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_EXTENDEDADDRESS</tt><em class="property"> = Attribute(key=IEEE802154_macExtendedAddress, type=&lt;class 'list'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_EXTENDEDADDRESS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The extended 64-bit IEEE address assigned to the device.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_SHORTADDRESS">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_SHORTADDRESS</tt><em class="property"> = Attribute(key=IEEE802154_macShortAddress, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_SHORTADDRESS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The short 16-bit address that the device uses to communicate in the PAN.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_PANID">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_PANID</tt><em class="property"> = Attribute(key=IEEE802154_macPANId, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_PANID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The 16-bit identifier of the PAN on which the device is operating.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_CW">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_CW</tt><em class="property"> = Attribute(key=IEEE802154_macCW, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_CW" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_MAX_BE">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_MAX_BE</tt><em class="property"> = Attribute(key=IEEE802154_macMaxBE, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_MAX_BE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum value of the backoff exponent, BE, in the CSMA-CA algorithm, as defined in Section 5.1.1.4. of the IEEE-802.15.4 standard.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_MIN_BE">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_MIN_BE</tt><em class="property"> = Attribute(key=IEEE802154_macMinBE, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_MIN_BE" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_MAXCSMABACKOFFS">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_MAXCSMABACKOFFS</tt><em class="property"> = Attribute(key=IEEE802154_macMaxCSMABackoffs, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_MAXCSMABACKOFFS" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_MAXFRAMERETRIES">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_MAXFRAMERETRIES</tt><em class="property"> = Attribute(key=IEEE802154_macMaxFrameRetries, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_MAXFRAMERETRIES" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_MAC_HOPPINGSEQUENCELENGTH">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_MAC_HOPPINGSEQUENCELENGTH</tt><em class="property"> = Attribute(key=IEEE802154e_macHoppingSequenceLength, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_MAC_HOPPINGSEQUENCELENGTH" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_MAC_HOPPINGSEQUENCELIST">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_MAC_HOPPINGSEQUENCELIST</tt><em class="property"> = Attribute(key=IEEE802154e_macHoppingSequenceList, type=&lt;class 'list'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_MAC_HOPPINGSEQUENCELIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_MAC_SLOTFRAMESIZE">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_MAC_SLOTFRAMESIZE</tt><em class="property"> = Attribute(key=IEEE802154e_macSlotframeSize, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_MAC_SLOTFRAMESIZE" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_MAC_TIMESLOT">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_MAC_TIMESLOT</tt><em class="property"> = Attribute(key=IEEE802154e_macTimeslot, type=&lt;class 'wishful_upis.lowpan.radio.DOT_802154E_TimeSlot'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_MAC_TIMESLOT" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_MAC_TSTIMESLOTLENGTH">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_MAC_TSTIMESLOTLENGTH</tt><em class="property"> = Attribute(key=IEEE802154e_macTsTimeslotLength, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_MAC_TSTIMESLOTLENGTH" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_MAC_SLOTLIST">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_MAC_SLOTLIST</tt><em class="property"> = Attribute(key=IEEE802154e_macSlotList, type=&lt;class 'wishful_upis.lowpan.radio.DOT_802154E_SlotList'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_MAC_SLOTLIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154E_MAC_SLOTFRAME">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154E_MAC_SLOTFRAME</tt><em class="property"> = Attribute(key=IEEE802154e_macSlotFrame, type=&lt;class 'wishful_upis.lowpan.radio.DOT_802154E_SlotFrame'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154E_MAC_SLOTFRAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_LPL_CHANNELCHECKRATE">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_LPL_CHANNELCHECKRATE</tt><em class="property"> = Attribute(key=IEEE802154_macLplChannelCheckRate, type=&lt;class 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_LPL_CHANNELCHECKRATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_LPL_PHASEOPTIMIZATION">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_LPL_PHASEOPTIMIZATION</tt><em class="property"> = Attribute(key=IEEE802154_macLplPhaseOptimization, type=&lt;class 'bool'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_LPL_PHASEOPTIMIZATION" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lowpan.radio.DOT_802154_MAC_TAISC_ACTIVE_RADIO_PROGRAM">
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">DOT_802154_MAC_TAISC_ACTIVE_RADIO_PROGRAM</tt><em class="property"> = Attribute(key=TAISCActiveRadioProgram, type=&lt;class 'str'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lowpan.radio.DOT_802154_MAC_TAISC_ACTIVE_RADIO_PROGRAM" title="Permalink to this definition">¶</a></dt>
+<dd><p>IEEE-802.15.4 channel.</p>
+</dd></dl>
+
 <dl class="function">
 <dt id="wishful_upis.lowpan.radio.blacklist_channels">
-<code class="descclassname">wishful_upis.lowpan.radio.</code><code class="descname">blacklist_channels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lowpan/radio.html#blacklist_channels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.radio.blacklist_channels" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">wishful_upis.lowpan.radio.</tt><tt class="descname">blacklist_channels</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/wishful_upis/lowpan/radio.html#blacklist_channels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lowpan.radio.blacklist_channels" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -129,7 +444,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -144,13 +459,13 @@
         <li class="right" >
           <a href="wishful_upis.html" title="Wishful Upi packages"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="wishful_upis.html" >Wishful Upi packages</a> &raquo;</li> 
+        <li><a href="index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
+          <li><a href="wishful_upis.html" >Wishful Upi packages</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2016, Pierluigi Gallo, Domenico Garlisi, Anatolij Zubow, Mikolaj Chwalisz, Piotr Gawlowicz, Peter Ruckebusch, Bart Jooris, Jan Bauwens, Spilios Giannoulis.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>
