@@ -1,6 +1,7 @@
 from wishful_upis.meta_models import Attribute, Measurement, Event, Action
 from ipaddress import IPv6Address
 
+
 __author__ = "Peter Ruckebusch"
 __copyright__ = "Copyright (c) 2016, Ghent University, IMEC, IDLab"
 __version__ = "0.1.0"
@@ -53,7 +54,6 @@ LOWPAN_NET_RPL_OBJECTIVE_FUNCTION = Attribute("rpl_objective_function", type=int
 
 # MEASUREMENTS
 LOWPAN_NET_RPL_STATISTICS = Measurement("rpl_stats", type=list)  #: Cumulative statics gathered during RPL operation.
-
 
 # ACTION
 """

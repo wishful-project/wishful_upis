@@ -83,23 +83,6 @@ TDMA_SLOT_START = Event(key='TDMA_SLOT_START', type=None) #:Triggered at the beg
 TDMA_SLOT_END = Event(key='TDMA_SLOT_END', type=None) #:Triggered at the end of a TDMA slot
 
 
-class Attribute():
-    def __init__(self, name, data_type, is_read_only):
-        self.name = name
-        self.data_type = data_type
-        self.is_read_only = is_read_only
-
-    def __str__(self):
-        return ""
-
-
-class dot80211(object):
-
-    def __init__(self):
-        """ This attribute allows to configure the minimum contention window used by CSMA in 802.11"""
-        self.dot80211_mac_random_access_csma_cwmin = Attribute("dot80211_mac_random_access_csma_cwmin", int, False)
-        """ This attribute allows to configure the minimum contention window used by CSMA in 802.11"""
-
 
 # Generic API to control the lower layers, i.e. key-value configuration.
 def set_parameters(param_key_values_dict):
@@ -385,7 +368,6 @@ def set_tx_power(power_dBm):
     """
     return
 
-
 def get_tx_power():
     """ Gets the current transmit power and the list of various Transmit Powers available on the device
 
@@ -612,7 +594,7 @@ def set_txchannel(freq_Hz, bandwidth):
             - 1 partial success
             - 2 error.
     """
-    pass
+    return
 
 
 def get_txchannel():
