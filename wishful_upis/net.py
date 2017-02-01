@@ -126,12 +126,6 @@ def get_network_info():
 
 ''' App layer - set-up of packet flows '''
 
-def start_application(application_id):
-    return
-
-def stop_application(application_id):
-    return
-
 def create_packetflow_sink(port):
     '''Start IPerf server (TCP/IP)
     '''
@@ -304,7 +298,7 @@ def del_pkt_marking(flowId, markId=None, table="mangle", chain="POSTROUTING"):
 def set_ip_tos(flowId, tos, table="mangle", chain="POSTROUTING"):
     """
     Add iptable rule for setting TOS (Type-of-Service)
-    field in all packets
+    field in all packets matching flowID (5-tuple)
     """
     return
 

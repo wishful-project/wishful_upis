@@ -1,10 +1,11 @@
 from wishful_upis.meta_models import Attribute, Measurement, Event, Action
 from ipaddress import IPv6Address
 
-__author__ = "Piotr Gawlowicz, Zubow"
-__copyright__ = "Copyright (c) 2015, Technische Universitat Berlin"
+
+__author__ = "Peter Ruckebusch"
+__copyright__ = "Copyright (c) 2016, Ghent University, IMEC, IDLab"
 __version__ = "0.1.0"
-__email__ = "{gawlowicz, zubow}@tkn.tu-berlin.de"
+__email__ = "peter.ruckebusch@intec.ugent.be"
 
 '''IEEE 802.15.4 protocol family
 
@@ -52,8 +53,7 @@ Updates the objective function used to for link estimation and path cost calcula
 LOWPAN_NET_RPL_OBJECTIVE_FUNCTION = Attribute("rpl_objective_function", type=int, isReadOnly=False)  #:
 
 # MEASUREMENTS
-LOWPAN_NET_RPL_STATISTICS = Measurement("rpl_stats", type=list, isReadOnly=False)  #: Cumulative statics gathered during RPL operation.
-
+LOWPAN_NET_RPL_STATISTICS = Measurement("rpl_stats", type=list)  #: Cumulative statics gathered during RPL operation.
 
 # ACTION
 """

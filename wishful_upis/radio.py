@@ -16,7 +16,72 @@ from .lowpan.radio import *
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Anatolij Zubow, Peter Ruckebusch, Domenico Garlisi"
 __copyright__ = "Copyright (c) 2016, Technische Universitat Berlin, iMinds, CNIT"
 __version__ = "0.1.0"
-__email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de, peter.ruckebusch@intec.ugent.be, "
+__email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de, peter.ruckebusch@intec.ugent.be, domenico.garlisi@cnit.it"
+
+from wishful_upis.meta_models import Attribute, Measurement, Event, Action, ValueDoc
+
+
+# ATTRIBUTES
+TX_POWER = Attribute(key='TX_POWER', type=int, isReadOnly=False) #:Transmission power in dBm
+TX_ANTENNA = Attribute(key='TX_ANTENNA', type=int, isReadOnly=False) #:Antenna number selected for transmission
+RX_ANTENNA = Attribute(key='RX_ANTENNA', type=int, isReadOnly=False) #:Antenna number selected for reception
+
+NETWORK_INTERFACE_HW_ADDRESS = Attribute(key='NETWORK_INTERFACE_HW_ADDRESS', type=int, isReadOnly=False) #:MAC address of wireless network interface card
+
+TDMA_SUPER_FRAME_SIZE = Attribute(key='TDMA_SUPER_FRAME_SIZE', type=int, isReadOnly=False) #:TDMA protocol. Duration of periodic frames used for slot allocations in us
+TDMA_NUMBER_OF_SYNC_SLOT = Attribute(key='TDMA_NUMBER_OF_SYNC_SLOT', type=int, isReadOnly=False) #:TDMA protocol. Number of slots included in a super frame
+TDMA_ALLOCATED_SLOT = Attribute(key='TDMA_ALLOCATED_SLOT', type=int, isReadOnly=False) #:TDMA protocol. Assigned slot in a super frame
+TDMA_MAC_PRIORITY_CLASS = Attribute(key='TDMA_MAC_PRIORITY_CLASS', type=int, isReadOnly=False) #:TDMA protocol. QUEUE class service associated with TDMA radio program
+
+CSMA_BACKOFF_VALUE = Attribute(key='CSMA_BACKOFF_VALUE', type=int, isReadOnly=False) #:CSMA protocol. Backoff value
+CSMA_CW = Attribute(key='CSMA_CW', type=int, isReadOnly=False) #:CSMA protocol.current value of the Contention Window
+CSMA_CW_MIN = Attribute(key='CSMA_CW_MIN', type=int, isReadOnly=False) #:CSMA protocol. Minimum value of the Contention Window
+CSMA_CW_MAX = Attribute(key='CSMA_CW_MAX', type=int, isReadOnly=False) #:CSMA protocol. Maximum value of the Contention Window
+CSMA_TIMESLOT = Attribute(key='CSMA_TIMESLOT', type=int, isReadOnly=False) #:CSMA protocol.Duration of the backoff slot
+CSMA_EIFS = Attribute(key='CSMA_EIFS', type=int, isReadOnly=False) #:CSMA protocol.Duration of the EIFS time
+CSMA_DIFS = Attribute(key='CSMA_DIFS', type=int, isReadOnly=False) #:CSMA protocol.Duration of the DIFS time
+CSMA_SIFS = Attribute(key='CSMA_SIFS', type=int, isReadOnly=False) #:CSMA protocol.Duration of the SIFS time
+CSMA_MAC_PRIORITY_CLASS = Attribute(key='CSMA_MAC_PRIORITY_CLASS', type=int, isReadOnly=False) #:CSMA protocol.QUEUE class service associated with CSMA radio program
+CSMA_NUM_FREEZING_COUNT = Attribute(key='CSMA_NUM_FREEZING_COUNT', type=int, isReadOnly=True) #:CSMA protocol.Total number of freezing during the backoff phase
+
+
+# MEASUREMENTS
+NOISE = Measurement(key='NOISE', type=int) #: Level of noise in dBm
+CSI = Measurement(key='CSA', type=int) #: Channel State Information' last measured value
+RSSI = Measurement(key='RSSI', type=int) #:Received Signal Strength Indication (RSSI); it refers to the last received frame in dBm.
+SNR = Measurement(key='SNR', type=int) #:Signal-to-noise ratio (SNR) of the last received frame in dB.
+LQI = Measurement(key='LQI', type=int) #:Link Quality Indicator (LQI)
+FER = Measurement(key='FER', type=int) #:Frame Erasure Rate (FER)
+BER = Measurement(key='BER', type=int) #:Bit Error Rate (BER)
+BUSY_TYME = Measurement(key='BUSY_TYME', type=int) #:Time interval in which the transceiver has been active (including reception, transmission and carrier sense)
+TX_ACTIVITY = Measurement(key='TX_ACTIVITY', type=int) #:Time interval in which the transceiver has been involved in transmission.
+LOW_LEVEL_TIME = Measurement(key='LOW LEVEL TIME', type=int) #:Time provided by platform chipset
+
+NUM_GOOD_PREAMBLE = Measurement(key='NUM_GOOD_PREAMBLE', type=int) #:Number of preambles correctly synchronized by the receiver.
+NUM_BAD_PREAMBLE = Measurement(key='NUM_BAD_PREAMBLE', type=int) #:Number of receiver errors in synchronizing a valid preamble.
+NUM_GOOD_PLCP = Measurement(key='NUM_GOOD_PLCP', type=int) #:Number of valid PLCP synchronized by the receiver
+NUM_BAD_PLCP = Measurement(key='NUM_BAD_PLCP', type=int) #:Number of wrong PLCP errors triggered by the receiver
+NUM_GOOD_CRC = Measurement(key='NUM_GOOD_CRC', type=int) #:Number of success of CRC checks
+NUM_BAD_CRC = Measurement(key='NUM_BAD_CRC', type=int) #:Number of failures of CRC checks
+NUM_TX = Measurement(key='NUM_TX', type=int) #:Total number of transmitted frames measured since the interface has been started
+NUM_TX_DATA_FRAME = Measurement(key='NUM_TX_DATA_FRAME', type=int) #:Total number of transmitted frames measured since the interface has been started
+NUM_TX_SUCCESS = Measurement(key='NUM_TX_SUCCESS', type=int) #:Total number of successfully transmitted frame measured since the interface has been started
+NUM_RX = Measurement(key='NUM_RX', type=int) #:Total number of received frames since the interface has been started
+NUM_RX_ACK_RAMATCH = Measurement(key='NUM_RX_ACK_RAMATCH', type=int) #:Total number of received frames addressed to the node since the interface has been started. This measurement traces the number of received frame in which the receiver address field matches with the network interface card MAC address
+NUM_RX_ACK = Measurement(key='NUM_RX_ACK', type=int) #:Total receive ack frame measured since the interface has been started
+NUM_RX_SUCCESS = Measurement(key='NUM_RX_SUCCESS', type=int) #:Total number of successfully transmitted frame measured since the interface has been started
+
+# EVENTS
+CHANNEL_UP = Event(key='CHANNEL_UP', type=None) #:Triggered when the wireless channel switches from idle to busy
+CHANNEL_DOWN = Event(key='CHANNEL_DOWN', type=None) #:Triggered when the wireless channel switches from busy to idle
+QUEUE_OUT_UP = Event(key='QUEUE_OUT_UP', type=None) #:Triggered when the frame is injected into the physical queue of the platform from the upper MAC
+RX_END = Event(key='RX_END', type=None) #:Triggered when that receiver operation is finished
+RX_PLCP_END = Event(key='RX_PLCP_END', type=None) #:Triggered at the end of PLCP reception
+RX_ERROR_BAD_PLCP = Event(key='RX_ERROR_BAD_PLCP', type=None) #:Triggered at the occurrence of a receiver error due a PLCP check failure
+RX_ERROR_BAD_CRC = Event(key='RX_ERROR_BAD_CRC', type=None) #:Triggered at the occurrence of a receiver error due a CRC failure
+TDMA_SLOT_START = Event(key='TDMA_SLOT_START', type=None) #:Triggered at the beginning of a TDMA slot
+TDMA_SLOT_END = Event(key='TDMA_SLOT_END', type=None) #:Triggered at the end of a TDMA slot
+
 
 
 # Generic API to control the lower layers, i.e. key-value configuration.
@@ -28,7 +93,7 @@ def set_parameters(param_key_values_dict):
     Parameters specific to a subgroup of platforms are defined in the corresponding submodules.
     A list of supported parameters can be dynamically obtained using the get_radio_info function.
 
-    Examples:
+    Example:
         .. code-block:: python
 
             >> param_key_values = {CSMA_CW : 15, CSMA_CW_MIN : 15, CSMA_CW_MAX : 15}
@@ -54,7 +119,7 @@ def get_parameters(param_key_list):
     Parameters specific to a subgroup of platforms are defined in the corresponding submodules.
     A list of supported parameters can be dynamically obtained using the get_radio_info function.
 
-    Examples:
+    Example:
         .. code-block:: python
 
             >> param_keys = [CSMA_CW,CSMA_CWMIN]
@@ -80,7 +145,7 @@ def get_measurements(measurement_key_list):
     Measurements specific to a subgroup of platforms are defined in the corresponding submodules.
     A list of supported measurements can be dynamically obtained using the get_radio_info function.
 
-    Examples:
+    Example:
         .. code-block:: python
 
             >> measurement_keys = [NUM_FREEZING_COUNT]
@@ -105,7 +170,7 @@ def get_measurements_periodic(measurement_key_list, collect_period, report_perio
     The list of available measurements supported by all platforms are defined in this module. Measurements specific to a subgroup of platforms are defined in the corresponding submodules.
     A list of supported measurements can be dynamically obtained using the get_radio_info function.
 
-    Examples:
+    Example:
         .. code-block:: python
 
             >> def my_cb(report):
@@ -125,7 +190,10 @@ def get_measurements_periodic(measurement_key_list, collect_period, report_perio
         report_callback (function): the local callback that is invoked every report period.
 
     Returns:
-        int: error code, 0 if success, 1 otherwise.
+        int:
+            - 0 if the parameter setting call was successfully performed
+            - 1 partial success
+            - 2 error.
     """
     return
 
@@ -138,7 +206,7 @@ def subscribe_events(event_key_list, event_callback, event_duration):
     Events specific to a subgroup of platforms are defined in the corresponding submodules.
     A list of supported events can be dynamically obtained using the get_radio_info function.
 
-    Examples:
+    Example:
         .. code-block:: python
 
             >> event_keys = ["MAC_RX_EVENT","MAC_COLLISION_EVENT"]
@@ -163,7 +231,7 @@ def activate_radio_program(name):
     """This function activates the specified radio program.
     When executed, this function stops the current radio program and enables the execution of the radio program specified in the parameter name.
 
-    Examples:
+    Example:
         .. code-block:: python
 
            >> result = control_engine.radio.iface("wlan0").activate_radio_program("CSMA")
@@ -174,7 +242,8 @@ def activate_radio_program(name):
         name (str): String identifier of the radio program (e.g. CSMA, TDMA, TSCH)
 
     Returns:
-        int: - 0 if the parameter setting call was successfully performed
+        int:
+            - 0 if the parameter setting call was successfully performed
             - 1 partial success
             - 2 error.
     """
@@ -184,10 +253,10 @@ def activate_radio_program(name):
 def deactivate_radio_program(name):
     """When executed, this function stops the radio program specified in the parameter radio_program_name.
 
-    Examples:
+    Example:
         .. code-block:: python
 
-            >> result = control_engine.radio.iface("wlan0").deactivate_radio_program("CSMA")
+           >> result = control_engine.radio.iface("wlan0").deactivate_radio_program("CSMA")
            >> print result
            0
 
@@ -209,7 +278,7 @@ def get_running_radio_program():
     Each radio program is associated with a name and an index. When executed,
     this function return the index of the radio program active.
 
-    Examples:
+    Example:
         .. code-block:: python
 
             >> args = {'interface' : 'wlan0'}
@@ -231,45 +300,144 @@ def get_running_radio_program():
 
 
 def play_waveform(iface, freq, power_lvl, **kwargs):
-    '''Starts transmitting a radio waveform (just PHY, no MAC).
-    '''
-    pass
+    """Starts transmitting a radio waveform on signal generator
+
+    Example:
+        .. code-block:: python
+
+            >> iface = '192.168.200.35'
+            >> freq = '5200'
+            >> power_lvl = 0
+            >> controller.radio.play_waveform(iface, freq, power_lvl)
+
+    Args:
+        iface (String): Address ip of the interface connected with the signal generator.
+        freq (int): Frequency of the generated waveform.
+        power_lvl (int): power level of the generated waveform.
+        kwargs: Extra argumentes for the signal generator.
+
+    Returns:
+        int:
+            - 0 if the  call was successfully performed
+            - 1 partial success
+            - 2 error.
+    """
+    return
 
 
 def stop_waveform(iface, **kwargs):
-    '''Stops transmitting a radio waveform.
-    '''
-    pass
+    """Stops the radio waveform transmitting on signal generator
 
-#to rename when will be updated the wifi module
-def set_tx_power(power_dBm):
-    '''
-    Set transmission power for the radio device
+    Example:
+        .. code-block:: python
+
+            >> iface = '192.168.200.35'
+            >> controller.radio.stop_waveform(iface)
 
     Args:
-        power_dBm (TYPE): value of TX power in dBm scale
-    '''
-    pass
+        iface (String): Address ip of the interface connected with the signal generator.
+        kwargs: Extra argumentes for the signal generator.
 
-#to rename when will be updated the wifi module
+    Returns:
+        int:
+            - 0 if the  call was successfully performed
+            - 1 partial success
+            - 2 error.
+    """
+    return
+
+
+def set_tx_power(power_dBm):
+    """ Sets the transmit power in dBm. If W is the power in Watt, the power in dBm is P = 30 + 10.log(W).
+
+    In addition auto and fixed enable and disable power control (if those features are available).
+
+    Example:
+        .. code-block:: python
+
+            >> controller.radio.set_power("15")
+
+    Args:
+        power_dBm (String): Specify transmit power level in dBm and setting type
+
+    Returns:
+        int:
+            - 0 if the  call was successfully performed
+            - 1 partial success
+            - 2 error.
+    """
+    return
+
 def get_tx_power():
-    '''
-    Get transmission power of radio device.
-    '''
-    pass
+    """ Gets the current transmit power and the list of various Transmit Powers available on the device
+
+    Example:
+        .. code-block:: python
+
+            >> power_information = controller.radio.get_power()
+            >> print(power_information)
+            current_tx_power:15
+            available_tx_power:8,9,10,11,12,13,14,15,16,17,18
+
+    Returns:
+        dictionary: transmission power values in dBm
+
+    """
+    return
 
 def get_noise():
-    '''
-    Returns the noise floor measured by the wireless device.
-    '''
-    pass
+    """  Background noise level (when no packet is transmitted). May be arbitrary units or dBm, this framework uses
+    driver meta information to interpret the raw value given by interface and display it.
+
+    Example:
+        .. code-block:: python
+
+            >> noise_information = controller.radio.get_noise()
+            >> print(noise_information)
+            -80dBm
+
+    Returns:
+        int: noise level value
+
+    """
+    return
 
 
-def get_csi():
-    '''
-    Return CSI values; i.e. the next num_samples CSI samples (amplitude + phase).
-    '''
-    pass
+def start_csi_measurements(callback):
+    """ Start the thread to receive the channel state information. (amplitude + phase)
+
+    When call, this UPI uses a separate thread to logs channel state estimation for each of the 56 ofdm subcarriers
+    (HT20 case). The channel state info is the I and Q values for the subcarriers. When a burst of CSI information is
+    ready, a callback is called.
+
+    Args:
+        callback (function): Specify the function to call when CSI information have been reported
+
+    Returns:
+        int:
+            - 0 if the  call was successfully performed
+            - 1 partial success
+            - 2 error.
+
+    """
+    return
+
+
+def stop_csi_measurements():
+    """Stop the thread to receive the channel state information. (amplitude + phase)
+
+    When call, this UPI uses a separate thread to logs channel state estimation for each of the 56 ofdm subcarriers
+    (HT20 case). The channel state info is the I and Q values for the subcarriers. When a burst of CSI information is
+    ready, a callback is called.
+
+    Returns:
+        int:
+            - 0 if the  call was successfully performed
+            - 1 partial success
+            - 2 error.
+
+    """
+    return
 
 
 def get_radio_platforms():
@@ -282,12 +450,10 @@ def get_radio_platforms():
     Example:
         .. code-block:: python
 
-            >> radio_platform_list = radio_platform_t()\n
-            >> current_NIC_list_string = control_engine.radio.iface("wlan0").get_radio_platforms()\n
-            >> current_NIC_list.platform_info =  current_NIC_list_string[0]\n
-            >> current_NIC_list.platform =  current_NIC_list_string[1]\n
-
-    Args:
+            >> radio_platform_list = radio_platform_t()
+            >> current_NIC_list_string = control_engine.radio.iface("wlan0").get_radio_platforms()
+            >> current_NIC_list.platform_info =  current_NIC_list_string[0]
+            >> current_NIC_list.platform =  current_NIC_list_string[1]
 
     Returns:
         current_NIC_list:
@@ -307,16 +473,16 @@ def get_radio_info(platform_id):
     Example:
         .. code-block:: python
 
-            >> current_platform_info = radio_info_t()\n
-            >> current_platform_info_str = control_engine.radio.iface("wlan0").getRadioInfo(platform_id)\n
-            >> current_platform_info.platform_info.platform_id = current_platform_info_str['radio_info'][0]\n
-            >> current_platform_info.platform_info.platform = current_platform_info_str['radio_info'][1]\n
-            >> current_platform_info.monitor_list = current_platform_info_str['monitor_list']\n
-            >> current_platform_info.param_list = current_platform_info_str['param_list']\n
-            >> current_platform_info.execution_engine_list_name = current_platform_info_str['exec_engine_list_name']\n
-            >> current_platform_info.execution_engine_list_pointer = current_platform_info_str['exec_engine_list_pointer']\n
-            >> current_platform_info.radio_program_list_name = current_platform_info_str['radio_prg_list_name']\n
-            >> current_platform_info.radio_program_list_path = current_platform_info_str['radio_prg_list_pointer']\n
+            >> current_platform_info = radio_info_t()
+            >> current_platform_info_str = control_engine.radio.iface("wlan0").getRadioInfo(platform_id)
+            >> current_platform_info.platform_info.platform_id = current_platform_info_str['radio_info'][0]
+            >> current_platform_info.platform_info.platform = current_platform_info_str['radio_info'][1]
+            >> current_platform_info.monitor_list = current_platform_info_str['monitor_list']
+            >> current_platform_info.param_list = current_platform_info_str['param_list']
+            >> current_platform_info.execution_engine_list_name = current_platform_info_str['exec_engine_list_name']
+            >> current_platform_info.execution_engine_list_pointer = current_platform_info_str['exec_engine_list_pointer']
+            >> current_platform_info.radio_program_list_name = current_platform_info_str['radio_prg_list_name']
+            >> current_platform_info.radio_program_list_path = current_platform_info_str['radio_prg_list_pointer']
 
 
     Args:
@@ -325,84 +491,148 @@ def get_radio_info(platform_id):
 
     :Returns
         result:
-            return a list in term of a dictionary data type (list of key: value). in which are present the key showed below:\n
-            'radio_info' --> a list of pair value, the first value is the interface identifier and the second is the supported platforms.\n
-            'monitor_list' --> a list of supported measurements between the attribute of the class UPI_R\n
-            'param_list' --> a list of supported Parameters between the attribute of the class UPI_R\n
-            'exec_engine_list_name' --> a list of supported execution environment name\n
-            'exec_engine_list_pointer' --> a list of supported execution environment path\n
-            'radio_prg_list_name'--> a list of supported radio program name\n
-            'radio_prg_list_pointer' --> a list of supported radio program path\n
+            return a list in term of a dictionary data type (list of key: value). in which are present the key showed below:
+            'radio_info' --> a list of pair value, the first value is the interface identifier and the second is the supported platforms.
+            'monitor_list' --> a list of supported measurements between the attribute of the class UPI_R
+            'param_list' --> a list of supported Parameters between the attribute of the class UPI_R
+            'exec_engine_list_name' --> a list of supported execution environment name
+            'exec_engine_list_pointer' --> a list of supported execution environment path
+            'radio_prg_list_name'--> a list of supported radio program name
+            'radio_prg_list_pointer' --> a list of supported radio program path
     """
     return
 
 
 def set_rxchannel(freq_Hz, bandwidth):
-    '''
-    Set RX channel for wireless device, i.e. center frequency and bandwidth.
+    """Set the operating reception frequency or channel.
 
-    Args:
-        channel: channel to set
-        bandwidth: bandwidth to set
-    '''
-    pass
+    A value below 1000 indicates a channel number, a value greater than 1000 is a frequency in Hz. It is possible to use the suffix k, M or G to the value
+    ("2.42G" for 2.42 GHz frequency). Channels are usually numbered starting at 1, it is possible to use get_rxchannel() UPI to get the total number of channels,
+    list the available frequencies, and display the current channel.
+
+    Example :
+        .. code-block:: python
+
+            >> control_engine.blocking(False).radio.iface("lowpan0").set_rxchannel(26)
+            >> print(control_engine.blocking(False).radio.iface("lowpan0").get_rxchannel())
+            26 channels in total; available frequencies :
+            ...
+            Channel 01 : 904 MHz
+            Channel 02 : 906 MHz
+            Channel 03 : 908 MHz
+            ...
+            Channel 25 : 2.478 GHz
+            Channel 26 : 2.483 GHz
+            Current Frequency:2.483 GHz (Channel 26)
+
+    Args :
+        freq_Hz(int): frequency in Hz or channel number
+        bandwidth(int): bandwidth in Hz
+
+    Returns:
+        int:
+            - 0 if the  call was successfully performed
+            - 1 partial success
+            - 2 error.
+    """
+    return
 
 
 def get_rxchannel():
-    '''
-    Get RX channel of wireless device,
-    '''
-    pass
+    """Return the list of available frequencies in the device and the number of defined channels for the reception module.
+     Also return the current frequency/channel setted.
+
+    Example :
+        .. code-block:: python
+
+            >> print(control_engine.blocking(False).radio.iface("lowpan0").get_rxchannel())
+            26 channels in total; available frequencies :
+            ...
+            Channel 01 : 904 MHz
+            Channel 02 : 906 MHz
+            Channel 03 : 908 MHz
+            ...
+            Channel 25 : 2.478 GHz
+            Channel 26 : 2.483 GHz
+            Current Frequency:2.483 GHz (Channel 26)
+
+    Returns:
+        list: list of available frequencies/channels and current frequency/channel setted
+    """
+    return
 
 
 def set_txchannel(freq_Hz, bandwidth):
-    '''
-    Set TX channel for wireless device, i.e. center frequency and bandwidth.
+    """Set the operating transmission frequency or channel.
 
-    Args:
-        channel: channel to set
-        bandwidth: bandwidth to set
-    '''
-    pass
+    A value below 1000 indicates a channel number, a value greater than 1000 is a frequency in Hz. It is possible to use the suffix k, M or G to the value
+    ("2.42G" for 2.42 GHz frequency). Channels are usually numbered starting at 1, it is possible to use get_rxchannel() UPI to get the total number of channels,
+    list the available frequencies, and display the current channel.
+
+    Example :
+        .. code-block:: python
+
+            >> control_engine.blocking(False).radio.iface("lowpan0").set_txchannel(26)
+            >> print(control_engine.blocking(False).radio.iface("lowpan0").get_txchannel())
+            26 channels in total; available frequencies :
+            ...
+            Channel 01 : 904 MHz
+            Channel 02 : 906 MHz
+            Channel 03 : 908 MHz
+            ...
+            Channel 25 : 2.478 GHz
+            Channel 26 : 2.483 GHz
+            Current Frequency:2.483 GHz (Channel 26)
+
+    Args :
+        freq_Hz(int): frequency in Hz or channel number
+        bandwidth(int): bandwidth in Hz
+
+    Returns:
+        int:
+            - 0 if the  call was successfully performed
+            - 1 partial success
+            - 2 error.
+    """
+    return
 
 
 def get_txchannel():
-    '''
-    Get TX channel of wireless device,
-    '''
-    pass
+    """ Return the list of available frequencies in the device and the number of defined channels for the transmission module.
+     Also return the current frequency/channel setted.
+
+    Example :
+        .. code-block:: python
+
+            >> print(control_engine.blocking(False).radio.iface("lowpan0").get_rxchannel())
+            26 channels in total; available frequencies :
+            ...
+            Channel 01 : 904 MHz
+            Channel 02 : 906 MHz
+            Channel 03 : 908 MHz
+            ...
+            Channel 25 : 2.478 GHz
+            Channel 26 : 2.483 GHz
+            Current Frequency:2.483 GHz (Channel 26)
+
+    Returns:
+        list: list of available frequencies/channels and current frequency/channel setted
+
+    """
+    return
 
 
 def get_hwaddr():
-    '''
-    Get device hardware address of network device, i.e. MAC address
-    '''
-    pass
+    """ Return the Hardware address of the device
 
+    Example :
+        .. code-block:: python
 
-def get_bandwidth():
-    '''
-    Get bandwidth of wireless device,
-    '''
-    pass
+            >> mac_address = control_engine.blocking(False).radio.iface("lowpan0").get_hwaddr()
+            >> print(mac_address)
+            10:1f:74:54:62:f7
 
-def set_bandwidth(bandwidth):
-    '''
-    Set bandwidth for wireless device
-
-    Args:
-        bandwidth: bandwidth to set
-    '''
-    pass
-
-def get_rx_gain():
-    '''
-    Get RX gain of wireless device,
-    '''
-    pass
-
-def set_rx_gain(gain):
-    '''
-    Set RX gain of wireless device,
-    '''
-    pass
+    Returns:
+        String: HW address in the IEEE: MAC-48 format
+    """
+    return
