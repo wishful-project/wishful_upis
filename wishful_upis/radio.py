@@ -12,18 +12,10 @@ from .lte.radio import *
 from .wifi.radio import *
 from .lowpan.radio import *
 
-
 __author__ = "Piotr Gawlowicz, Mikolaj Chwalisz, Anatolij Zubow, Peter Ruckebusch, Domenico Garlisi"
 __copyright__ = "Copyright (c) 2016, Technische Universitat Berlin, iMinds, CNIT"
 __version__ = "0.1.0"
 __email__ = "{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de, peter.ruckebusch@intec.ugent.be, "
-
-PARAMETERS = [
-    "TX_POWER",
-    "RX_CHANNEL"
-]
-
-
 
 # Generic API to control the lower layers, i.e. key-value configuration.
 def set_parameters(param_key_values_dict):
@@ -261,6 +253,13 @@ def set_tx_power(power_dBm):
 def get_tx_power():
     '''
     Get transmission power of radio device.
+    '''
+    pass
+
+#to rename when will be updated the wifi module
+def set_rts_threshold(rts_threshold):
+    '''
+    Set rts threshold of radio device.
     '''
     pass
 
