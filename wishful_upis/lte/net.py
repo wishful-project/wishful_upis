@@ -61,49 +61,59 @@ def get_parameters(param_key_list):
     return
 
 def MME_activation():
+    # once set the mme parameters using the set_parameters(param_key_values_dict), MME_activation is to be used for running the MME
     return
 
 def MME_deactivation():
+    # MME_deactivation is to be used for stopping the MME
     return
 
 def HSS_activation():
     return
 
 def HSS_deactivation():
+    # HSS_deactivation is to be used for stopping the HSS
     return
 
 def SPGW_activation():
     return
 
 def SPGW_deactivation():
+    # SPGW_deactivation is to be used for stopping the SPGW
     return
 
 def eNB_activation():
     return
 
 def eNB_deactivation():
+    # eNB_deactivation is to be used for stopping the eNB
     return
 
 def RRU_activation():
     return
 
 def RRU_deactivation():
+    # RRU_deactivation is to be used for stopping the RRU
     return
 
 def RCC_activation():
     return
 
 def RCC_deactivation():
+    # RCC_deactivation is to be used for stopping the RCC
     return
 
 def UE_activation():
     return
 
 def UE_deactivation():
+    # UE_deactivation is to be used for stopping the UE
     return
 
 def UE_attach():
+    # UE_attach is to be used for attaching the UE to the MME
     return
 
 def UE_detach():
+    # UE_detach is to be used for detaching the UE without stopping it
     return
