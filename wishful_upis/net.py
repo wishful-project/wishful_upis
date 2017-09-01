@@ -191,7 +191,8 @@ def change_routing(current_gw_ip_addr, new_gw_ip_addr, device_ip_addr):
 
 ''' Upper MAC layer - injection and sniffing of layer2 traffic '''
 
-def gen_layer2_traffic(iface, num_packets, pinter, max_phy_broadcast_rate_mbps=None, **kwargs):
+#def gen_layer2_traffic(iface, num_packets, pinter, max_phy_broadcast_rate_mbps=None, **kwargs):
+def gen_layer2_traffic(mon_dev, num_packets, pinter, max_phy_broadcast_rate_mbps, ipPayloadSize=1350, ipdst="1.1.1.1", ipsrc="2.2.2.2", use_tcpreplay=True):
     '''Inject layer2 traffic into network device.
     '''
     return
@@ -203,7 +204,8 @@ def inject_frame(iface, frame, is_layer_2_packet, tx_count=1, pkt_interval=1):
     return
 
 
-def sniff_layer2_traffic(iface, sniff_timeout, **kwargs):
+#def sniff_layer2_traffic(iface, sniff_timeout, **kwargs):
+def sniff_layer2_traffic(mon_dev, sniff_timeout, ipdst="1.1.1.1", ipsrc="2.2.2.2"):
     '''Layer-2 packet sniffing from network device.
     '''
     return
