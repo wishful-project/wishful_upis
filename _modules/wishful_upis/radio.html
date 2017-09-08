@@ -2,38 +2,35 @@
 
 <!doctype html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>wishful_upis.radio &mdash; WiSHFUL Framework 2.0 2.0 documentation</title>
-    
+    <title>wishful_upis.radio &#8212; WiSHFUL Framework 2.0 2.0 documentation</title>
     <link rel="stylesheet" href="../../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/bizstyle.js"></script>
-    <link rel="top" title="WiSHFUL Framework 2.0 2.0 documentation" href="../../index.html" />
-    <link rel="up" title="Module code" href="../index.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head>
   <body>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -42,26 +39,23 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
-          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../../index.html">
               <img class="logo" src="../../_static/wishful.png" alt="Logo"/>
             </a></p>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -70,7 +64,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <h1>Source code for wishful_upis.radio</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;The WiSHFUL radio control interface, UPI_R.</span>
@@ -83,9 +77,9 @@
 <span class="sd">All protocol-dependent functions are defined in separate folder,</span>
 <span class="sd">e.g. ``wifi/``, ``lowpan/`` or ``lte/``.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">.lte.radio</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.wifi.radio</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.lowpan.radio</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.lte.radio</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.wifi.radio</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.lowpan.radio</span> <span class="k">import</span> <span class="o">*</span>
 
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Piotr Gawlowicz, Mikolaj Chwalisz, Anatolij Zubow, Peter Ruckebusch, Domenico Garlisi&quot;</span>
@@ -93,31 +87,31 @@
 <span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de, peter.ruckebusch@intec.ugent.be, domenico.garlisi@cnit.it&quot;</span>
 
-<span class="kn">from</span> <span class="nn">wishful_upis.meta_models</span> <span class="kn">import</span> <span class="n">Attribute</span><span class="p">,</span> <span class="n">Measurement</span><span class="p">,</span> <span class="n">Event</span><span class="p">,</span> <span class="n">Action</span><span class="p">,</span> <span class="n">ValueDoc</span>
+<span class="kn">from</span> <span class="nn">wishful_upis.meta_models</span> <span class="k">import</span> <span class="n">Attribute</span><span class="p">,</span> <span class="n">Measurement</span><span class="p">,</span> <span class="n">Event</span><span class="p">,</span> <span class="n">Action</span><span class="p">,</span> <span class="n">ValueDoc</span>
 
 
 <span class="c1"># ATTRIBUTES</span>
-<span class="n">TX_POWER</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_POWER&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:Transmission power in dBm</span>
-<span class="n">TX_ANTENNA</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_ANTENNA&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:Antenna number selected for transmission</span>
-<span class="n">RX_ANTENNA</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_ANTENNA&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:Antenna number selected for reception</span>
+<span class="n">TX_POWER</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_POWER&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:Transmission power in dBm</span>
+<span class="n">TX_ANTENNA</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_ANTENNA&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:Antenna number selected for transmission</span>
+<span class="n">RX_ANTENNA</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_ANTENNA&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:Antenna number selected for reception</span>
 
-<span class="n">NETWORK_INTERFACE_HW_ADDRESS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;NETWORK_INTERFACE_HW_ADDRESS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:MAC address of wireless network interface card</span>
+<span class="n">NETWORK_INTERFACE_HW_ADDRESS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;NETWORK_INTERFACE_HW_ADDRESS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:MAC address of wireless network interface card</span>
 
-<span class="n">TDMA_SUPER_FRAME_SIZE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_SUPER_FRAME_SIZE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:TDMA protocol. Duration of periodic frames used for slot allocations in us</span>
-<span class="n">TDMA_NUMBER_OF_SYNC_SLOT</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_NUMBER_OF_SYNC_SLOT&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:TDMA protocol. Number of slots included in a super frame</span>
-<span class="n">TDMA_ALLOCATED_SLOT</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_ALLOCATED_SLOT&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:TDMA protocol. Assigned slot in a super frame</span>
-<span class="n">TDMA_MAC_PRIORITY_CLASS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_MAC_PRIORITY_CLASS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:TDMA protocol. QUEUE class service associated with TDMA radio program</span>
+<span class="n">TDMA_SUPER_FRAME_SIZE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_SUPER_FRAME_SIZE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:TDMA protocol. Duration of periodic frames used for slot allocations in us</span>
+<span class="n">TDMA_NUMBER_OF_SYNC_SLOT</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_NUMBER_OF_SYNC_SLOT&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:TDMA protocol. Number of slots included in a super frame</span>
+<span class="n">TDMA_ALLOCATED_SLOT</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_ALLOCATED_SLOT&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:TDMA protocol. Assigned slot in a super frame</span>
+<span class="n">TDMA_MAC_PRIORITY_CLASS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_MAC_PRIORITY_CLASS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:TDMA protocol. QUEUE class service associated with TDMA radio program</span>
 
-<span class="n">CSMA_BACKOFF_VALUE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_BACKOFF_VALUE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol. Backoff value</span>
-<span class="n">CSMA_CW</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_CW&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.current value of the Contention Window</span>
-<span class="n">CSMA_CW_MIN</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_CW_MIN&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol. Minimum value of the Contention Window</span>
-<span class="n">CSMA_CW_MAX</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_CW_MAX&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol. Maximum value of the Contention Window</span>
-<span class="n">CSMA_TIMESLOT</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_TIMESLOT&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.Duration of the backoff slot</span>
-<span class="n">CSMA_EIFS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_EIFS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.Duration of the EIFS time</span>
-<span class="n">CSMA_DIFS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_DIFS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.Duration of the DIFS time</span>
-<span class="n">CSMA_SIFS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_SIFS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.Duration of the SIFS time</span>
-<span class="n">CSMA_MAC_PRIORITY_CLASS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_MAC_PRIORITY_CLASS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.QUEUE class service associated with CSMA radio program</span>
-<span class="n">CSMA_NUM_FREEZING_COUNT</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_NUM_FREEZING_COUNT&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1">#:CSMA protocol.Total number of freezing during the backoff phase</span>
+<span class="n">CSMA_BACKOFF_VALUE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_BACKOFF_VALUE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol. Backoff value</span>
+<span class="n">CSMA_CW</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_CW&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.current value of the Contention Window</span>
+<span class="n">CSMA_CW_MIN</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_CW_MIN&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol. Minimum value of the Contention Window</span>
+<span class="n">CSMA_CW_MAX</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_CW_MAX&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol. Maximum value of the Contention Window</span>
+<span class="n">CSMA_TIMESLOT</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_TIMESLOT&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.Duration of the backoff slot</span>
+<span class="n">CSMA_EIFS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_EIFS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.Duration of the EIFS time</span>
+<span class="n">CSMA_DIFS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_DIFS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.Duration of the DIFS time</span>
+<span class="n">CSMA_SIFS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_SIFS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.Duration of the SIFS time</span>
+<span class="n">CSMA_MAC_PRIORITY_CLASS</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_MAC_PRIORITY_CLASS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#:CSMA protocol.QUEUE class service associated with CSMA radio program</span>
+<span class="n">CSMA_NUM_FREEZING_COUNT</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CSMA_NUM_FREEZING_COUNT&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#:CSMA protocol.Total number of freezing during the backoff phase</span>
 
 
 <span class="c1"># MEASUREMENTS</span>
@@ -147,36 +141,19 @@
 <span class="n">NUM_RX_SUCCESS</span> <span class="o">=</span> <span class="n">Measurement</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;NUM_RX_SUCCESS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#:Total number of successfully transmitted frame measured since the interface has been started</span>
 
 <span class="c1"># EVENTS</span>
-<span class="n">CHANNEL_UP</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CHANNEL_UP&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#:Triggered when the wireless channel switches from idle to busy</span>
-<span class="n">CHANNEL_DOWN</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CHANNEL_DOWN&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#:Triggered when the wireless channel switches from busy to idle</span>
-<span class="n">QUEUE_OUT_UP</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;QUEUE_OUT_UP&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#:Triggered when the frame is injected into the physical queue of the platform from the upper MAC</span>
-<span class="n">RX_END</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_END&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#:Triggered when that receiver operation is finished</span>
-<span class="n">RX_PLCP_END</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_PLCP_END&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#:Triggered at the end of PLCP reception</span>
-<span class="n">RX_ERROR_BAD_PLCP</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_ERROR_BAD_PLCP&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#:Triggered at the occurrence of a receiver error due a PLCP check failure</span>
-<span class="n">RX_ERROR_BAD_CRC</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_ERROR_BAD_CRC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#:Triggered at the occurrence of a receiver error due a CRC failure</span>
-<span class="n">TDMA_SLOT_START</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_SLOT_START&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#:Triggered at the beginning of a TDMA slot</span>
-<span class="n">TDMA_SLOT_END</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_SLOT_END&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#:Triggered at the end of a TDMA slot</span>
+<span class="n">CHANNEL_UP</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CHANNEL_UP&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#:Triggered when the wireless channel switches from idle to busy</span>
+<span class="n">CHANNEL_DOWN</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;CHANNEL_DOWN&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#:Triggered when the wireless channel switches from busy to idle</span>
+<span class="n">QUEUE_OUT_UP</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;QUEUE_OUT_UP&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#:Triggered when the frame is injected into the physical queue of the platform from the upper MAC</span>
+<span class="n">RX_END</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_END&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#:Triggered when that receiver operation is finished</span>
+<span class="n">RX_PLCP_END</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_PLCP_END&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#:Triggered at the end of PLCP reception</span>
+<span class="n">RX_ERROR_BAD_PLCP</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_ERROR_BAD_PLCP&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#:Triggered at the occurrence of a receiver error due a PLCP check failure</span>
+<span class="n">RX_ERROR_BAD_CRC</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_ERROR_BAD_CRC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#:Triggered at the occurrence of a receiver error due a CRC failure</span>
+<span class="n">TDMA_SLOT_START</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_SLOT_START&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#:Triggered at the beginning of a TDMA slot</span>
+<span class="n">TDMA_SLOT_END</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TDMA_SLOT_END&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#:Triggered at the end of a TDMA slot</span>
 
 
-<div class="viewcode-block" id="Attribute"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.Attribute">[docs]</a><span class="k">class</span> <span class="nc">Attribute</span><span class="p">():</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">is_read_only</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">=</span> <span class="n">data_type</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">is_read_only</span> <span class="o">=</span> <span class="n">is_read_only</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-
-</div>
-<div class="viewcode-block" id="dot80211"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.dot80211">[docs]</a><span class="k">class</span> <span class="nc">dot80211</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; This attribute allows to configure the minimum contention window used by CSMA in 802.11&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dot80211_mac_random_access_csma_cwmin</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="s2">&quot;dot80211_mac_random_access_csma_cwmin&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
-        <span class="sd">&quot;&quot;&quot; This attribute allows to configure the minimum contention window used by CSMA in 802.11&quot;&quot;&quot;</span>
-
-
-<span class="c1"># Generic API to control the lower layers, i.e. key-value configuration.</span></div>
+<span class="c1"># Generic API to control the lower layers, i.e. key-value configuration.</span>
 <div class="viewcode-block" id="set_parameters"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.set_parameters">[docs]</a><span class="k">def</span> <span class="nf">set_parameters</span><span class="p">(</span><span class="n">param_key_values_dict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;The UPI_R interface is able to configure the radio and MAC behavior by changing parameters.</span>
 <span class="sd">    Parameters correspond to the configuration registers of the hardware platform and to the variables used in</span>
@@ -200,9 +177,9 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: A dictionary containing key (string name) error (0 = success, 1=fail, +1=error code) pairs for each parameter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_parameters"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_parameters">[docs]</a><span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="n">param_key_list</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;The UPI_R interface is able to obtain the current radio and MAC configuration by getting parameter values.</span>
 <span class="sd">    Parameters correspond to the configuration registers of the hardware platform and to the variables used in the</span>
@@ -225,9 +202,9 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: A dictionary containing key (string name) and values of the requested parameters.</span>
 <span class="sd">     &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_measurements"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_measurements">[docs]</a><span class="k">def</span> <span class="nf">get_measurements</span><span class="p">(</span><span class="n">measurement_key_list</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;The UPI_R interface is able to get the radio measurements in a pull based manner.</span>
 <span class="sd">    The low-level measurements are continuously monitored by the hardware platform and by the radio programs.</span>
@@ -251,9 +228,9 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: A dictionary containing key (string name) and values of the requested measurements.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_measurements_periodic"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_measurements_periodic">[docs]</a><span class="k">def</span> <span class="nf">get_measurements_periodic</span><span class="p">(</span><span class="n">measurement_key_list</span><span class="p">,</span> <span class="n">collect_period</span><span class="p">,</span> <span class="n">report_period</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">,</span> <span class="n">report_callback</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;The UPI_R interface is able to get the radio measurements in a pull based manner periodically.</span>
 <span class="sd">    This function works similarly to  get_measurements, it gets the value(s) specified in the list argument and returns a dictionary with their values, but in cycling mode.</span>
@@ -287,9 +264,9 @@
 <span class="sd">            - 1 partial success</span>
 <span class="sd">            - 2 error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="subscribe_events"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.subscribe_events">[docs]</a><span class="k">def</span> <span class="nf">subscribe_events</span><span class="p">(</span><span class="n">event_key_list</span><span class="p">,</span> <span class="n">event_callback</span><span class="p">,</span> <span class="n">event_duration</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;The UPI_R interface is able to monitor the radio and mac behavior asynchronously through events.</span>
 <span class="sd">    This function subscribes an event listener for one or more events for the specified event duration (0 = infinite).</span>
@@ -314,11 +291,11 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: A dictionary containing an error code for each event.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
 <span class="c1"># Activation and deactivation of radio programs.</span>
 
-</div>
+
 <div class="viewcode-block" id="activate_radio_program"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.activate_radio_program">[docs]</a><span class="k">def</span> <span class="nf">activate_radio_program</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This function activates the specified radio program.</span>
 <span class="sd">    When executed, this function stops the current radio program and enables the execution of the radio program specified in the parameter name.</span>
@@ -339,9 +316,9 @@
 <span class="sd">            - 1 partial success</span>
 <span class="sd">            - 2 error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="deactivate_radio_program"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.deactivate_radio_program">[docs]</a><span class="k">def</span> <span class="nf">deactivate_radio_program</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;When executed, this function stops the radio program specified in the parameter radio_program_name.</span>
 
@@ -361,9 +338,9 @@
 <span class="sd">            - 1 partial success</span>
 <span class="sd">            - 2 error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_running_radio_program"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_running_radio_program">[docs]</a><span class="k">def</span> <span class="nf">get_running_radio_program</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Returns active radio program.</span>
 
@@ -386,8 +363,8 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        the name of the active radio program</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
-</div>
+    <span class="k">return</span></div>
+
 <span class="sd">&#39;&#39;&#39; Transmission of radio waveform (no MAC) &#39;&#39;&#39;</span>
 
 
@@ -414,9 +391,9 @@
 <span class="sd">            - 1 partial success</span>
 <span class="sd">            - 2 error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="stop_waveform"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.stop_waveform">[docs]</a><span class="k">def</span> <span class="nf">stop_waveform</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Stops the radio waveform transmitting on signal generator</span>
 
@@ -436,9 +413,9 @@
 <span class="sd">            - 1 partial success</span>
 <span class="sd">            - 2 error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="set_tx_power"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.set_tx_power">[docs]</a><span class="k">def</span> <span class="nf">set_tx_power</span><span class="p">(</span><span class="n">power_dBm</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Sets the transmit power in dBm. If W is the power in Watt, the power in dBm is P = 30 + 10.log(W).</span>
 
@@ -458,9 +435,8 @@
 <span class="sd">            - 1 partial success</span>
 <span class="sd">            - 2 error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
 <div class="viewcode-block" id="get_tx_power"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_tx_power">[docs]</a><span class="k">def</span> <span class="nf">get_tx_power</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot; Gets the current transmit power and the list of various Transmit Powers available on the device</span>
 
@@ -476,8 +452,8 @@
 <span class="sd">        dictionary: transmission power values in dBm</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
-</div>
+    <span class="k">return</span></div>
+
 <div class="viewcode-block" id="get_noise"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_noise">[docs]</a><span class="k">def</span> <span class="nf">get_noise</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;  Background noise level (when no packet is transmitted). May be arbitrary units or dBm, this framework uses</span>
 <span class="sd">    driver meta information to interpret the raw value given by interface and display it.</span>
@@ -493,9 +469,9 @@
 <span class="sd">        int: noise level value</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="start_csi_measurements"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.start_csi_measurements">[docs]</a><span class="k">def</span> <span class="nf">start_csi_measurements</span><span class="p">(</span><span class="n">callback</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Start the thread to receive the channel state information. (amplitude + phase)</span>
 
@@ -513,9 +489,9 @@
 <span class="sd">            - 2 error.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="stop_csi_measurements"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.stop_csi_measurements">[docs]</a><span class="k">def</span> <span class="nf">stop_csi_measurements</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Stop the thread to receive the channel state information. (amplitude + phase)</span>
 
@@ -530,9 +506,9 @@
 <span class="sd">            - 2 error.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_radio_platforms"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_radio_platforms">[docs]</a><span class="k">def</span> <span class="nf">get_radio_platforms</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot; Gets available radio platforms. The information elements used by the UPI_R</span>
 <span class="sd">    interface, to manage parameters, measurements and radio program, are organized into data structures,</span>
@@ -552,9 +528,9 @@
 <span class="sd">        current_NIC_list:</span>
 <span class="sd">            a list of pair value, the first value is the interface identifier and the second is the supported platforms.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_radio_info"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_radio_info">[docs]</a><span class="k">def</span> <span class="nf">get_radio_info</span><span class="p">(</span><span class="n">platform_id</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the radio capabilities of a given network card radio_platform_t in terms of supported measurement and supported</span>
 <span class="sd">    parameter and list of supported radio program. The information elements used by the UPI_R interface, to manage</span>
@@ -593,9 +569,9 @@
 <span class="sd">            &#39;radio_prg_list_name&#39;--&gt; a list of supported radio program name</span>
 <span class="sd">            &#39;radio_prg_list_pointer&#39; --&gt; a list of supported radio program path</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="set_rxchannel"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.set_rxchannel">[docs]</a><span class="k">def</span> <span class="nf">set_rxchannel</span><span class="p">(</span><span class="n">freq_Hz</span><span class="p">,</span> <span class="n">bandwidth</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Set the operating reception frequency or channel.</span>
 
@@ -628,9 +604,9 @@
 <span class="sd">            - 1 partial success</span>
 <span class="sd">            - 2 error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_rxchannel"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_rxchannel">[docs]</a><span class="k">def</span> <span class="nf">get_rxchannel</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Return the list of available frequencies in the device and the number of defined channels for the reception module.</span>
 <span class="sd">     Also return the current frequency/channel setted.</span>
@@ -652,9 +628,9 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        list: list of available frequencies/channels and current frequency/channel setted</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="set_txchannel"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.set_txchannel">[docs]</a><span class="k">def</span> <span class="nf">set_txchannel</span><span class="p">(</span><span class="n">freq_Hz</span><span class="p">,</span> <span class="n">bandwidth</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Set the operating transmission frequency or channel.</span>
 
@@ -687,9 +663,9 @@
 <span class="sd">            - 1 partial success</span>
 <span class="sd">            - 2 error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_txchannel"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_txchannel">[docs]</a><span class="k">def</span> <span class="nf">get_txchannel</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot; Return the list of available frequencies in the device and the number of defined channels for the transmission module.</span>
 <span class="sd">     Also return the current frequency/channel setted.</span>
@@ -712,9 +688,9 @@
 <span class="sd">        list: list of available frequencies/channels and current frequency/channel setted</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_hwaddr"><a class="viewcode-back" href="../../wishful_upis.html#wishful_upis.radio.get_hwaddr">[docs]</a><span class="k">def</span> <span class="nf">get_hwaddr</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot; Return the Hardware address of the device</span>
 
@@ -736,7 +712,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -745,13 +721,13 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
-          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Pierluigi Gallo, Domenico Garlisi, Anatolij Zubow, Mikolaj Chwalisz, Piotr Gawlowicz, Peter Ruckebusch, Bart Jooris, Jan Bauwens, Spilios Giannoulis.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Pierluigi Gallo, Domenico Garlisi, Anatolij Zubow, Mikolaj Chwalisz, Piotr Gawlowicz, Peter Ruckebusch, Bart Jooris, Jan Bauwens, Spilios Giannoulis.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

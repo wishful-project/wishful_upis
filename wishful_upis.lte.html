@@ -2,40 +2,37 @@
 
 <!doctype html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>LTE specific functions &mdash; WiSHFUL Framework 2.0 2.0 documentation</title>
-    
+    <title>LTE specific functions &#8212; WiSHFUL Framework 2.0 2.0 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
-    <link rel="top" title="WiSHFUL Framework 2.0 2.0 documentation" href="index.html" />
-    <link rel="up" title="Wishful Upi packages" href="wishful_upis.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="WiFi specific functions" href="wishful_upis.wifi.html" />
     <link rel="prev" title="WSN specific functions" href="wishful_upis.lowpan.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head>
   <body>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,11 +47,11 @@
         <li class="right" >
           <a href="wishful_upis.lowpan.html" title="WSN specific functions"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
-          <li><a href="wishful_upis.html" accesskey="U">Wishful Upi packages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="wishful_upis.html" accesskey="U">Wishful Upi packages</a> &#187;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/wishful.png" alt="Logo"/>
@@ -65,7 +62,7 @@
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-wishful_upis.lte.net">Network fucntions</a></li>
 <li><a class="reference internal" href="#module-wishful_upis.lte.radio">Radio fucntions</a></li>
-<li><a class="reference internal" href="#module-wishful_upis.lte.net_func">&#8220;Network OS&#8221; helpers</a></li>
+<li><a class="reference internal" href="#module-wishful_upis.lte.net_func">“Network OS” helpers</a></li>
 </ul>
 </li>
 </ul>
@@ -76,22 +73,21 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="wishful_upis.wifi.html"
                         title="next chapter">WiFi specific functions</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/wishful_upis.lte.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/wishful_upis.lte.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -100,7 +96,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="lte-specific-functions">
 <h1>LTE specific functions<a class="headerlink" href="#lte-specific-functions" title="Permalink to this headline">¶</a></h1>
@@ -110,18 +106,859 @@
 </div>
 <div class="section" id="module-wishful_upis.lte.net">
 <span id="network-fucntions"></span><h2>Network fucntions<a class="headerlink" href="#module-wishful_upis.lte.net" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="wishful_upis.lte.net.MME_activation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">MME_activation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#MME_activation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.MME_activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Once set the MME parameters using the set_parameters(param_key_values_dict), MME_activation is to be used for running the MME</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">MME_activation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the MME run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.MME_deactivation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">MME_deactivation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#MME_deactivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.MME_deactivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>MME_deactivation is to be used for stopping the MME</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">MME_deactivation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the MME run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.HSS_activation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">HSS_activation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#HSS_activation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.HSS_activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Once set the HSS parameters using the set_parameters(param_key_values_dict), HSS_activation is to be used for running the HSS</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">HSS_activation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the HSS run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.HSS_deactivation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">HSS_deactivation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#HSS_deactivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.HSS_deactivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSS_deactivation is to be used for stopping the HSS</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">HSS_deactivation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the HSS run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.SPGW_activation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">SPGW_activation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#SPGW_activation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.SPGW_activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Once set the SPGW parameters using the set_parameters(param_key_values_dict), SPGW_activation is to be used for running the SPGW</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">SPGW_activation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the SPGW run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.SPGW_deactivation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">SPGW_deactivation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#SPGW_deactivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.SPGW_deactivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>SPGW_deactivation is to be used for stopping the SPGW</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">SPGW_deactivation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the SPGW run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.eNB_activation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">eNB_activation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#eNB_activation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.eNB_activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Once set the eNB parameters using the set_parameters(param_key_values_dict), eNB_activation is to be used for running the eNB</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">eNB_activation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the eNB run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.eNB_deactivation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">eNB_deactivation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#eNB_deactivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.eNB_deactivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>eNB_deactivation is to be used for stopping the eNB</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">eNB_deactivation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the eNB run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.RRU_activation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">RRU_activation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#RRU_activation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.RRU_activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Once set the RRU parameters using the set_parameters(param_key_values_dict), RRU_activation is to be used for running the RRU</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">RRU_activation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the RRU run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.RRU_deactivation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">RRU_deactivation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#RRU_deactivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.RRU_deactivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU_deactivation is to be used for stopping the RRU</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">RRU_deactivation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the RRU run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.RCC_activation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">RCC_activation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#RCC_activation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.RCC_activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Once set the RCC parameters using the set_parameters(param_key_values_dict), RCC_activation is to be used for running the RCC</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">RCC_activation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the RCC run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.RCC_deactivation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">RCC_deactivation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#RCC_deactivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.RCC_deactivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>RCC_deactivation is to be used for stopping the RCC</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">RCC_deactivation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the RCC run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.UE_activation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">UE_activation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#UE_activation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.UE_activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>UE_activation is to be used for running the UE</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">UE_activation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the UE run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.UE_deactivation">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">UE_deactivation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#UE_deactivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.UE_deactivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>UE_deactivation is to be used for stopping the UE</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">UE_deactivation</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the UE run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.UE_attach">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">UE_attach</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#UE_attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.UE_attach" title="Permalink to this definition">¶</a></dt>
+<dd><p>UE_attach is to be used for attaching the UE to the MME</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">UE_attach</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the UE run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.net.UE_detach">
+<code class="descclassname">wishful_upis.lte.net.</code><code class="descname">UE_detach</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/net.html#UE_detach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.net.UE_detach" title="Permalink to this definition">¶</a></dt>
+<dd><p>UE_detach is to be used for detaching the UE without stopping it</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">controller</span><span class="o">.</span><span class="n">blocking</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">UE_detach</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>controller:
+node: physical machine where the UE run</dd>
+<dt>Returns:</dt>
+<dd>0 = success, 1=fail, +1=error code</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-wishful_upis.lte.radio">
 <span id="radio-fucntions"></span><h2>Radio fucntions<a class="headerlink" href="#module-wishful_upis.lte.radio" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="wishful_upis.lte.radio.MME_REALM">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">MME_REALM</code><em class="property"> = Attribute(key=MME_REALM, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.MME_REALM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.MME_SERVED_ENB">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">MME_SERVED_ENB</code><em class="property"> = Attribute(key=MME_SERVED_ENB, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.MME_SERVED_ENB" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of eNB served by the same MME</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.MME_SERVED_UE">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">MME_SERVED_UE</code><em class="property"> = Attribute(key=MME_SERVED_UE, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.MME_SERVED_UE" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of UE served by the same MME</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.MME_TAI_LIST">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">MME_TAI_LIST</code><em class="property"> = Attribute(key=MME_TAI_LIST, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.MME_TAI_LIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>MME TAI list (TAI, MNC, MCC)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.MME_GUMMEI_LIST">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">MME_GUMMEI_LIST</code><em class="property"> = Attribute(key=MME_GUMMEI_LIST, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.MME_GUMMEI_LIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>MME GUMMEI LIST (MCC,MNC,MME_GID, MME_CODE)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.ENB_NAME">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">ENB_NAME</code><em class="property"> = Attribute(key=ENB_NAME, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.ENB_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of the eNB</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.ENB_ID">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">ENB_ID</code><em class="property"> = Attribute(key=ENB_ID, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.ENB_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>identification number of the eNB</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.ENB_CELL_TYPE">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">ENB_CELL_TYPE</code><em class="property"> = Attribute(key=ENB_CELL_TYPE, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.ENB_CELL_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>eNB cell type (macro, small)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.ENB_TRACKING_AREA_CODE">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">ENB_TRACKING_AREA_CODE</code><em class="property"> = Attribute(key=ENB_TRACKING_AREA_CODE, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.ENB_TRACKING_AREA_CODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>eNB Tracking Area Code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.ENB_MCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">ENB_MCC</code><em class="property"> = Attribute(key=ENB_MCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.ENB_MCC" title="Permalink to this definition">¶</a></dt>
+<dd><p>eNB Mobile Country Code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.ENB_MNC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">ENB_MNC</code><em class="property"> = Attribute(key=ENB_MNC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.ENB_MNC" title="Permalink to this definition">¶</a></dt>
+<dd><p>eNB Mobile Network Code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RRU_NAME">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RRU_NAME</code><em class="property"> = Attribute(key=RRU_NAME, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RRU_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of the RRU</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RRU_ID">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RRU_ID</code><em class="property"> = Attribute(key=RRU_ID, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RRU_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>identification number of the RRU</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RRU_CELL_TYPE">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RRU_CELL_TYPE</code><em class="property"> = Attribute(key=ENB_CELL_TYPE, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RRU_CELL_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU cell type (macro, small)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RRU_TRACKING_AREA_CODE">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RRU_TRACKING_AREA_CODE</code><em class="property"> = Attribute(key=ENB_TRACKING_AREA_CODE, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RRU_TRACKING_AREA_CODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU Tracking Area Code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RRU_MCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RRU_MCC</code><em class="property"> = Attribute(key=ENB_MCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RRU_MCC" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU Mobile Country Code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RRU_MNC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RRU_MNC</code><em class="property"> = Attribute(key=ENB_MNC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RRU_MNC" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU Mobile Network Code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RCC_NAME">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RCC_NAME</code><em class="property"> = Attribute(key=RRC_NAME, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RCC_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of the RCC</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RCC_ID">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RCC_ID</code><em class="property"> = Attribute(key=RRC_ID, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RCC_ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>identification number of the RCC</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RCC_CELL_TYPE">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RCC_CELL_TYPE</code><em class="property"> = Attribute(key=ENB_CELL_TYPE, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RCC_CELL_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>RCC cell type (macro, small)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RCC_TRACKING_AREA_CODE">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RCC_TRACKING_AREA_CODE</code><em class="property"> = Attribute(key=ENB_TRACKING_AREA_CODE, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RCC_TRACKING_AREA_CODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU Tracking Area Code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RCC_MCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RCC_MCC</code><em class="property"> = Attribute(key=ENB_MCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RCC_MCC" title="Permalink to this definition">¶</a></dt>
+<dd><p>RCC Mobile Country Code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RCC_MNC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RCC_MNC</code><em class="property"> = Attribute(key=ENB_MNC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RCC_MNC" title="Permalink to this definition">¶</a></dt>
+<dd><p>RCC Mobile Network Code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.SPLIT_LEVEL">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">SPLIT_LEVEL</code><em class="property"> = Attribute(key=SPLIT_LEVEL, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.SPLIT_LEVEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>point where the lte protocol stack is splitted</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.FRONTHAUL_TRANSPORT_MODE">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">FRONTHAUL_TRANSPORT_MODE</code><em class="property"> = Attribute(key=FRONTHAUL_TRANSPORT_MODE, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.FRONTHAUL_TRANSPORT_MODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fronthaul link transport mode(UDP or RAW are the possible options)’‘’</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.mme_S1_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">mme_S1_name</code><em class="property"> = Attribute(key=mme_S1_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.mme_S1_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1 interface name of MME</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.mme_S1_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">mme_S1_addr</code><em class="property"> = Attribute(key=mme_S1_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.mme_S1_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1 interface address of MME</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.mme_S11_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">mme_S11_name</code><em class="property"> = Attribute(key=mme_S11_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.mme_S11_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>S11 interface name of MME</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.mme_S11_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">mme_S11_addr</code><em class="property"> = Attribute(key=mme_S11_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.mme_S11_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>S11 interface address of MME</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.mme_S11_port">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">mme_S11_port</code><em class="property"> = Attribute(key=mme_S11_port, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.mme_S11_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>S11 interface port of MME</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.sgw_s11_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">sgw_s11_name</code><em class="property"> = Attribute(key=sgw_S1_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.sgw_s11_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>S11 interface name of S-GW</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.sgw_s11_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">sgw_s11_addr</code><em class="property"> = Attribute(key=sgw_S1_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.sgw_s11_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>S11 interface addr of S-GW</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.sgw_S1U_S12_S4_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">sgw_S1U_S12_S4_name</code><em class="property"> = Attribute(key=sgw_S1U_S12_S4_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.sgw_S1U_S12_S4_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-U,S12,S4 interface name of S-GW</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.sgw_S1U_S12_S4_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">sgw_S1U_S12_S4_addr</code><em class="property"> = Attribute(key=sgw_S1U_S12_S4_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.sgw_S1U_S12_S4_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-U,S12,S4 interface addr of S-GW</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.sgw_S1U_S12_S4_port">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">sgw_S1U_S12_S4_port</code><em class="property"> = Attribute(key=sgw_S1U_S12_S4_port, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.sgw_S1U_S12_S4_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-U,S12,S4 interface port of S-GW</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.sgw_S5_S8_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">sgw_S5_S8_name</code><em class="property"> = Attribute(key=sgw_S5_S8_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.sgw_S5_S8_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>S5, S8 interface name of S-GW</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.sgw_S5_S8_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">sgw_S5_S8_addr</code><em class="property"> = Attribute(key=sgw_S5_S8_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.sgw_S5_S8_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>S5, S8 interface addr of S-GW</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.pgw_S5_S8_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">pgw_S5_S8_name</code><em class="property"> = Attribute(key=pgw_S5_S8_name_PGW, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.pgw_S5_S8_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>S5, S8 interface name of P-GW</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.pgw_SGi_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">pgw_SGi_name</code><em class="property"> = Attribute(key=pgw_SGi_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.pgw_SGi_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGi interface name of P-GW</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.ip_address_pool">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">ip_address_pool</code><em class="property"> = Attribute(key=ip_address_pool, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.ip_address_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>pool of IP addressess. The MME will assign at the UE one address from the such pool</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.default_DNS_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">default_DNS_addr</code><em class="property"> = Attribute(key=default_DNS_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.default_DNS_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>default DNS IP address</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.enb_mme_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">enb_mme_addr</code><em class="property"> = Attribute(key=enb_mme_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.enb_mme_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>the MME address in the eNB config file (used by the eNB for reaching the MME)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.enb_S1_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">enb_S1_name</code><em class="property"> = Attribute(key=enb_S1_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.enb_S1_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-C interface name of the eNB</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.enb_S1_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">enb_S1_addr</code><em class="property"> = Attribute(key=enb_S1_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.enb_S1_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-C interface address of the eNB</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.enb_S1U_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">enb_S1U_name</code><em class="property"> = Attribute(key=enb_S1U_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.enb_S1U_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-U interface name of the eNB</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.enb_S1U_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">enb_S1U_addr</code><em class="property"> = Attribute(key=enb_S1U_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.enb_S1U_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-U interface address of the eNB</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.enb_S1U_port">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">enb_S1U_port</code><em class="property"> = Attribute(key=enb_S1U_port, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.enb_S1U_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-U interface port of the eNB</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rru_local_if_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rru_local_if_name</code><em class="property"> = Attribute(key=rru_local_if_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rru_local_if_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface name of the RRU where the RCC is connected</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rru_local_address">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rru_local_address</code><em class="property"> = Attribute(key=rru_local_address, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rru_local_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface address of the RRU where the RCC is connected</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rru_local_port">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rru_local_port</code><em class="property"> = Attribute(key=rru_local_port, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rru_local_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface port of the RRU where the RCC is connected</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rru_remote_address">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rru_remote_address</code><em class="property"> = Attribute(key=rru_remote_address, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rru_remote_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface name of the RCC</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rru_remote_port">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rru_remote_port</code><em class="property"> = Attribute(key=rru_remote_port, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rru_remote_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface port of the RCC</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_mme_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_mme_addr</code><em class="property"> = Attribute(key=rcc_mme_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_mme_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>the MME address in the RCC config file (used by the eNB for reaching the MME)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_S1_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_S1_name</code><em class="property"> = Attribute(key=rcc_S1_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_S1_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-C interface name of the RCC</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_S1_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_S1_addr</code><em class="property"> = Attribute(key=rcc_S1_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_S1_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-C interface address of the RCC</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_S1U_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_S1U_name</code><em class="property"> = Attribute(key=rcc_S1U_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_S1U_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-U interface name of the RCC</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_S1U_addr">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_S1U_addr</code><em class="property"> = Attribute(key=rcc_S1U_addr, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_S1U_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-U interface address of the RCC</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_S1U_port">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_S1U_port</code><em class="property"> = Attribute(key=rcc_S1U_port, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_S1U_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>S1-U interface port of the RCC</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_local_if_name">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_local_if_name</code><em class="property"> = Attribute(key=rcc_local_if_name, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_local_if_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface name of the RCC where the RRU is connected</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_local_address">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_local_address</code><em class="property"> = Attribute(key=rcc_local_address, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_local_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface address of the RCC where the RRU is connected</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_local_port">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_local_port</code><em class="property"> = Attribute(key=rcc_local_port, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_local_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface port of the RCC where the RRU is connected</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_remote_address">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_remote_address</code><em class="property"> = Attribute(key=rcc_remote_address, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_remote_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface name of the RRU</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.rcc_remote_port">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">rcc_remote_port</code><em class="property"> = Attribute(key=rcc_remote_port, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.rcc_remote_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface name of the RRU</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.PUCCH_ENB">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">PUCCH_ENB</code><em class="property"> = Attribute(key=PUCCH_ENB, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.PUCCH_ENB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.PUSCH_ENB">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">PUSCH_ENB</code><em class="property"> = Attribute(key=PUSCH_ENB, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.PUSCH_ENB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RX_GAIN_enb">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RX_GAIN_enb</code><em class="property"> = Attribute(key=RX_GAIN_enb, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RX_GAIN_enb" title="Permalink to this definition">¶</a></dt>
+<dd><p>ENB RX GAIN</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_GAIN_enb">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_GAIN_enb</code><em class="property"> = Attribute(key=TX_GAIN_enb, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_GAIN_enb" title="Permalink to this definition">¶</a></dt>
+<dd><p>ENB TX GAIN</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_BANDWIDTH_enb">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_BANDWIDTH_enb</code><em class="property"> = Attribute(key=TX_BANDWIDTH_enb, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_BANDWIDTH_enb" title="Permalink to this definition">¶</a></dt>
+<dd><p>ENB TX BANDWIDTH</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_CHANNEL_enb">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_CHANNEL_enb</code><em class="property"> = Attribute(key=TX_CHANNEL_enb, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_CHANNEL_enb" title="Permalink to this definition">¶</a></dt>
+<dd><p>ENB TX CHANNEL</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_MODE_enb">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_MODE_enb</code><em class="property"> = Attribute(key=TX_MODE_enb, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_MODE_enb" title="Permalink to this definition">¶</a></dt>
+<dd><p>ENB TX MODE</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.UPLINK_FREQ_OFFSET_ENB">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">UPLINK_FREQ_OFFSET_ENB</code><em class="property"> = Attribute(key=UPLINK_FREQ_OFFSET_ENB, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.UPLINK_FREQ_OFFSET_ENB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.PUCCH_RCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">PUCCH_RCC</code><em class="property"> = Attribute(key=PUCCH_RCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.PUCCH_RCC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.PUSCH_RCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">PUSCH_RCC</code><em class="property"> = Attribute(key=PUSCH_RCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.PUSCH_RCC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RX_GAIN_RCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RX_GAIN_RCC</code><em class="property"> = Attribute(key=RX_GAIN_RCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RX_GAIN_RCC" title="Permalink to this definition">¶</a></dt>
+<dd><p>RCC RX GAIN</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_GAIN_RCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_GAIN_RCC</code><em class="property"> = Attribute(key=TX_GAIN_RCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_GAIN_RCC" title="Permalink to this definition">¶</a></dt>
+<dd><p>RCC TX GAIN</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_BANDWIDTH_RCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_BANDWIDTH_RCC</code><em class="property"> = Attribute(key=TX_BANDWIDTH_RCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_BANDWIDTH_RCC" title="Permalink to this definition">¶</a></dt>
+<dd><p>RCC TX BANDWIDTH</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_CHANNEL_RCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_CHANNEL_RCC</code><em class="property"> = Attribute(key=TX_CHANNEL_RCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_CHANNEL_RCC" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>RCC TX CHANNEL</div></blockquote>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_MODE_RCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_MODE_RCC</code><em class="property"> = Attribute(key=TX_MODE_RCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_MODE_RCC" title="Permalink to this definition">¶</a></dt>
+<dd><p>RCC TX MODE</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.UPLINK_FREQ_OFFSET_RCC">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">UPLINK_FREQ_OFFSET_RCC</code><em class="property"> = Attribute(key=UPLINK_FREQ_OFFSET_RCC, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.UPLINK_FREQ_OFFSET_RCC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.PUCCH_RRU">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">PUCCH_RRU</code><em class="property"> = Attribute(key=PUCCH_RRU, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.PUCCH_RRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.PUSCH_RRU">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">PUSCH_RRU</code><em class="property"> = Attribute(key=PUSCH_RRU, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.PUSCH_RRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.RX_GAIN_RRU">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">RX_GAIN_RRU</code><em class="property"> = Attribute(key=RX_GAIN_RRU, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.RX_GAIN_RRU" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU RX GAIN</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_GAIN_RRU">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_GAIN_RRU</code><em class="property"> = Attribute(key=TX_GAIN_RRU, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_GAIN_RRU" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU TX GAIN</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_BANDWIDTH_RRU">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_BANDWIDTH_RRU</code><em class="property"> = Attribute(key=TX_BANDWIDTH_RRU, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_BANDWIDTH_RRU" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU TX BANDWIDTH</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_CHANNEL_RRU">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_CHANNEL_RRU</code><em class="property"> = Attribute(key=TX_CHANNEL_RRU, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_CHANNEL_RRU" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU TX CHANNEL</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.TX_MODE_RRU">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">TX_MODE_RRU</code><em class="property"> = Attribute(key=TX_MODE_RRU, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.TX_MODE_RRU" title="Permalink to this definition">¶</a></dt>
+<dd><p>RRU TX MODE</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="wishful_upis.lte.radio.UPLINK_FREQ_OFFSET_RRU">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">UPLINK_FREQ_OFFSET_RRU</code><em class="property"> = Attribute(key=UPLINK_FREQ_OFFSET_RRU, type=&lt;type 'int'&gt;, isReadonly=False)</em><a class="headerlink" href="#wishful_upis.lte.radio.UPLINK_FREQ_OFFSET_RRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="function">
-<dt id="wishful_upis.lte.radio.configure_mimo_mode">
-<tt class="descclassname">wishful_upis.lte.radio.</tt><tt class="descname">configure_mimo_mode</tt><big>(</big><em>mimo_mode</em><big>)</big><a class="reference internal" href="_modules/wishful_upis/lte/radio.html#configure_mimo_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.radio.configure_mimo_mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures the MIMO mode</p>
+<dt id="wishful_upis.lte.radio.set_parameters">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">set_parameters</code><span class="sig-paren">(</span><em>param_key_values_dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/radio.html#set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.radio.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function (re)set the value(s) of the parameters specified in the dictionary argument.
+The list of available parameters supported by all platforms/OS are defined in this module.
+Parameters specific to a subgroup of platforms/OS are defined in the corresponding submodules.
+A list of supported parameters can be dynamically obtained using the get_info function on each module.</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">UPIargs_eNB</span> <span class="o">=</span> <span class="p">{</span><span class="n">radio</span><span class="o">.</span><span class="n">TX_GAIN_enb</span><span class="o">.</span><span class="n">key</span><span class="p">:</span> <span class="mi">90</span><span class="p">}</span>
+<span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">enb_node</span><span class="p">)</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">set_parameters</span><span class="p">(</span><span class="n">UPIargs_eNB</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">result</span>
+        <span class="p">{</span><span class="n">TX_GAIN_enb</span><span class="o">.</span><span class="n">key</span><span class="p">:</span> <span class="mi">90</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>param_key_values_dict (dict): dictionary containing the key (string) value (any) pairs for each parameter.
+An example is {PUCCH_ENB : -96, MME_REALM : wishful_lte, TX_BANDWIDTH_enb : 25}</dd>
+<dt>Returns:</dt>
+<dd>dict: A dictionary containing key (string name) error (0 = success, 1=fail, +1=error code) pairs for each parameter.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="wishful_upis.lte.radio.get_parameters">
+<code class="descclassname">wishful_upis.lte.radio.</code><code class="descname">get_parameters</code><span class="sig-paren">(</span><em>param_key_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wishful_upis/lte/radio.html#get_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wishful_upis.lte.radio.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function get(s) the value(s) of the parameters specified in the list argument.
+The list of available parameters supported by all platforms are defined in this module.
+Parameters specific to a subgroup of platforms are defined in the corresponding submodules.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">UPIargs_eNB</span> <span class="o">=</span> <span class="p">[</span><span class="n">TX_GAIN_enb</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">enb_node</span><span class="p">)</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">(</span><span class="n">UPIargs_eNB</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">result</span>
+    <span class="p">{</span><span class="n">TX_GAIN_enb</span><span class="o">.</span><span class="n">key</span><span class="p">:</span> <span class="mi">90</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>Args:</dt>
+<dd>param_key_list (list): list of parameter names, an example is [UPI_RN.CSMA_CW, UPI_RN.CSMA_CW_MIN, UPI_RN.CSMA_CW_MAX].</dd>
+<dt>Returns:</dt>
+<dd>dict: A dictionary containing key (string name) and values of the requested parameters.</dd>
+</dl>
 </dd></dl>
 
 </div>
 <div class="section" id="module-wishful_upis.lte.net_func">
-<span id="network-os-helpers"></span><h2>&#8220;Network OS&#8221; helpers<a class="headerlink" href="#module-wishful_upis.lte.net_func" title="Permalink to this headline">¶</a></h2>
+<span id="network-os-helpers"></span><h2>“Network OS” helpers<a class="headerlink" href="#module-wishful_upis.lte.net_func" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -131,7 +968,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -146,13 +983,13 @@
         <li class="right" >
           <a href="wishful_upis.lowpan.html" title="WSN specific functions"
              >previous</a> |</li>
-        <li><a href="index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
-          <li><a href="wishful_upis.html" >Wishful Upi packages</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="wishful_upis.html" >Wishful Upi packages</a> &#187;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Pierluigi Gallo, Domenico Garlisi, Anatolij Zubow, Mikolaj Chwalisz, Piotr Gawlowicz, Peter Ruckebusch, Bart Jooris, Jan Bauwens, Spilios Giannoulis.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Pierluigi Gallo, Domenico Garlisi, Anatolij Zubow, Mikolaj Chwalisz, Piotr Gawlowicz, Peter Ruckebusch, Bart Jooris, Jan Bauwens, Spilios Giannoulis.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

@@ -2,38 +2,35 @@
 
 <!doctype html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>wishful_upis.lte.radio &mdash; WiSHFUL Framework 2.0 2.0 documentation</title>
-    
+    <title>wishful_upis.lte.radio &#8212; WiSHFUL Framework 2.0 2.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
         VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/bizstyle.js"></script>
-    <link rel="top" title="WiSHFUL Framework 2.0 2.0 documentation" href="../../../index.html" />
-    <link rel="up" title="Module code" href="../../index.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head>
   <body>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -42,26 +39,23 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
-          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../../../index.html">
               <img class="logo" src="../../../_static/wishful.png" alt="Logo"/>
             </a></p>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -70,34 +64,178 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <h1>Source code for wishful_upis.lte.radio</h1><div class="highlight"><pre>
-<span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Piotr Gawlowicz, Zubow&quot;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (c) 2015, Technische Universitat Berlin&quot;</span>
+<span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Francesco Giannone, Domenico Garlisi&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (c) 2017, Sant&#39;Anna, CNIT&quot;</span>
 <span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span>
-<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;{gawlowicz, zubow}@tkn.tu-berlin.de&quot;</span>
-
-<span class="sd">&#39;&#39;&#39;Long Term Evolution (LTE) protocol family</span>
-
-<span class="sd">The protocol-specific definition of the WiSHFUL radio control interface, UPI_R,</span>
-<span class="sd">for configuration/monitoring of the lower layers of the network protocol stack</span>
-<span class="sd">(lower MAC and PHY).</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;{francesco.giannone@santannapisa.it, domenico.garlisi@cnit.it}&quot;</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">The protocol-specific definition of the WiSHFUL network control interface, UPI_N, for configuration/monitoring of the higher</span>
+<span class="sd">layers of the network protocol stack (upper MAC and higher).</span>
+<span class="sd">LTE protocol family</span>
+<span class="sd">&#39;&#39;&#39;</span>
 
-<div class="viewcode-block" id="configure_mimo_mode"><a class="viewcode-back" href="../../../wishful_upis.lte.html#wishful_upis.lte.radio.configure_mimo_mode">[docs]</a><span class="k">def</span> <span class="nf">configure_mimo_mode</span><span class="p">(</span><span class="n">mimo_mode</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Configures the MIMO mode</span>
+<span class="kn">from</span> <span class="nn">wishful_upis.meta_models</span> <span class="k">import</span> <span class="n">Attribute</span><span class="p">,</span> <span class="n">Measurement</span><span class="p">,</span> <span class="n">Event</span><span class="p">,</span> <span class="n">Action</span><span class="p">,</span> <span class="n">ValueDoc</span>
+
+<span class="c1"># ATTRIBUTES</span>
+<span class="n">MME_REALM</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;MME_REALM&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:</span>
+<span class="n">MME_SERVED_ENB</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;MME_SERVED_ENB&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: number of eNB served by the same MME</span>
+<span class="n">MME_SERVED_UE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;MME_SERVED_UE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: number of UE served by the same MME</span>
+<span class="n">MME_TAI_LIST</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;MME_TAI_LIST&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: MME TAI list (TAI, MNC, MCC)</span>
+<span class="n">MME_GUMMEI_LIST</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;MME_GUMMEI_LIST&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#: MME GUMMEI LIST (MCC,MNC,MME_GID, MME_CODE)</span>
+
+<span class="n">ENB_NAME</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_NAME&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: name of the eNB</span>
+<span class="n">ENB_ID</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_ID&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: identification number of the eNB</span>
+<span class="n">ENB_CELL_TYPE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_CELL_TYPE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: eNB cell type (macro, small)</span>
+<span class="n">ENB_TRACKING_AREA_CODE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_TRACKING_AREA_CODE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: eNB Tracking Area Code</span>
+<span class="n">ENB_MCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_MCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: eNB Mobile Country Code</span>
+<span class="n">ENB_MNC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_MNC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: eNB Mobile Network Code</span>
+
+<span class="n">RRU_NAME</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RRU_NAME&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: name of the RRU</span>
+<span class="n">RRU_ID</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RRU_ID&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: identification number of the RRU</span>
+<span class="n">RRU_CELL_TYPE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_CELL_TYPE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RRU cell type (macro, small)</span>
+<span class="n">RRU_TRACKING_AREA_CODE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_TRACKING_AREA_CODE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#: RRU Tracking Area Code</span>
+<span class="n">RRU_MCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_MCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RRU Mobile Country Code</span>
+<span class="n">RRU_MNC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_MNC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RRU Mobile Network Code</span>
+
+<span class="n">RCC_NAME</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RRC_NAME&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: name of the RCC</span>
+<span class="n">RCC_ID</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RRC_ID&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: identification number of the RCC</span>
+<span class="n">RCC_CELL_TYPE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_CELL_TYPE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RCC cell type (macro, small)</span>
+<span class="n">RCC_TRACKING_AREA_CODE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_TRACKING_AREA_CODE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RRU Tracking Area Code</span>
+<span class="n">RCC_MCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_MCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RCC Mobile Country Code</span>
+<span class="n">RCC_MNC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ENB_MNC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RCC Mobile Network Code</span>
+
+<span class="n">SPLIT_LEVEL</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;SPLIT_LEVEL&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: point where the lte protocol stack is splitted</span>
+<span class="n">FRONTHAUL_TRANSPORT_MODE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;FRONTHAUL_TRANSPORT_MODE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#: Fronthaul link transport mode(UDP or RAW are the possible options)&#39;&#39;&#39;</span>
+
+<span class="n">mme_S1_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;mme_S1_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S1 interface name of MME</span>
+<span class="n">mme_S1_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;mme_S1_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S1 interface address of MME</span>
+<span class="n">mme_S11_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;mme_S11_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S11 interface name of MME</span>
+<span class="n">mme_S11_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;mme_S11_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S11 interface address of MME</span>
+<span class="n">mme_S11_port</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;mme_S11_port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S11 interface port of MME</span>
+
+<span class="n">sgw_s11_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;sgw_S1_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S11 interface name of S-GW</span>
+<span class="n">sgw_s11_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;sgw_S1_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S11 interface addr of S-GW</span>
+<span class="n">sgw_S1U_S12_S4_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;sgw_S1U_S12_S4_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#: S1-U,S12,S4 interface name of S-GW</span>
+<span class="n">sgw_S1U_S12_S4_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;sgw_S1U_S12_S4_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#: S1-U,S12,S4 interface addr of S-GW</span>
+<span class="n">sgw_S1U_S12_S4_port</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;sgw_S1U_S12_S4_port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#: S1-U,S12,S4 interface port of S-GW</span>
+<span class="n">sgw_S5_S8_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;sgw_S5_S8_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S5, S8 interface name of S-GW</span>
+<span class="n">sgw_S5_S8_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;sgw_S5_S8_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S5, S8 interface addr of S-GW</span>
+
+<span class="n">pgw_S5_S8_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;pgw_S5_S8_name_PGW&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S5, S8 interface name of P-GW</span>
+<span class="n">pgw_SGi_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;pgw_SGi_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: SGi interface name of P-GW</span>
+
+<span class="n">ip_address_pool</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;ip_address_pool&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: pool of IP addressess. The MME will assign at the UE one address from the such pool</span>
+<span class="n">default_DNS_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;default_DNS_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: default DNS IP address</span>
+
+<span class="n">enb_mme_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;enb_mme_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:the MME address in the eNB config file (used by the eNB for reaching the MME)</span>
+<span class="n">enb_S1_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;enb_S1_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S1-C interface name of the eNB</span>
+<span class="n">enb_S1_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;enb_S1_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S1-C interface address of the eNB</span>
+<span class="n">enb_S1U_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;enb_S1U_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S1-U interface name of the eNB</span>
+<span class="n">enb_S1U_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;enb_S1U_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S1-U interface address of the eNB</span>
+<span class="n">enb_S1U_port</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;enb_S1U_port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S1-U interface port of the eNB</span>
+
+<span class="n">rru_local_if_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rru_local_if_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: interface name of the RRU where the RCC is connected</span>
+<span class="n">rru_local_address</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rru_local_address&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: interface address of the RRU where the RCC is connected</span>
+<span class="n">rru_local_port</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rru_local_port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: interface port of the RRU where the RCC is connected</span>
+<span class="n">rru_remote_address</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rru_remote_address&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: interface name of the RCC</span>
+<span class="n">rru_remote_port</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rru_remote_port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: interface port of the RCC</span>
+
+<span class="n">rcc_mme_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_mme_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: the MME address in the RCC config file (used by the eNB for reaching the MME)</span>
+<span class="n">rcc_S1_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_S1_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:S1-C interface name of the RCC</span>
+<span class="n">rcc_S1_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_S1_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:S1-C interface address of the RCC</span>
+<span class="n">rcc_S1U_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_S1U_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S1-U interface name of the RCC</span>
+<span class="n">rcc_S1U_addr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_S1U_addr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S1-U interface address of the RCC</span>
+<span class="n">rcc_S1U_port</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_S1U_port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: S1-U interface port of the RCC</span>
+<span class="n">rcc_local_if_name</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_local_if_name&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: interface name of the RCC where the RRU is connected</span>
+<span class="n">rcc_local_address</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_local_address&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: interface address of the RCC where the RRU is connected</span>
+<span class="n">rcc_local_port</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_local_port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:interface port of the RCC where the RRU is connected</span>
+<span class="n">rcc_remote_address</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_remote_address&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: interface name of the RRU</span>
+<span class="n">rcc_remote_port</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;rcc_remote_port&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: interface name of the RRU</span>
+
+<span class="n">PUCCH_ENB</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;PUCCH_ENB&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:</span>
+<span class="n">PUSCH_ENB</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;PUSCH_ENB&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:</span>
+<span class="n">RX_GAIN_enb</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_GAIN_enb&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: ENB RX GAIN</span>
+<span class="n">TX_GAIN_enb</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_GAIN_enb&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: ENB TX GAIN</span>
+<span class="n">TX_BANDWIDTH_enb</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_BANDWIDTH_enb&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: ENB TX BANDWIDTH</span>
+<span class="n">TX_CHANNEL_enb</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_CHANNEL_enb&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: ENB TX CHANNEL</span>
+<span class="n">TX_MODE_enb</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_MODE_enb&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: ENB TX MODE</span>
+<span class="n">UPLINK_FREQ_OFFSET_ENB</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;UPLINK_FREQ_OFFSET_ENB&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:</span>
+<span class="n">PUCCH_RCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;PUCCH_RCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:</span>
+<span class="n">PUSCH_RCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;PUSCH_RCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:</span>
+<span class="n">RX_GAIN_RCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_GAIN_RCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RCC RX GAIN</span>
+<span class="n">TX_GAIN_RCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_GAIN_RCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RCC TX GAIN</span>
+<span class="n">TX_BANDWIDTH_RCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_BANDWIDTH_RCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RCC TX BANDWIDTH</span>
+<span class="n">TX_CHANNEL_RCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_CHANNEL_RCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:  RCC TX CHANNEL</span>
+<span class="n">TX_MODE_RCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_MODE_RCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RCC TX MODE</span>
+<span class="n">UPLINK_FREQ_OFFSET_RCC</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;UPLINK_FREQ_OFFSET_RCC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:</span>
+<span class="n">PUCCH_RRU</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;PUCCH_RRU&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:</span>
+<span class="n">PUSCH_RRU</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;PUSCH_RRU&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:</span>
+<span class="n">RX_GAIN_RRU</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;RX_GAIN_RRU&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RRU RX GAIN</span>
+<span class="n">TX_GAIN_RRU</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_GAIN_RRU&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RRU TX GAIN</span>
+<span class="n">TX_BANDWIDTH_RRU</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_BANDWIDTH_RRU&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RRU TX BANDWIDTH</span>
+<span class="n">TX_CHANNEL_RRU</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_CHANNEL_RRU&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RRU TX CHANNEL</span>
+<span class="n">TX_MODE_RRU</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;TX_MODE_RRU&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#: RRU TX MODE</span>
+<span class="n">UPLINK_FREQ_OFFSET_RRU</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;UPLINK_FREQ_OFFSET_RRU&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#:</span>
+
+
+
+<span class="c1"># Generic API to control the lower layers, i.e. key-value configuration.</span>
+<div class="viewcode-block" id="set_parameters"><a class="viewcode-back" href="../../../wishful_upis.lte.html#wishful_upis.lte.radio.set_parameters">[docs]</a><span class="k">def</span> <span class="nf">set_parameters</span><span class="p">(</span><span class="n">param_key_values_dict</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;This function (re)set the value(s) of the parameters specified in the dictionary argument.</span>
+<span class="sd">    The list of available parameters supported by all platforms/OS are defined in this module.</span>
+<span class="sd">    Parameters specific to a subgroup of platforms/OS are defined in the corresponding submodules.</span>
+<span class="sd">    A list of supported parameters can be dynamically obtained using the get_info function on each module.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; UPIargs_eNB = {radio.TX_GAIN_enb.key: 90}</span>
+<span class="sd">            &gt;&gt; result = controller.node(enb_node).radio.set_parameters(UPIargs_eNB)</span>
+<span class="sd">            &gt;&gt; print result</span>
+<span class="sd">                    {TX_GAIN_enb.key: 90}</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        param_key_values_dict (dict): dictionary containing the key (string) value (any) pairs for each parameter.</span>
+<span class="sd">        An example is {PUCCH_ENB : -96, MME_REALM : wishful_lte, TX_BANDWIDTH_enb : 25}</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: A dictionary containing key (string name) error (0 = success, 1=fail, +1=error code) pairs for each parameter.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span>
-</pre></div></div>
+    <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="get_parameters"><a class="viewcode-back" href="../../../wishful_upis.lte.html#wishful_upis.lte.radio.get_parameters">[docs]</a><span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="n">param_key_list</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;This function get(s) the value(s) of the parameters specified in the list argument.</span>
+<span class="sd">    The list of available parameters supported by all platforms are defined in this module.</span>
+<span class="sd">    Parameters specific to a subgroup of platforms are defined in the corresponding submodules.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            &gt;&gt; UPIargs_eNB = [TX_GAIN_enb]</span>
+<span class="sd">            &gt;&gt; result = controller.node(enb_node).radio.get_parameters(UPIargs_eNB)</span>
+<span class="sd">            &gt;&gt; print result</span>
+<span class="sd">                {TX_GAIN_enb.key: 90}</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        param_key_list (list): list of parameter names, an example is [UPI_RN.CSMA_CW, UPI_RN.CSMA_CW_MIN, UPI_RN.CSMA_CW_MAX].</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: A dictionary containing key (string name) and values of the requested parameters.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span></div>
+</pre></div>
 
           </div>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -106,13 +244,13 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
-          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Pierluigi Gallo, Domenico Garlisi, Anatolij Zubow, Mikolaj Chwalisz, Piotr Gawlowicz, Peter Ruckebusch, Bart Jooris, Jan Bauwens, Spilios Giannoulis.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Pierluigi Gallo, Domenico Garlisi, Anatolij Zubow, Mikolaj Chwalisz, Piotr Gawlowicz, Peter Ruckebusch, Bart Jooris, Jan Bauwens, Spilios Giannoulis.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

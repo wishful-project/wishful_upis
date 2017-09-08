@@ -2,38 +2,35 @@
 
 <!doctype html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>wishful_upis.wifi.net &mdash; WiSHFUL Framework 2.0 2.0 documentation</title>
-    
+    <title>wishful_upis.wifi.net &#8212; WiSHFUL Framework 2.0 2.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
         VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/bizstyle.js"></script>
-    <link rel="top" title="WiSHFUL Framework 2.0 2.0 documentation" href="../../../index.html" />
-    <link rel="up" title="Module code" href="../../index.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head>
   <body>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -42,26 +39,23 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
-          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../../../index.html">
               <img class="logo" src="../../../_static/wishful.png" alt="Logo"/>
             </a></p>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -70,7 +64,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <h1>Source code for wishful_upis.wifi.net</h1><div class="highlight"><pre>
 <span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Piotr Gawlowicz, Mikolaj Chwalisz, Zubow&quot;</span>
@@ -79,16 +73,16 @@
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;{gawlowicz, chwalisz, zubow}@tkn.tu-berlin.de&quot;</span>
 
 
-<span class="kn">from</span> <span class="nn">wishful_upis.meta_models</span> <span class="kn">import</span> <span class="n">Attribute</span><span class="p">,</span> <span class="n">Measurement</span><span class="p">,</span> <span class="n">Event</span><span class="p">,</span> <span class="n">Action</span>
+<span class="kn">from</span> <span class="nn">wishful_upis.meta_models</span> <span class="k">import</span> <span class="n">Attribute</span><span class="p">,</span> <span class="n">Measurement</span><span class="p">,</span> <span class="n">Event</span><span class="p">,</span> <span class="n">Action</span>
 
 <span class="c1"># The protocol-specific definition of the WiSHFUL network control interface, UPI_N, for configuration/monitoring of the higher</span>
 <span class="c1"># layers of the network protocol stack (upper MAC and higher).</span>
 <span class="c1"># IEEE 802.11 protocol family</span>
 
 <span class="c1"># ATTRIBUTES</span>
-<span class="n">DOT_80211_MODE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_MODE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#: Mode of device: STA, AP, P2P, MESH, AD-HOC</span>
-<span class="n">DOT_80211_STA_BLACKLIST</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_BLACKLIST&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#: List of MAC addressed of blacklisted STAs</span>
-<span class="n">DOT_80211_STA_TX_POWER</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_TX_POWER&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1">#: Per STA TX power</span>
+<span class="n">DOT_80211_MODE</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_MODE&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#: Mode of device: STA, AP, P2P, MESH, AD-HOC</span>
+<span class="n">DOT_80211_STA_BLACKLIST</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_BLACKLIST&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#: List of MAC addressed of blacklisted STAs</span>
+<span class="n">DOT_80211_STA_TX_POWER</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_TX_POWER&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">isReadOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#: Per STA TX power</span>
 
 
 <span class="c1"># MEASUREMENTS</span>
@@ -107,10 +101,10 @@
 <span class="n">DOT_80211_STA_TX_FAILED</span> <span class="o">=</span> <span class="n">Measurement</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_TX_FAILED&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span> <span class="c1">#: Per-STA number of failed transmissions</span>
 
 <span class="c1"># EVENTS</span>
-<span class="n">DOT_80211_PROBE_REQUEST</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_PROBE_REQUEST&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#: Event triggered on Probe Request reception</span>
-<span class="n">DOT_80211_STA_CONNECTED</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_CONNECTED&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#: Event triggered on STA connection to AP</span>
-<span class="n">DOT_80211_STA_DISCONNECTED</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_DISCONNECTED&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#: Event triggered on STA disconnection from AP</span>
-<span class="n">DOT_80211_STA_LOSS</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_LOSS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c1">#: Event triggered when STA lost connection with AP</span>
+<span class="n">DOT_80211_PROBE_REQUEST</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_PROBE_REQUEST&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#: Event triggered on Probe Request reception</span>
+<span class="n">DOT_80211_STA_CONNECTED</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_CONNECTED&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#: Event triggered on STA connection to AP</span>
+<span class="n">DOT_80211_STA_DISCONNECTED</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_DISCONNECTED&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#: Event triggered on STA disconnection from AP</span>
+<span class="n">DOT_80211_STA_LOSS</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_STA_LOSS&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#: Event triggered when STA lost connection with AP</span>
 
 <span class="c1"># ACTIONS</span>
 <span class="n">DOT_80211_SCAN</span> <span class="o">=</span> <span class="n">Action</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;DOT_80211_SCAN&#39;</span><span class="p">,</span> <span class="n">args_types</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span> <span class="c1">#: Perform scanning</span>
@@ -124,54 +118,54 @@
 <div class="viewcode-block" id="set_hostapd_conf"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.set_hostapd_conf">[docs]</a><span class="k">def</span> <span class="nf">set_hostapd_conf</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">essid</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Set hostapd configuration, provide functionality to setting Access Point station</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span>
+    <span class="k">pass</span></div>
 
-</div>
+
 <div class="viewcode-block" id="start_hostapd"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.start_hostapd">[docs]</a><span class="k">def</span> <span class="nf">start_hostapd</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Start hostapd, provide functionality to run Access Point</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span>
+    <span class="k">pass</span></div>
 
-</div>
+
 <div class="viewcode-block" id="stop_hostapd"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.stop_hostapd">[docs]</a><span class="k">def</span> <span class="nf">stop_hostapd</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Stop hostapd, provide functionality to stop Access Point</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span>
+    <span class="k">pass</span></div>
 
-</div>
+
 <div class="viewcode-block" id="connect_to_network"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.connect_to_network">[docs]</a><span class="k">def</span> <span class="nf">connect_to_network</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="n">ssid</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Connects a given interface to some network</span>
 
 <span class="sd">    e.g. WiFi network identified by SSID.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="network_dump"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.network_dump">[docs]</a><span class="k">def</span> <span class="nf">network_dump</span><span class="p">(</span><span class="n">iface</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Return the connection information a given interface to some network</span>
 
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="add_device_to_blacklist"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.add_device_to_blacklist">[docs]</a><span class="k">def</span> <span class="nf">add_device_to_blacklist</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="n">device_mac_addr</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Add the given device to the blacklist</span>
 
 <span class="sd">    - 802.11 AP: the device is a client and the result of blacklisting is that the client cannot associate with this node.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="remove_device_from_blacklist"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.remove_device_from_blacklist">[docs]</a><span class="k">def</span> <span class="nf">remove_device_from_blacklist</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="n">device_mac_addr</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Remove the given device from the blacklist</span>
 
 <span class="sd">    - 802.11 AP: the device is a client and the result of unblacklisting is that the client can associate with this node.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="disconnect_device"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.disconnect_device">[docs]</a><span class="k">def</span> <span class="nf">disconnect_device</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="n">device_mac_addr</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Disconnects the given device from this node</span>
 
@@ -179,170 +173,170 @@
 <span class="sd">    - 802.11 adhoc: no meaning</span>
 <span class="sd">    - Other?</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="register_new_device"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.register_new_device">[docs]</a><span class="k">def</span> <span class="nf">register_new_device</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="n">sta_mac_addr</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Register the given device</span>
 
 <span class="sd">    - 802.11 AP: the device is associated with this AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="trigger_channel_switch_in_device"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.trigger_channel_switch_in_device">[docs]</a><span class="k">def</span> <span class="nf">trigger_channel_switch_in_device</span><span class="p">(</span><span class="n">iface</span><span class="p">,</span> <span class="n">device_mac_addr</span><span class="p">,</span> <span class="n">target_channel</span><span class="p">,</span> <span class="n">serving_channel</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Trigger a channel switch in the device connected to this node</span>
 
 <span class="sd">    - 802.11 AP: send channel switch announcement to client STA,</span>
 <span class="sd">    - other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
-</div>
+    <span class="k">return</span></div>
+
 <div class="viewcode-block" id="get_info_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_info_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_info_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_inactivity_time_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_inactivity_time_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_inactivity_time_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - inactivity time</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_avg_sigpower_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_avg_sigpower_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_avg_sigpower_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - link average signal power</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_sigpower_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_sigpower_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_sigpower_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - link signal power</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_tx_retries_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_tx_retries_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_tx_retries_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - tx retries</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_tx_packets_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_tx_packets_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_tx_packets_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - tx packets</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_tx_failed_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_tx_failed_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_tx_failed_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - tx failed</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_tx_bytes_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_tx_bytes_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_tx_bytes_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - tx bytes</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_tx_bitrate_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_tx_bitrate_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_tx_bitrate_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - tx bitrate</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_rx_bytes_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_rx_bytes_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_rx_bytes_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - rx bytes</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_rx_packets_of_connected_devices"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_rx_packets_of_connected_devices">[docs]</a><span class="k">def</span> <span class="nf">get_rx_packets_of_connected_devices</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - rx packets</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_authorized_connected_device"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_authorized_connected_device">[docs]</a><span class="k">def</span> <span class="nf">get_authorized_connected_device</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - is authorized</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_authenticated_connected_device"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_authenticated_connected_device">[docs]</a><span class="k">def</span> <span class="nf">get_authenticated_connected_device</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - is authenticated</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_used_preamble_connected_device"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_used_preamble_connected_device">[docs]</a><span class="k">def</span> <span class="nf">get_used_preamble_connected_device</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - preamble used</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_mfp_connected_device"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_mfp_connected_device">[docs]</a><span class="k">def</span> <span class="nf">get_mfp_connected_device</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - MFP</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_wmm_wme_connected_device"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_wmm_wme_connected_device">[docs]</a><span class="k">def</span> <span class="nf">get_wmm_wme_connected_device</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - WMM/WME</span>
 
 <span class="sd">    - 802.11 AP: info about the associated client devices of that AP.</span>
 <span class="sd">    - Other??</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div>
 
-</div>
+
 <div class="viewcode-block" id="get_tdls_peer_connected_device"><a class="viewcode-back" href="../../../wishful_upis.wifi.html#wishful_upis.wifi.net.get_tdls_peer_connected_device">[docs]</a><span class="k">def</span> <span class="nf">get_tdls_peer_connected_device</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;Returns information about associated devices - TDLS peer</span>
 
@@ -357,7 +351,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -366,13 +360,13 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &raquo;</li>
-          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">WiSHFUL Framework 2.0 2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Pierluigi Gallo, Domenico Garlisi, Anatolij Zubow, Mikolaj Chwalisz, Piotr Gawlowicz, Peter Ruckebusch, Bart Jooris, Jan Bauwens, Spilios Giannoulis.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Pierluigi Gallo, Domenico Garlisi, Anatolij Zubow, Mikolaj Chwalisz, Piotr Gawlowicz, Peter Ruckebusch, Bart Jooris, Jan Bauwens, Spilios Giannoulis.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>
