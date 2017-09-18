@@ -183,3 +183,9 @@ def scan_psd(runt):
     '''Receives PSD samples from the ath9k driver.
     '''
     pass
+
+def set_rts_threshold():
+    '''
+    Set RTS packet size threshold
+    '''
+    pass

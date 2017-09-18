@@ -275,3 +275,17 @@ def get_tdls_peer_connected_device():
     - Other??
     '''
     return
+
+
+def start_monitor():
+    '''
+    Start Monitor Interface for WiFi Traffice
+    '''
+    return
+
+
+def start_adhoc():
+    '''
+    Start Ad-hoc mode on WiFi interface
+    '''
+    return
