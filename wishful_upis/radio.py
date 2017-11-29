@@ -299,7 +299,7 @@ def get_running_radio_program():
 ''' Transmission of radio waveform (no MAC) '''
 
 
-def play_waveform(iface, freq, power_lvl, **kwargs):
+def play_waveform(iface, freq, power_lvl, dict_args):
     """Starts transmitting a radio waveform on signal generator
 
     Example:
@@ -314,7 +314,7 @@ def play_waveform(iface, freq, power_lvl, **kwargs):
         iface (String): Address ip of the interface connected with the signal generator.
         freq (int): Frequency of the generated waveform.
         power_lvl (int): power level of the generated waveform.
-        kwargs: Extra argumentes for the signal generator.
+        dict_args: Extra argumentes for the signal generator.
 
     Returns:
         int:
@@ -325,7 +325,7 @@ def play_waveform(iface, freq, power_lvl, **kwargs):
     return
 
 
-def stop_waveform(iface, **kwargs):
+def stop_waveform(iface, dict_args):
     """Stops the radio waveform transmitting on signal generator
 
     Example:
@@ -336,7 +336,7 @@ def stop_waveform(iface, **kwargs):
 
     Args:
         iface (String): Address ip of the interface connected with the signal generator.
-        kwargs: Extra argumentes for the signal generator.
+        dict_args: Extra argumentes for the signal generator.
 
     Returns:
         int:
