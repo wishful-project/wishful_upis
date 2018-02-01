@@ -164,15 +164,7 @@ LTE_RRU_FRONTHAUL_PORT_REMOTE = Attribute(key='LTE_RRU_FRONTHAUL_PORT_REMOTE', t
 #UE net Attribute
 #********
 
-LTE_UE_DL_FREQ = Attribute(key='LTE_UE_DL_FREQ', type=int, isReadOnly=False)  #: DL center frequency
-LTE_UE_DL_BW = Attribute(key='LTE_UE_DL_BW', type=int, isReadOnly=False)  #: UL center frequency
-LTE_UE_UL_BW = Attribute(key='LTE_UE_UL_BW', type=int, isReadOnly=False)  #: Bandwidth DL
-LTE_UE_TX_GAIN = Attribute(key='LTE_UE_TX_GAIN', type=int, isReadOnly=False)  #: Bandwidth UL
-LTE_UE_RX_GAIN = Attribute(key='LTE_UE_RX_GAIN', type=int, isReadOnly=False)  #: RRU RX gain
-LTE_UE_N_TX_ANT = Attribute(key='LTE_UE_N_TX_ANT', type=int, isReadOnly=False)  #: Number of TX antennas
-LTE_UE_N_RX_ANT = Attribute(key='LTE_UE_N_RX_ANT', type=int, isReadOnly=False)  #: Number of RX antennas
-LTE_UE_RADIO_STATE = Attribute(key='LTE_UE_RADIO_STATE', type=int, isReadOnly=False)  #: UE State
-LTE_UE_APN = Attribute(key='LTE_UE_APN', type=int, isReadOnly=False)  #: APN
+LTE_UE_APN = Attribute(key='LTE_UE_APN', type=str, isReadOnly=False)  #: APN
 LTE_UE_PLMN = Attribute(key='LTE_UE_PLMN', type=int, isReadOnly=False)  #: PLMNID
 
 # UE_network_address_pool = Attribute(key='UE_network_address_pool', type=int, isReadOnly=False)  #: pool of IP addressess. The MME will assign at the UE one address from the such pool
