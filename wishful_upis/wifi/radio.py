@@ -46,7 +46,7 @@ def perform_spectral_scanning(iface, freq_list, mode):
     pass
 
 
-def set_channel(channel):
+def set_channel(iface, channel):
     '''Set channel, i.e. center frequency of the primary band.
 
     Args:
