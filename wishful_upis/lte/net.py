@@ -9,6 +9,66 @@ layers of the network protocol stack (upper MAC and higher).
 LTE protocol family
 '''
 
+#********
+#EPC Attribute
+#********
+LTE_EPC_MCC = Attribute(key='LTE_EPC_MCC', type=int, isReadOnly=False)  #: MME Mobile Country Code
+LTE_EPC_MNC = Attribute(key='LTE_EPC_MNC', type=int, isReadOnly=False)  #: MME Mobile Network Code
+LTE_EPC_OP = Attribute(key='LTE_EPC_OP', type=int, isReadOnly=False)  #: Configures global configuration parameters Global OP
+LTE_EPC_AMF = Attribute(key='LTE_EPC_AMF', type=int, isReadOnly=False)  #: Configures global configuration parameters Global AMF
+LTE_EPC_ENB_ADD = Attribute(key='LTE_EPC_ENB_ADD', type=int, isReadOnly=False)  #: adds a eNB to be served by the EPC (required: IP address)
+LTE_EPC_ENB_DEL = Attribute(key='LTE_EPC_ENB_DEL', type=int, isReadOnly=False)  #: deletes an eNB
+LTE_EPC_ENB_LIST = Attribute(key='LTE_EPC_ENB_LIST', type=int, isReadOnly=False)  #: get eNB list
+LTE_EPC_SUBSCRIBER_ADD = Attribute(key='LTE_EPC_SUBSCRIBER_ADD', type=int, isReadOnly=False)  #: Add a single UE (required input: IMSI, Subscriber Group)
+LTE_EPC_SUBSCRIBER_DEL = Attribute(key='LTE_EPC_SUBSCRIBER_DEL', type=int, isReadOnly=False)  #: deletes connection data for a single subscriber
+LTE_EPC_SUBSCRIBER_LIST = Attribute(key='LTE_EPC_SUBSCRIBER_LIST', type=int, isReadOnly=False)  #: get UE list
+LTE_EPC_SUBSCRIBER_GROUP_ADD = Attribute(key='LTE_EPC_SUBSCRIBER_GROUP_ADD', type=int, isReadOnly=False)  #: Adds a new subscriber profile (required input: Name, APN, , UL/DL AMBR)
+LTE_EPC_SUBSCRIBER_GROUP_DEL = Attribute(key='LTE_EPC_SUBSCRIBER_GROUP_DEL', type=int, isReadOnly=False)  #: deletes a subscriber profile
+LTE_EPC_SUBSCRIBER_GROUP_LIST = Attribute(key='LTE_EPC_SUBSCRIBER_GROUP_LIST', type=int, isReadOnly=False)  #: get subscriber profile list
+LTE_EPC_APN_ADD = Attribute(key='LTE_EPC_APN_ADD', type=int, isReadOnly=False)  #: adds a new APN (required: Name, PGW address, DHCP pool, DNS server, UL/DL AMBR)
+LTE_EPC_APN_DEL = Attribute(key='LTE_EPC_MNC', type=int, isReadOnly=False)  #: deletes an APN
+LTE_EPC_APN_LIST = Attribute(key='LTE_EPC_APN_LIST', type=int, isReadOnly=False)  #: get APN list
+LTE_EPC_RNTI = Attribute(key='LTE_EPC_RNTI', type=int, isReadOnly=False)  #: Radio Network Temporary Identifier
+LTE_EPC_HSS_ADDRESS = Attribute(key='LTE_EPC_HSS_ADDRESS', type=int, isReadOnly=False)  #: HSS address
+
+#********
+#ENB Attribute
+#********
+
+LTE_ENB_NM = Attribute(key='LTE_ENB_NM', type=int, isReadOnly=False)  #: eNB name
+LTE_ENB_ID = Attribute(key='LTE_ENB_ID', type=int, isReadOnly=False)  #: eNB identifier
+LTE_ENB_CT = Attribute(key='LTE_ENB_CT', type=int, isReadOnly=False)  #: eNB cell type (macro, pico, femto)
+LTE_ENB_PLMN = Attribute(key='LTE_ENB_PLMN', type=int, isReadOnly=False)  #: eNB PLMN Code
+LTE_ENB_TAC = Attribute(key='LTE_ENB_TAC', type=int, isReadOnly=False)  #: eNB Tracking Area Code
+LTE_ENB_MME = Attribute(key='LTE_ENB_MME', type=int, isReadOnly=False)  #: MME address in the eNB config file
+LTE_ENB_PGW = Attribute(key='LTE_ENB_PGW', type=int, isReadOnly=False)  #: PGW address in the eNB config file
+LTE_ENB_SGW = Attribute(key='LTE_ENB_SGW', type=int, isReadOnly=False)  #: SGW address in the eNB config file
+LTE_ENB_PHY_CELL_ID = Attribute(key='LTE_ENB_PHY_CELL_ID', type=int, isReadOnly=False) #: Cell identity
+LTE_ENB_MCC = Attribute(key='LTE_ENB_MCC', type=int, isReadOnly=False)  #: eNB Mobile Country Code
+LTE_ENB_MNC = Attribute(key='LTE_ENB_MNC', type=int, isReadOnly=False)  #: eNB Mobile Network Code
+
+LTE_RCC_FRONTHAUL_IF_NAME_LOCAL = Attribute(key='LTE_RCC_FRONTHAUL_IF_NAME_LOCAL', type=int, isReadOnly=False)  #: Interface of the local fronthaul
+LTE_RCC_FRONTHAUL_IP_ADDRESS_LOCAL = Attribute(key='LTE_RCC_FRONTHAUL_IP_ADDRESS_LOCAL', type=int, isReadOnly=False)  #: IP of the local fronthaul
+LTE_RCC_FRONTHAUL_PORT_LOCAL = Attribute(key='LTE_RCC_FRONTHAUL_PORT_LOCAL', type=int, isReadOnly=False)  #: port of the local fronthaul
+LTE_RCC_FRONTHAUL_IP_ADDRESS_REMOTE = Attribute(key='LTE_RCC_FRONTHAUL_IP_ADDRESS_REMOTE', type=int, isReadOnly=False)  #: IP of the remote fronthaul
+LTE_RCC_FRONTHAUL_PORT_REMOTE = Attribute(key='LTE_RCC_FRONTHAUL_PORT_REMOTE', type=int, isReadOnly=False)  #: port of the remote fronthaul
+
+LTE_RRU_FRONTHAUL_IF_NAME_LOCAL = Attribute(key='LTE_RRU_FRONTHAUL_IF_NAME_LOCAL', type=int, isReadOnly=False)  #: Interface of the local fronthaul
+LTE_RRU_FRONTHAUL_IP_ADDRESS_LOCAL = Attribute(key='LTE_RRU_FRONTHAUL_IP_ADDRESS_LOCAL', type=int, isReadOnly=False)  #: IP of the local fronthaul
+LTE_RRU_FRONTHAUL_PORT_LOCAL = Attribute(key='LTE_RRU_FRONTHAUL_PORT_LOCAL', type=int, isReadOnly=False)  #: port of the local fronthaul
+LTE_RRU_FRONTHAUL_IP_ADDRESS_REMOTE = Attribute(key='LTE_RRU_FRONTHAUL_IP_ADDRESS_REMOTE', type=int, isReadOnly=False)  #: IP of the remote fronthaul
+LTE_RRU_FRONTHAUL_PORT_REMOTE = Attribute(key='LTE_RRU_FRONTHAUL_PORT_REMOTE', type=int, isReadOnly=False)  #: port of the remote fronthaul
+
+#********
+#UE net Attribute
+#********
+
+LTE_UE_APN = Attribute(key='LTE_UE_APN', type=str, isReadOnly=False)  #: APN
+LTE_UE_PLMN = Attribute(key='LTE_UE_PLMN', type=int, isReadOnly=False)  #: PLMNID
+
+#********
+#UPI
+#********
 
 def MME_activation():
     '''Once set the MME parameters using the set_parameters(param_key_values_dict), MME_activation is to be used for running the MME
