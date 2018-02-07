@@ -9,6 +9,8 @@ layers of the network protocol stack (upper MAC and higher).
 LTE protocol family
 '''
 
+from wishful_upis.meta_models import Attribute, Measurement, Event, Action, ValueDoc
+
 #********
 #EPC Attribute
 #********
