@@ -114,7 +114,11 @@ def allocate_memory(module_id, elf_file_size, rom_size, ram_size, nodes=[]):
     return
 
 
-def disseminate_software_module(module_id, elf_program_file, block_size=64, nodes=[]):
+def store_file(module_id, is_last_block, block_size, block_offset, block_data):
+    return
+
+
+def disseminate_software_module(module_id, nodes=[]):
     """This function allows disseminating a software module (i.e. ELF object file) to one or more nodes.
 
     Args:
@@ -154,4 +158,20 @@ def activate_software_module(module_id, nodes=[]):
     Returns:
         int: Error value 0 = SUCCESS; -1 = FAIL
     """
+    return
+
+
+def init_energy_harvester():
+    return
+
+
+def start_energy_harvester():
+    return
+
+
+def stop_energy_harvester():
+    return
+
+
+def update_energy_harvester():
     return
