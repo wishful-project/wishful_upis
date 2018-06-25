@@ -97,7 +97,11 @@ def inject_radio_program(radio_program_id, nodes, source_node=0):
     return
 
 
-def allocate_memory(module_id, elf_file_size, rom_size, ram_size, nodes=[]):
+def prepare_ota_update(nodes=[]):
+    return
+
+
+def allocate_memory(elf_file_size, rom_size, ram_size):
     """This function allocates memory on one or more nodes.
     The allocated memory will be used to store the software module and/or radio program.
     This step is required when using an offline ELF linker because the exact memory location must be known upfront.
@@ -114,11 +118,11 @@ def allocate_memory(module_id, elf_file_size, rom_size, ram_size, nodes=[]):
     return
 
 
-def store_file(module_id, is_last_block, block_size, block_offset, block_data):
+def store_file(is_last_block, block_size, block_offset, block_data):
     return
 
 
-def disseminate_software_module(module_id, nodes=[]):
+def disseminate_software_module():
     """This function allows disseminating a software module (i.e. ELF object file) to one or more nodes.
 
     Args:
@@ -133,7 +137,7 @@ def disseminate_software_module(module_id, nodes=[]):
     return
 
 
-def install_software_module(module_id, nodes=[]):
+def install_software_module():
     """This function allows installing a previously disseminated software module on one or more nodes.
 
     Args:
@@ -147,7 +151,7 @@ def install_software_module(module_id, nodes=[]):
     return
 
 
-def activate_software_module(module_id, nodes=[]):
+def activate_software_module():
     """This function allows activating a previously installed software module on one or more nodes.
 
     Args:
